@@ -1,0 +1,76 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "maskId" : {
+      "type" : "string"
+    },
+    "maskLibraryName" : {
+      "type" : "string"
+    },
+    "maskPublishedName" : {
+      "type" : "string"
+    },
+    "neuronInstance" : {
+      "type" : "string"
+    },
+    "neuronType" : {
+      "type" : "string"
+    },
+    "results" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "aggregateCoverage" : {
+            "type" : "number"
+          },
+          "alignmentSpace" : {
+            "type" : "string"
+          },
+          "anatomicalArea" : {
+            "type" : "string"
+          },
+          "coverageScore" : {
+            "type" : "number"
+          },
+          "mirrored" : {
+            "type" : "boolean"
+          },
+          "pppRank" : {
+            "type" : "number"
+          },
+          "skeletonMatches" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "coverage" : {
+                  "type" : "number"
+                },
+                "id" : {
+                  "type" : "string"
+                },
+                "nblastScore" : {
+                  "type" : "number"
+                }
+              }
+            }
+          },
+          "sourceImageFiles" : {
+            "type" : "object"
+          }
+        },
+        "required" : [ "alignmentSpace", "anatomicalArea", "coverageScore", "mirrored", "pppRank" ],
+        "description" : "Patch per Pixel Match"
+      }
+    },
+    "sourceMaskName" : {
+      "type" : "string"
+    }
+  },
+  "required" : [ "maskId", "maskLibraryName", "maskPublishedName", "results" ],
+  "$id" : "https://neuronbridge.janelia.org/schemas/pppMatches.schema.json",
+  "title" : "Patch per Pix search results",
+  "description" : "Patch per Pix search results"
+}

@@ -1,0 +1,94 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "results" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "alignmentSpace" : {
+            "type" : "string"
+          },
+          "anatomicalArea" : {
+            "type" : "string"
+          },
+          "cdmPath" : {
+            "type" : "string"
+          },
+          "channel" : {
+            "type" : "string"
+          },
+          "gender" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "imageArchivePath" : {
+            "type" : "string"
+          },
+          "imageName" : {
+            "type" : "string"
+          },
+          "imageStack" : {
+            "type" : "string"
+          },
+          "imageType" : {
+            "type" : "string"
+          },
+          "imageURL" : {
+            "type" : "string",
+            "format" : "uri"
+          },
+          "libraryName" : {
+            "type" : "string"
+          },
+          "mountingProtocol" : {
+            "type" : "string"
+          },
+          "neuronInstance" : {
+            "type" : "string"
+          },
+          "neuronType" : {
+            "type" : "string"
+          },
+          "objective" : {
+            "type" : "string"
+          },
+          "publishedName" : {
+            "type" : "string"
+          },
+          "relatedImageRefId" : {
+            "type" : "string"
+          },
+          "sampleRef" : {
+            "type" : "string"
+          },
+          "searchablePNG" : {
+            "type" : "string"
+          },
+          "slideCode" : {
+            "type" : "string"
+          },
+          "sourceImageRef" : {
+            "type" : "string"
+          },
+          "thumbnailURL" : {
+            "type" : "string",
+            "format" : "uri"
+          },
+          "variants" : {
+            "type" : "object"
+          }
+        },
+        "required" : [ "alignmentSpace", "id", "imageURL", "libraryName", "publishedName", "searchablePNG", "thumbnailURL" ],
+        "description" : "Color Depth MIP"
+      }
+    }
+  },
+  "required" : [ "results" ],
+  "$id" : "https://neuronbridge.janelia.org/schemas/mips.schema.json",
+  "title" : "Color Depth MIPs for a published EM neuron or LM line",
+  "description" : "Color Depth MIPs for a published EM neuron or LM line"
+}

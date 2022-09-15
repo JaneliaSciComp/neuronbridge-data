@@ -1,0 +1,159 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "maskId" : {
+      "type" : "string"
+    },
+    "maskImageURL" : {
+      "type" : "string",
+      "format" : "uri"
+    },
+    "maskLibraryName" : {
+      "type" : "string"
+    },
+    "maskPublishedName" : {
+      "type" : "string"
+    },
+    "maskRelatedImageRefId" : {
+      "type" : "string"
+    },
+    "maskSampleRef" : {
+      "type" : "string"
+    },
+    "results" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "alignmentSpace" : {
+            "type" : "string"
+          },
+          "anatomicalArea" : {
+            "type" : "string"
+          },
+          "artificialShapeScore" : {
+            "type" : "number"
+          },
+          "cdmPath" : {
+            "type" : "string"
+          },
+          "channel" : {
+            "type" : "string"
+          },
+          "gender" : {
+            "type" : "string"
+          },
+          "gradientAreaGap" : {
+            "type" : "integer"
+          },
+          "highExpressionArea" : {
+            "type" : "integer"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "imageArchivePath" : {
+            "type" : "string"
+          },
+          "imageName" : {
+            "type" : "string"
+          },
+          "imageStack" : {
+            "type" : "string"
+          },
+          "imageType" : {
+            "type" : "string"
+          },
+          "imageURL" : {
+            "type" : "string",
+            "format" : "uri"
+          },
+          "libraryName" : {
+            "type" : "string"
+          },
+          "matchingPixels" : {
+            "type" : "integer"
+          },
+          "matchingRatio" : {
+            "type" : "number"
+          },
+          "mirrored" : {
+            "type" : "boolean"
+          },
+          "mountingProtocol" : {
+            "type" : "string"
+          },
+          "neuronInstance" : {
+            "type" : "string"
+          },
+          "neuronType" : {
+            "type" : "string"
+          },
+          "normalizedGapScore" : {
+            "type" : "number"
+          },
+          "objective" : {
+            "type" : "string"
+          },
+          "publishedName" : {
+            "type" : "string"
+          },
+          "relatedImageRefId" : {
+            "type" : "string"
+          },
+          "sampleRef" : {
+            "type" : "string"
+          },
+          "searchablePNG" : {
+            "type" : "string"
+          },
+          "slideCode" : {
+            "type" : "string"
+          },
+          "sourceCdmPath" : {
+            "type" : "string"
+          },
+          "sourceImageArchivePath" : {
+            "type" : "string"
+          },
+          "sourceImageName" : {
+            "type" : "string"
+          },
+          "sourceImageStack" : {
+            "type" : "string"
+          },
+          "sourceImageType" : {
+            "type" : "string"
+          },
+          "sourceImageURL" : {
+            "type" : "string",
+            "format" : "uri"
+          },
+          "sourceRelatedImageRefId" : {
+            "type" : "string"
+          },
+          "sourceSampleRef" : {
+            "type" : "string"
+          },
+          "sourceSearchablePNG" : {
+            "type" : "string"
+          },
+          "thumbnailURL" : {
+            "type" : "string",
+            "format" : "uri"
+          },
+          "variants" : {
+            "type" : "object"
+          }
+        },
+        "required" : [ "alignmentSpace", "id", "imageURL", "libraryName", "normalizedGapScore", "publishedName", "searchablePNG", "thumbnailURL" ],
+        "description" : "Color Depth Search Match"
+      }
+    }
+  },
+  "required" : [ "maskId", "maskLibraryName", "maskPublishedName", "results" ],
+  "$id" : "https://neuronbridge.janelia.org/schemas/cdsMatches.schema.json",
+  "title" : "Color Depth Search results",
+  "description" : "Color Depth Search results"
+}

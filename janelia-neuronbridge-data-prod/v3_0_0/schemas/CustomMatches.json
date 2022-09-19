@@ -390,6 +390,11 @@
       "description": "An uploaded image containing neurons. ",
       "type": "object",
       "properties": {
+        "filename": {
+          "title": "Filename",
+          "description": "Name of the uploaded file.",
+          "type": "string"
+        },
         "alignmentSpace": {
           "title": "Alignment space",
           "description": "Alignment space to which this image was registered.",
@@ -411,6 +416,7 @@
         }
       },
       "required": [
+        "filename",
         "alignmentSpace",
         "anatomicalArea",
         "files"

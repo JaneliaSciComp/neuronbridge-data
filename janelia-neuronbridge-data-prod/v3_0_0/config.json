@@ -14,7 +14,8 @@
         "AlignedBodySWC": "https://s3.amazonaws.com/janelia-flylight-color-depth/SWC/",
         "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth/OBJ/",
         "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3.0.0-alpha/metadata/cdsresults/",
-        "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3.0.0-alpha/metadata/pppresults/"
+        "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3.0.0-alpha/metadata/pppresults/",
+        "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/"
     },
     "anatomicalRegions": [
         { "label": "Brain", "value": "brain" },

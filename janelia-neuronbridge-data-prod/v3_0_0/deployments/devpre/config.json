@@ -1,9 +1,9 @@
 {
     "prefixes": {
-        "ColorDepthMip": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
+        "ColorDepthMip": "https://s3.amazonaws.com/janelia-flylight-color-depth-devpre/",
         "ColorDepthMipThumbnail": "https://s3.amazonaws.com/janelia-flylight-color-depth-thumbnails/",
-        "ColorDepthMipInput": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
-        "ColorDepthMipMatch": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
+        "ColorDepthMipInput": "https://s3.amazonaws.com/janelia-flylight-color-depth-devpre/",
+        "ColorDepthMipMatch": "https://s3.amazonaws.com/janelia-flylight-color-depth-devpre/",
         "ColorDepthMipBest": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
         "ColorDepthMipBestThumbnail": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
         "ColorDepthMipSkel": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
@@ -11,10 +11,11 @@
         "SignalMipMasked": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
         "SignalMipMaskedSkel": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
         "SignalMipExpression": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
-        "AlignedBodySWC": "https://s3.amazonaws.com/janelia-flylight-color-depth/SWC/",
-        "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth/OBJ/",
+        "AlignedBodySWC": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
+        "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
         "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3.0.0-alpha/metadata/cdsresults/",
-        "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3.0.0-alpha/metadata/pppresults/",
+        "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3.0.0-alpha/metadata/pppmresults/",
+        "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/",
         "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/"
     },
     "anatomicalRegions": [

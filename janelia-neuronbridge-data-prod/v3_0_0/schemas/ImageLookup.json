@@ -8,7 +8,14 @@
       "description": "List of images matching the query.",
       "type": "array",
       "items": {
-        "anyOf": [
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "LMImage": "#/definitions/LMImage",
+            "EMImage": "#/definitions/EMImage"
+          }
+        },
+        "oneOf": [
           {
             "$ref": "#/definitions/LMImage"
           },
@@ -88,8 +95,8 @@
           "description": "PPPM-only. LM signal content masked with the matching LM segmentation fragments, overlaid with the EM skeleton. 'PPPM Mask with EM Overlay' in the NeuronBridge GUI.",
           "type": "string"
         },
-        "SignalMipExpression": {
-          "title": "MIP of full LM line expression",
+        "Gal4Expression": {
+          "title": "CDM of full LM line expression",
           "description": "MCFO-only. A representative CDM image of the full expression of the line.",
           "type": "string"
         },
@@ -122,7 +129,7 @@
       "additionalProperties": false
     },
     "LMImage": {
-      "title": "LM image",
+      "title": "LMImage",
       "description": "A color depth image of a single channel of an LM image stack.",
       "type": "object",
       "properties": {
@@ -168,6 +175,14 @@
               "$ref": "#/definitions/Files"
             }
           ]
+        },
+        "type": {
+          "title": "Type",
+          "default": "LMImage",
+          "enum": [
+            "LMImage"
+          ],
+          "type": "string"
         },
         "slideCode": {
           "title": "Slide code",
@@ -250,6 +265,14 @@
               "$ref": "#/definitions/Files"
             }
           ]
+        },
+        "type": {
+          "title": "Type",
+          "default": "EMImage",
+          "enum": [
+            "EMImage"
+          ],
+          "type": "string"
         },
         "neuronType": {
           "title": "Neuron type",

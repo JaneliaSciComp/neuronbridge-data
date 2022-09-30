@@ -3,21 +3,6 @@
   "description": "The results of a matching algorithm run on an UploadImage.",
   "type": "object",
   "properties": {
-    "results": {
-      "title": "Results",
-      "description": "List of other images matching the input image.",
-      "type": "array",
-      "items": {
-        "anyOf": [
-          {
-            "$ref": "#/definitions/CDSMatch"
-          },
-          {
-            "$ref": "#/definitions/PPPMatch"
-          }
-        ]
-      }
-    },
     "inputImage": {
       "title": "Uploaded input image",
       "description": "Input image to the matching algorithm.",
@@ -26,23 +11,36 @@
           "$ref": "#/definitions/UploadedImage"
         }
       ]
+    },
+    "results": {
+      "title": "Results",
+      "description": "List of other images matching the input image.",
+      "type": "array",
+      "items": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "CDSMatch": "#/definitions/CDSMatch",
+            "PPPMatch": "#/definitions/PPPMatch"
+          }
+        },
+        "oneOf": [
+          {
+            "$ref": "#/definitions/CDSMatch"
+          },
+          {
+            "$ref": "#/definitions/PPPMatch"
+          }
+        ]
+      }
     }
   },
   "required": [
-    "results",
-    "inputImage"
+    "inputImage",
+    "results"
   ],
   "additionalProperties": false,
   "definitions": {
-    "Gender": {
-      "title": "Gender",
-      "description": "An enumeration.",
-      "enum": [
-        "m",
-        "f"
-      ],
-      "type": "string"
-    },
     "Files": {
       "title": "Files",
       "description": "Files associated with a NeuronImage or Match. These are either absolute URLs (e.g. starting with a protocol like http://) or relative paths. For relative paths, the first component should be replaced with its corresponding base URL from the DataConfig.",
@@ -98,8 +96,8 @@
           "description": "PPPM-only. LM signal content masked with the matching LM segmentation fragments, overlaid with the EM skeleton. 'PPPM Mask with EM Overlay' in the NeuronBridge GUI.",
           "type": "string"
         },
-        "SignalMipExpression": {
-          "title": "MIP of full LM line expression",
+        "Gal4Expression": {
+          "title": "CDM of full LM line expression",
           "description": "MCFO-only. A representative CDM image of the full expression of the line.",
           "type": "string"
         },
@@ -131,8 +129,55 @@
       },
       "additionalProperties": false
     },
+    "UploadedImage": {
+      "title": "UploadedImage",
+      "description": "An uploaded image containing neurons. ",
+      "type": "object",
+      "properties": {
+        "filename": {
+          "title": "Filename",
+          "description": "Name of the uploaded file.",
+          "type": "string"
+        },
+        "alignmentSpace": {
+          "title": "Alignment space",
+          "description": "Alignment space to which this image was registered.",
+          "type": "string"
+        },
+        "anatomicalArea": {
+          "title": "Anatomical area",
+          "description": "Anatomical area represented in the image.",
+          "type": "string"
+        },
+        "files": {
+          "title": "Files",
+          "description": "Files associated with the image.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Files"
+            }
+          ]
+        }
+      },
+      "required": [
+        "filename",
+        "alignmentSpace",
+        "anatomicalArea",
+        "files"
+      ],
+      "additionalProperties": false
+    },
+    "Gender": {
+      "title": "Gender",
+      "description": "An enumeration.",
+      "enum": [
+        "m",
+        "f"
+      ],
+      "type": "string"
+    },
     "LMImage": {
-      "title": "LM image",
+      "title": "LMImage",
       "description": "A color depth image of a single channel of an LM image stack.",
       "type": "object",
       "properties": {
@@ -178,6 +223,14 @@
               "$ref": "#/definitions/Files"
             }
           ]
+        },
+        "type": {
+          "title": "Type",
+          "default": "LMImage",
+          "enum": [
+            "LMImage"
+          ],
+          "type": "string"
         },
         "slideCode": {
           "title": "Slide code",
@@ -261,6 +314,14 @@
             }
           ]
         },
+        "type": {
+          "title": "Type",
+          "default": "EMImage",
+          "enum": [
+            "EMImage"
+          ],
+          "type": "string"
+        },
         "neuronType": {
           "title": "Neuron type",
           "description": "Neuron type name from neuPrint",
@@ -291,7 +352,14 @@
         "image": {
           "title": "Matched image",
           "description": "The NeuronImage that was matched.",
-          "anyOf": [
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "LMImage": "#/definitions/LMImage",
+              "EMImage": "#/definitions/EMImage"
+            }
+          },
+          "oneOf": [
             {
               "$ref": "#/definitions/LMImage"
             },
@@ -313,6 +381,14 @@
           "title": "Mirror flag",
           "description": "Indicates whether the target image was found within a mirrored version of the matching image.",
           "type": "boolean"
+        },
+        "type": {
+          "title": "Type",
+          "default": "CDSMatch",
+          "enum": [
+            "CDSMatch"
+          ],
+          "type": "string"
         },
         "normalizedScore": {
           "title": "Normalized score",
@@ -335,14 +411,21 @@
       "additionalProperties": false
     },
     "PPPMatch": {
-      "title": "PPPM match",
+      "title": "PPPMatch",
       "description": "A PPPMatch is a match generated by the PPPM algorithm between an EMImage and a LMImage.",
       "type": "object",
       "properties": {
         "image": {
           "title": "Matched image",
           "description": "The NeuronImage that was matched.",
-          "anyOf": [
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "LMImage": "#/definitions/LMImage",
+              "EMImage": "#/definitions/EMImage"
+            }
+          },
+          "oneOf": [
             {
               "$ref": "#/definitions/LMImage"
             },
@@ -364,6 +447,14 @@
           "title": "Mirror flag",
           "description": "Indicates whether the target image was found within a mirrored version of the matching image.",
           "type": "boolean"
+        },
+        "type": {
+          "title": "Type",
+          "default": "PPPMatch",
+          "enum": [
+            "PPPMatch"
+          ],
+          "type": "string"
         },
         "pppRank": {
           "title": "PPPM rank",

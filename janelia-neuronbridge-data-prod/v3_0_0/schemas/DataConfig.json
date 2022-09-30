@@ -3,59 +3,127 @@
   "description": "Defines the data configuration for the NeuronBridge. ",
   "type": "object",
   "properties": {
-    "prefixes": {
+    "anatomicalAreas": {
+      "title": "Anatomical areas",
+      "description": "Anatomical areas that can be searched.",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/AnatomicalArea"
+      }
+    },
+    "dataSets": {
       "title": "Prefixes",
       "description": "Path prefixes for each file type in Files. If no prefix exists for a given file type, then the path should be treated as absolute.",
       "type": "object",
       "additionalProperties": {
-        "type": "string"
-      }
-    },
-    "anatomicalRegions": {
-      "title": "Anatomical regions",
-      "description": "List of the anatomical regions that can be searched.",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/AnatomicalRegion"
+        "$ref": "#/definitions/DataSet"
       }
     }
   },
   "required": [
-    "prefixes",
-    "anatomicalRegions"
+    "anatomicalAreas",
+    "dataSets"
   ],
   "additionalProperties": false,
   "definitions": {
-    "AnatomicalRegion": {
-      "title": "AnatomicalRegion",
-      "description": "Defines an anatomical region of the fly brain that can be searched using NeuronBridge. All searches are specific to one region.",
+    "AnatomicalArea": {
+      "title": "AnatomicalArea",
+      "description": "Defines an anatomical areas of the fly brain that can be searched using NeuronBridge. All searches are specific to one area.",
       "type": "object",
       "properties": {
-        "value": {
-          "title": "Region name",
-          "description": "Internal identifier for the anatomical region.",
-          "type": "string"
-        },
         "label": {
-          "title": "Region label",
-          "description": "Label used for the anatomical region in the UI.",
+          "title": "Anatomical area label",
+          "description": "Label used for the anatomical area in the UI.",
           "type": "string"
         },
         "alignmentSpace": {
           "title": "Alignment space",
-          "description": "Alignment space to which this images in this region are registered.",
+          "description": "Alignment space to which this images in this area are registered.",
           "type": "string"
         },
         "disabled": {
           "title": "Disabled flag",
-          "description": "True if this region is disabled in the UI.",
+          "description": "True if this area is disabled in the UI.",
           "type": "boolean"
         }
       },
       "required": [
-        "value",
         "label",
         "alignmentSpace"
+      ],
+      "additionalProperties": false
+    },
+    "CustomSearchConfig": {
+      "title": "CustomSearchConfig",
+      "description": "Configuration for the custom search.",
+      "type": "object",
+      "properties": {
+        "searchFolder": {
+          "title": "Search folder",
+          "description": "Name of sub-folder on S3 to traverse when using custom search.",
+          "type": "string"
+        },
+        "lmLibraries": {
+          "title": "List of LM libraries",
+          "description": "List of the identifiers of LM libraries included in this data set.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "emLibraries": {
+          "title": "List of EM libraries",
+          "description": "List of the identifiers of EM libraries included in this data set.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "searchFolder",
+        "lmLibraries",
+        "emLibraries"
+      ],
+      "additionalProperties": false
+    },
+    "DataSet": {
+      "title": "DataSet",
+      "type": "object",
+      "properties": {
+        "label": {
+          "title": "Data set label",
+          "description": "Label used for the data set in the UI.",
+          "type": "string"
+        },
+        "anatomicalArea": {
+          "title": "Anatomical area name",
+          "description": "Internal identifier for the anatomical area used for this data set. Can be used to look up additional details by matching to AnatomicalArea.value.",
+          "type": "string"
+        },
+        "prefixes": {
+          "title": "Prefixes",
+          "description": "Path prefixes for each file type in Files. If no prefix exists for a given file type, then the path should be treated as absolute.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "customSearch": {
+          "title": "Custom search",
+          "description": "Custom search configuration for this data set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/CustomSearchConfig"
+            }
+          ]
+        }
+      },
+      "required": [
+        "label",
+        "anatomicalArea",
+        "prefixes",
+        "customSearch"
       ],
       "additionalProperties": false
     }

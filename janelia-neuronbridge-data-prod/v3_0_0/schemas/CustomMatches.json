@@ -475,44 +475,6 @@
         "pppScore"
       ],
       "additionalProperties": false
-    },
-    "UploadedImage": {
-      "title": "UploadedImage",
-      "description": "An uploaded image containing neurons. ",
-      "type": "object",
-      "properties": {
-        "filename": {
-          "title": "Filename",
-          "description": "Name of the uploaded file.",
-          "type": "string"
-        },
-        "alignmentSpace": {
-          "title": "Alignment space",
-          "description": "Alignment space to which this image was registered.",
-          "type": "string"
-        },
-        "anatomicalArea": {
-          "title": "Anatomical area",
-          "description": "Anatomical area represented in the image.",
-          "type": "string"
-        },
-        "files": {
-          "title": "Files",
-          "description": "Files associated with the image.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/Files"
-            }
-          ]
-        }
-      },
-      "required": [
-        "filename",
-        "alignmentSpace",
-        "anatomicalArea",
-        "files"
-      ],
-      "additionalProperties": false
     }
   }
 }

@@ -187,6 +187,11 @@
             }
           ]
         },
+        "store": {
+          "title": "Data store",
+          "description": "Identifier for the data store where the files can be found.",
+          "type": "string"
+        },
         "files": {
           "title": "Files",
           "description": "Files associated with the image.",
@@ -232,6 +237,7 @@
         "alignmentSpace",
         "anatomicalArea",
         "gender",
+        "store",
         "files",
         "slideCode",
         "objective"
@@ -277,6 +283,11 @@
             }
           ]
         },
+        "store": {
+          "title": "Data store",
+          "description": "Identifier for the data store where the files can be found.",
+          "type": "string"
+        },
         "files": {
           "title": "Files",
           "description": "Files associated with the image.",
@@ -312,6 +323,7 @@
         "alignmentSpace",
         "anatomicalArea",
         "gender",
+        "store",
         "files"
       ],
       "additionalProperties": false

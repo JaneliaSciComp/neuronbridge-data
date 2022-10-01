@@ -11,18 +11,18 @@
         "$ref": "#/definitions/AnatomicalArea"
       }
     },
-    "dataSets": {
-      "title": "Prefixes",
-      "description": "Path prefixes for each file type in Files. If no prefix exists for a given file type, then the path should be treated as absolute.",
+    "stores": {
+      "title": "Data stores",
+      "description": "A data store provides access to imagery for a given subset of images.",
       "type": "object",
       "additionalProperties": {
-        "$ref": "#/definitions/DataSet"
+        "$ref": "#/definitions/DataStore"
       }
     }
   },
   "required": [
     "anatomicalAreas",
-    "dataSets"
+    "stores"
   ],
   "additionalProperties": false,
   "definitions": {
@@ -40,11 +40,6 @@
           "title": "Alignment space",
           "description": "Alignment space to which this images in this area are registered.",
           "type": "string"
-        },
-        "disabled": {
-          "title": "Disabled flag",
-          "description": "True if this area is disabled in the UI.",
-          "type": "boolean"
         }
       },
       "required": [
@@ -55,9 +50,14 @@
     },
     "CustomSearchConfig": {
       "title": "CustomSearchConfig",
-      "description": "Configuration for the custom search.",
+      "description": "Configuration for the custom search on a data set.",
       "type": "object",
       "properties": {
+        "alignmentSpace": {
+          "title": "Alignment space",
+          "description": "Alignment space used for search. This property is denormalized from the AnatomicalArea.",
+          "type": "string"
+        },
         "searchFolder": {
           "title": "Search folder",
           "description": "Name of sub-folder on S3 to traverse when using custom search.",
@@ -81,14 +81,16 @@
         }
       },
       "required": [
+        "alignmentSpace",
         "searchFolder",
         "lmLibraries",
         "emLibraries"
       ],
       "additionalProperties": false
     },
-    "DataSet": {
-      "title": "DataSet",
+    "DataStore": {
+      "title": "DataStore",
+      "description": "Configuration for a data store. This allows some flexibility for defining the S3 locations for various file types. ",
       "type": "object",
       "properties": {
         "label": {

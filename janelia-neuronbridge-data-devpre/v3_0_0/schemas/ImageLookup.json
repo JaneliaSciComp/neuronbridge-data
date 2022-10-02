@@ -8,14 +8,7 @@
       "description": "List of images matching the query.",
       "type": "array",
       "items": {
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "LMImage": "#/definitions/LMImage",
-            "EMImage": "#/definitions/EMImage"
-          }
-        },
-        "oneOf": [
+        "anyOf": [
           {
             "$ref": "#/definitions/LMImage"
           },

@@ -17,14 +17,7 @@
       "description": "List of other images matching the input image.",
       "type": "array",
       "items": {
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "CDSMatch": "#/definitions/CDSMatch",
-            "PPPMatch": "#/definitions/PPPMatch"
-          }
-        },
-        "oneOf": [
+        "anyOf": [
           {
             "$ref": "#/definitions/CDSMatch"
           },
@@ -371,7 +364,7 @@
               "EMImage": "#/definitions/EMImage"
             }
           },
-          "oneOf": [
+          "anyOf": [
             {
               "$ref": "#/definitions/LMImage"
             },
@@ -437,7 +430,7 @@
               "EMImage": "#/definitions/EMImage"
             }
           },
-          "oneOf": [
+          "anyOf": [
             {
               "$ref": "#/definitions/LMImage"
             },

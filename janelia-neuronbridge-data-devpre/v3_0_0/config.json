@@ -32,7 +32,6 @@
                 "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },
             "customSearch": {
-                "alignmentSpace": "JRC2018_Unisex_20x_HR",
                 "searchFolder": "searchable_neurons",
                 "lmLibraries": [
                     "FlyLight_Split-GAL4_Drivers",
@@ -66,7 +65,6 @@
                 "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },
             "customSearch": {
-                "alignmentSpace": "JRC2018_VNC_Unisex_40x_DS",
                 "searchFolder": "searchable_neurons",
                 "lmLibraries": [
                     "FlyLight_Split-GAL4_Drivers",

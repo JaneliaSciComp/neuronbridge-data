@@ -53,11 +53,6 @@
       "description": "Configuration for the custom search on a data set.",
       "type": "object",
       "properties": {
-        "alignmentSpace": {
-          "title": "Alignment space",
-          "description": "Alignment space used for search. This property is denormalized from the AnatomicalArea.",
-          "type": "string"
-        },
         "searchFolder": {
           "title": "Search folder",
           "description": "Name of sub-folder on S3 to traverse when using custom search.",
@@ -81,7 +76,6 @@
         }
       },
       "required": [
-        "alignmentSpace",
         "searchFolder",
         "lmLibraries",
         "emLibraries"

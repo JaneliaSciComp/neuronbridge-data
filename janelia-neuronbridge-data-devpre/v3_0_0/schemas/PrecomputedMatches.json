@@ -13,7 +13,7 @@
           "EMImage": "#/definitions/EMImage"
         }
       },
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "#/definitions/LMImage"
         },
@@ -27,7 +27,14 @@
       "description": "List of other images matching the input image.",
       "type": "array",
       "items": {
-        "anyOf": [
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "CDSMatch": "#/definitions/CDSMatch",
+            "PPPMatch": "#/definitions/PPPMatch"
+          }
+        },
+        "oneOf": [
           {
             "$ref": "#/definitions/CDSMatch"
           },
@@ -332,7 +339,7 @@
               "EMImage": "#/definitions/EMImage"
             }
           },
-          "anyOf": [
+          "oneOf": [
             {
               "$ref": "#/definitions/LMImage"
             },
@@ -398,7 +405,7 @@
               "EMImage": "#/definitions/EMImage"
             }
           },
-          "anyOf": [
+          "oneOf": [
             {
               "$ref": "#/definitions/LMImage"
             },

@@ -39,37 +39,42 @@
       "description": "Files associated with a NeuronImage or Match. These are either absolute URLs (e.g. starting with a protocol like http://) or relative paths. For relative paths, the first component should be replaced with its corresponding base URL from the DataConfig.",
       "type": "object",
       "properties": {
-        "ColorDepthMip": {
+        "store": {
+          "title": "Data Store",
+          "description": "Name of the DataStore that provides access to imagery for any relative paths in this object.",
+          "type": "string"
+        },
+        "CDM": {
           "title": "Color Depth MIP",
           "description": "The CDM of the image. For PPPM, this is the best matching channel of the matching LM stack and called 'Best Channel CDM' in the NeuronBridge GUI.",
           "type": "string"
         },
-        "ColorDepthMipThumbnail": {
+        "CDMThumbnail": {
           "title": "Thumbnail of the CDM",
-          "description": "The thumbnail sized version of the ColorDepthMip, if available.",
+          "description": "The thumbnail sized version of the CDM, if available.",
           "type": "string"
         },
-        "ColorDepthMipInput": {
+        "CDMInput": {
           "title": "CDM input",
           "description": "CDM-only. The actual color depth image that was input. 'Matched CDM' in the NeuronBridge GUI.",
           "type": "string"
         },
-        "ColorDepthMipMatch": {
+        "CDMMatch": {
           "title": "CDM match",
           "description": "CDM-only. The actual color depth image that was matched. 'Matched CDM' in the NeuronBridge GUI.",
           "type": "string"
         },
-        "ColorDepthMipBest": {
+        "CDMBest": {
           "title": "CDM of best-matching channel",
           "description": "PPPM-only. The CDM of best matching channel of the matching LM stack and called 'Best Channel CDM' in the NeuronBridge GUI.",
           "type": "string"
         },
-        "ColorDepthMipBestThumbnail": {
+        "CDMBestThumbnail": {
           "title": "Thumbnail of the CDM of best-matching channel",
           "description": "PPPM-only. The CDM of best matching channel of the matching LM stack and called 'Best Channel CDM' in the NeuronBridge GUI.",
           "type": "string"
         },
-        "ColorDepthMipSkel": {
+        "CDMSkel": {
           "title": "CDM with EM overlay",
           "description": "PPPM-only. The CDM of the best matching channel with the matching LM segmentation fragments overlaid. 'LM - Best Channel CDM with EM overlay' in the NeuronBridge GUI.",
           "type": "string"
@@ -120,6 +125,9 @@
           "type": "string"
         }
       },
+      "required": [
+        "store"
+      ],
       "additionalProperties": false
     },
     "UploadedImage": {
@@ -208,11 +216,6 @@
             }
           ]
         },
-        "store": {
-          "title": "Data store",
-          "description": "Identifier for the data store where the files can be found.",
-          "type": "string"
-        },
         "files": {
           "title": "Files",
           "description": "Files associated with the image.",
@@ -258,7 +261,6 @@
         "alignmentSpace",
         "anatomicalArea",
         "gender",
-        "store",
         "files",
         "slideCode",
         "objective"
@@ -304,11 +306,6 @@
             }
           ]
         },
-        "store": {
-          "title": "Data store",
-          "description": "Identifier for the data store where the files can be found.",
-          "type": "string"
-        },
         "files": {
           "title": "Files",
           "description": "Files associated with the image.",
@@ -344,7 +341,6 @@
         "alignmentSpace",
         "anatomicalArea",
         "gender",
-        "store",
         "files"
       ],
       "additionalProperties": false

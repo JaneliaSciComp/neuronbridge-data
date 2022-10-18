@@ -47,7 +47,7 @@
                 "emLibraries": [
                     {
                         "name": "FlyEM_Hemibrain_v1.2.1",
-                        "publishedNamePrefix": "hemibrain:1.2.1"
+                        "publishedNamePrefix": "hemibrain:v1.2.1"
                     }
                 ]
             }
@@ -86,7 +86,7 @@
                 "emLibraries": [
                     {
                         "name": "FlyEM_VNC_v0.6",
-                        "publishedNamePrefix": "vnc:0.6"
+                        "publishedNamePrefix": "vnc:v0.6"
                     }
                 ]
             }

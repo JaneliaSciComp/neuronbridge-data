@@ -48,6 +48,27 @@
       ],
       "additionalProperties": false
     },
+    "LibraryConfig": {
+      "title": "LibraryConfig",
+      "description": "Configuration for libraries used for custom searches.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Library identifier",
+          "description": "Library name or identifier",
+          "type": "string"
+        },
+        "publishedNamePrefix": {
+          "title": "Published name prefix",
+          "description": "Optional value that when set, is used to prefix published names. This is currently used to identify EM data set",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
     "CustomSearchConfig": {
       "title": "CustomSearchConfig",
       "description": "Configuration for the custom search on a data set.",
@@ -60,18 +81,18 @@
         },
         "lmLibraries": {
           "title": "List of LM libraries",
-          "description": "List of the identifiers of LM libraries included in this data set.",
+          "description": "List of LM libraries included in this data set.",
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/LibraryConfig"
           }
         },
         "emLibraries": {
           "title": "List of EM libraries",
-          "description": "List of the identifiers of EM libraries included in this data set.",
+          "description": "List of EM libraries included in this data set.",
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/LibraryConfig"
           }
         }
       },

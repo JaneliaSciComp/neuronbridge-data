@@ -29,7 +29,8 @@
                 "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
                 "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-devpre/v3.0.0/metadata/cdsresults/",
                 "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-devpre/v3.0.0/metadata/pppresults/",
-                "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/"
+                "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/",
+                "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },
             "customSearch": {
                 "searchFolder": "searchable_neurons",
@@ -71,7 +72,8 @@
                 "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth-devpre/",
                 "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-devpre/v3.0.0/metadata/cdsresults/",
                 "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-devpre/v3.0.0/metadata/pppresults/",
-                "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/"
+                "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/",
+                "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },
             "customSearch": {
                 "searchFolder": "searchable_neurons",

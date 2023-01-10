@@ -436,12 +436,12 @@
           ],
           "type": "string"
         },
-        "pppRank": {
+        "pppmRank": {
           "title": "PPPM rank",
           "description": "Fractional rank reported by the PPPM algorithm. It's generally better to use the index of the image in the results.",
           "type": "number"
         },
-        "pppScore": {
+        "pppmScore": {
           "title": "PPPM score",
           "description": "Match score reported by the PPPM algorithm.",
           "type": "integer"
@@ -451,8 +451,8 @@
         "image",
         "files",
         "mirrored",
-        "pppRank",
-        "pppScore"
+        "pppmRank",
+        "pppmScore"
       ],
       "additionalProperties": false
     }

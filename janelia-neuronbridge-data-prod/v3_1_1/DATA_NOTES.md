@@ -1,9 +1,25 @@
+### Release Version: 3.1.1
+
+### Release Date: 2023-07-08
+
+#### Color Depth Searches
+
+**LM data**
+* Added ??? additional Split GAL4 brain samples 
+
+**EM data**
+* Added 23,271 Male VNC neuron bodies
+
+
 Model Version 3.0.0
 * Switched to new data model
 * No new data was added (no new images, no new matches)
 * Merged Brain and VNC data from 2.4.0 and 2.3.0-pre
 * All paths are absolute, optionally using prefix variables from config.json
 * Eliminated all unnecessary attributes: maskImageURL, maskSampleRef, maskRelatedImageRefId, coverageScore, aggregateCoverage, matchingRatio, gradientAreaGap, highExpressionArea, normalizedGapScore
+* The data migration from 3.0.0 eliminated all LM to EM matches that actually did not have a gradient score. Those matches were originally exported
+due to a bug in v2.x which inadvertently exported LM to EM match that did not have a gradient score when the EM to LM gradient scores were updated for
+the corresponding LM to EM matches.
 
 #### PatchPerPix (PPP) searches
 Added PPPM results for VNC:0.5 dataset against GEN1 MCFO VNC samples.

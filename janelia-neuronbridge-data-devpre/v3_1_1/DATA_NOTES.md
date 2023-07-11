@@ -5,7 +5,7 @@
 #### Color Depth Searches
 
 **LM data**
-* Added ??? additional Split GAL4 brain samples 
+* Added 43,393 additional Split GAL4 brain color depth MIPs
 
 **EM data**
 * Added 23,271 Male VNC neuron bodies

@@ -4,7 +4,7 @@
 * Added 43,393 additional Split GAL4 brain color depth MIPs
 
 ### EM data
-* Added 23,271 Male VNC neuron bodies
+* Added 23,271 Male VNC neuron bodies from the FlyEM MANC release.
 
 
 ## Data Version 3.0.0 (released on 2023-02-01)

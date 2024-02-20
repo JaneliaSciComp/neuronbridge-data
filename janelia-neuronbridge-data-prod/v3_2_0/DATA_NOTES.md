@@ -19,7 +19,6 @@
 |Yoo et al 2023 | 378 (109) |  30 (10) |
 
 
-
 **Updated LM Split-GAL4 datasets**
 
 | Dataset name | Brain MIPs | VNC MIPs |
@@ -31,7 +30,6 @@
 |Optic lobe TAPIN-Seq 2020 | 349 (112) |   162 (51) |
 |SEZ 2021 | 4176 (2060) |  1648 (506) |
 |T4_inputs_paper | 67 (18) |  17 (6) |
-
 
 
 ## Data Version 3.1.1 (released on 2023-07-08)

@@ -1,0 +1,148 @@
+{
+  "title": "DataConfig",
+  "description": "Defines the data configuration for the NeuronBridge. ",
+  "type": "object",
+  "properties": {
+    "anatomicalAreas": {
+      "title": "Anatomical areas",
+      "description": "Anatomical areas that can be searched.",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/AnatomicalArea"
+      }
+    },
+    "stores": {
+      "title": "Data stores",
+      "description": "A data store provides access to imagery for a given subset of images.",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/DataStore"
+      }
+    }
+  },
+  "required": [
+    "anatomicalAreas",
+    "stores"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "AnatomicalArea": {
+      "title": "AnatomicalArea",
+      "description": "Defines an anatomical areas of the fly brain that can be searched using NeuronBridge. All searches are specific to one area.",
+      "type": "object",
+      "properties": {
+        "label": {
+          "title": "Anatomical area label",
+          "description": "Label used for the anatomical area in the UI.",
+          "type": "string"
+        },
+        "alignmentSpace": {
+          "title": "Alignment space",
+          "description": "Alignment space to which this images in this area are registered.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "label",
+        "alignmentSpace"
+      ],
+      "additionalProperties": false
+    },
+    "LibraryConfig": {
+      "title": "LibraryConfig",
+      "description": "Configuration for libraries used for custom searches.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Library identifier",
+          "description": "Library name or identifier",
+          "type": "string"
+        },
+        "publishedNamePrefix": {
+          "title": "Published name prefix",
+          "description": "Optional value that when set, is used to prefix published names. This is currently used to identify EM data set",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "CustomSearchConfig": {
+      "title": "CustomSearchConfig",
+      "description": "Configuration for the custom search on a data set.",
+      "type": "object",
+      "properties": {
+        "searchFolder": {
+          "title": "Search folder",
+          "description": "Name of sub-folder on S3 to traverse when using custom search.",
+          "type": "string"
+        },
+        "lmLibraries": {
+          "title": "List of LM libraries",
+          "description": "List of LM libraries included in this data set.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LibraryConfig"
+          }
+        },
+        "emLibraries": {
+          "title": "List of EM libraries",
+          "description": "List of EM libraries included in this data set.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LibraryConfig"
+          }
+        }
+      },
+      "required": [
+        "searchFolder",
+        "lmLibraries",
+        "emLibraries"
+      ],
+      "additionalProperties": false
+    },
+    "DataStore": {
+      "title": "DataStore",
+      "description": "Configuration for a data store. This allows some flexibility for defining the S3 locations for various file types. ",
+      "type": "object",
+      "properties": {
+        "label": {
+          "title": "Data set label",
+          "description": "Label used for the data set in the UI.",
+          "type": "string"
+        },
+        "anatomicalArea": {
+          "title": "Anatomical area name",
+          "description": "Internal identifier for the anatomical area used for this data set. Can be used to look up additional details by matching to AnatomicalArea.value.",
+          "type": "string"
+        },
+        "prefixes": {
+          "title": "Prefixes",
+          "description": "Path prefixes for each file type in Files. If no prefix exists for a given file type, then the path should be treated as absolute.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "customSearch": {
+          "title": "Custom search",
+          "description": "Custom search configuration for this data set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/CustomSearchConfig"
+            }
+          ]
+        }
+      },
+      "required": [
+        "label",
+        "anatomicalArea",
+        "prefixes",
+        "customSearch"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

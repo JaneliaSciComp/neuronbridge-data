@@ -4,32 +4,74 @@
 
 **New LM Split-GAL4 datasets**
 
-| Dataset | Brain MIPs (Distinct MIPs) | VNC MIPs (Distinct MIPs) |
-|-------------------------|----------------------------|------------|
-| Split-GAL4 Omnibus Rescreen | 11562 (5173) | 7595 (4135) |
-|Ascending Neurons 2023| 201 (88)| 114 (86) |
-|Cheong, Boone, Bennett 2023| 3 (3) | 6 (3)|
-|Cheong, Eichler, Stuerner 2023| 6 (4) |  103 (62) |
-|Dorsal VNC 2023| 4491 (2509) |  7925 (5659) |
-|Isaacson et al 2023 | 524 (201) |  59 (16) |
-|Lillvis 2022 | 11 (2) |  9 (2) |
-|Lillvis 2023 | 954 (219) |  496 (261) |
-|oviDN 2023 | 203 (132) |  83 (50) |
-|Rubin & Aso 2023 | 278 (159) | 28 (20) |
-|Yoo et al 2023 | 378 (109) |  30 (10) |
+* Split-GAL4 Omnibus Rescreen
+  * Brain: 11562 (5173)
+  * VNC: 7595 (4135)
+
+* Ascending Neurons 2023
+  * Brain: 201 (88)
+  * VNC: 114 (86)
+
+* Cheong, Boone, Bennett 2023
+  * Brain: 3 (3)
+  * VNC: 6 (3)
+
+* Cheong, Eichler, Stuerner 2023
+  * Brain: 6 (4)
+  * VNC: 103 (62)
+
+* Dorsal VNC 2023
+  * Brain: 4491 (2509)
+  * VNC: 7925 (5659)
+
+* Isaacson et al 2023
+  * Brain: 524 (201)
+  * VNC: 59 (16)
+
+* Lillvis 2022
+  * Brain: 11 (2)
+  * VNC: 9 (2)
+
+* Lillvis 2023
+  * Brain: 954 (219)
+  * VNC: 496 (261)
+
+* oviDN 2023
+  * Brain: Brain: 203 (132)
+  * VNC: 83 (50)
+
+* Rubin & Aso 2023
+  * Brain: 278 (159)
+  * VNC: 28 (20)
+
+* Yoo et al 2023
+  * Brain: 378 (109)
+  * VNC: 30 (10)
 
 
 **Updated LM Split-GAL4 datasets**
 
-| Dataset name | Brain MIPs | VNC MIPs |
-|----|----|---|
-|Aso 2021 | 30563 (13974) | 6779 (2440) |
-|DNp13 2020 | 49 (15) |  25 (13) |
-|Longden_et_al_2021 | 44 (12) | 0 (0) |
-|MB Paper 2014 | 1515 (641) |  486 (236) |
-|Optic lobe TAPIN-Seq 2020 | 349 (112) |   162 (51) |
-|SEZ 2021 | 4176 (2060) |  1648 (506) |
-|T4_inputs_paper | 67 (18) |  17 (6) |
+* Aso 2021
+  * Brain: 30563 (13974)
+  * VNC: 6779 (2440)
+* DNp13 2020
+  * Brain: 49 (15)
+  * VNC: 25 (13)
+* Longden_et_al_2021
+  * Brain: 44 (12)
+  * VNC: 0
+* MB Paper 2014
+  * Brain: 1515 (641)
+  * VNC: 486 (236)
+* Optic lobe TAPIN-Seq 2020
+  * Brain: 349 (112)
+  * VNC: 162 (51)
+* SEZ 2021
+  * Brain: 4176 (2060)
+  * VNC: 1648 (506)
+* T4_inputs_paper
+  * Brain: 67 (18)
+  * VNC: 17 (6)
 
 
 ## Data Version 3.1.1 (released on 2023-07-08)

@@ -26,18 +26,6 @@ Added PPPM results for VNC:0.5 dataset against Gen1 MCFO VNC samples.
   Those matches were originally exported due to a bug in v2.x which inadvertently exported LM to EM match that did not have 
   a gradient score when the EM to LM gradient scores were updated for the corresponding LM to EM matches.
 
-### Color Depth Searches
-Added color depth searches for VNC:0.6 dataset against Split GAL4 and Gen1 MCFO samples.
-
-**LM data**
-* Added 3925 Split GAL4 and 32022 Gen1 MCFO VNC samples
-
-**EM data**
-* Added bodies for 2 EM VNC data sets
-    * 23128 VNC:0.6 bodies created on 2021-09-02
-    * 23358 VNC:0.5 bodies created on 2021-08-25
-* Added Giant Fiber neuron
-
 
 ## Data Version 2.4.0 (released on 2022-02-25)
 

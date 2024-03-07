@@ -27,11 +27,22 @@ This repository contains data schema and release notes deployed to neuronbridge 
         * `<bodyId>.json`
 
 
+## NeuronBridge Data Release Steps
+
+* Upload precomputed data see [this](https://github.com/JaneliaSciComp/neuronbridge-precompute.git) repo for this step.
+* Update DATA_NOTES.md
+* Update config.json if needed with the new libraries and or versions
+* Update next.txt to point to the corresponding version folder. 
+  Note: Only update current.txt when this is released in production
+* Update data schema if there were changes to the schema
+* Use sync-data.sh as explained below to synchronize the changes with the corresponding NeuronBridge data bucket
+* Tag the repository using the following pattern for the tag `<data-bucket-suffix>-<data-version>` , e.g. `dev-3.2.0`
+
 ## Sync data with NeuronBridge
 
 To sync data after everything was updated run
 ```
-sh sync-data <DATA_VERSION> <DATA_BUCKET_SUFFIX>
+sh sync-data.sh <DATA_VERSION> <DATA_BUCKET_SUFFIX>
 ```
 where:
 * DATA_VERSION is the version prefixed with 'v' and '.' replaced with '_';

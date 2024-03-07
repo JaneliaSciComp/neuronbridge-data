@@ -1,3 +1,89 @@
+## Data Version 3.2.0 (released on 2024-03-11)
+
+### Color Depth Searches
+
+**New LM Split-GAL4 datasets**
+
+In this data release we have added a collection of cell-type-specific split-GAL4 driver lines from the recent FlyLight preprint, as well as other recently published [split-GAL4 papers](https://splitgal4.janelia.org/cgi-bin/splitgal4.cgi). Counts are given as "# searchable CDMs (# source images)".
+
+* [Split-GAL4 Omnibus Rescreen](https://doi.org/10.1101/2024.01.09.574419)
+  * Brain: 11562 (5173)
+  * VNC: 7595 (4135)
+
+* [Ascending Neurons 2023](https://doi.org/10.25378/janelia.23726103)
+  * Brain: 201 (88)
+  * VNC: 114 (86)
+
+* [Cheong, Boone, Bennett 2023](https://doi.org/10.1016/j.cub.2024.01.071)
+  * Brain: 3 (3)
+  * VNC: 6 (3)
+
+* [Cheong, Eichler, Stuerner 2023](https://doi.org/10.1101/2023.06.07.543976)
+  * Brain: 6 (4)
+  * VNC: 103 (62)
+
+* [Dorsal VNC 2023](https://doi.org/10.1101/2023.05.31.542897)
+  * Brain: 4491 (2509)
+  * VNC: 7925 (5659)
+
+* [Isaacson et al 2023](https://doi.org/10.1101/2023.06.21.546024)
+  * Brain: 524 (201)
+  * VNC: 59 (16)
+
+* [Lillvis 2022](https://doi.org/10.7554/eLife.81248)
+  * Brain: 11 (2)
+  * VNC: 9 (2)
+
+* [Lillvis 2023](https://doi.org/10.1016/j.cub.2024.01.015)
+  * Brain: 954 (219)
+  * VNC: 496 (261)
+
+* [oviDN 2023](https://doi.org/10.1038/s41586-023-06271-6)
+  * Brain: Brain: 203 (132)
+  * VNC: 83 (50)
+
+* [Rubin & Aso 2023](https://doi.org/10.7554/eLife.90523)
+  * Brain: 278 (159)
+  * VNC: 28 (20)
+
+* [Yoo et al 2023](https://doi.org/10.1016/j.cub.2023.08.020)
+  * Brain: 378 (109)
+  * VNC: 30 (10)
+
+
+**Updated LM Split-GAL4 datasets**
+
+We also updated releases where some images were previously missing from NeuronBridge:
+
+* Aso 2021
+  * Brain: 30563 (13974)
+  * VNC: 6779 (2440)
+
+* DNp13 2020
+  * Brain: 49 (15)
+  * VNC: 25 (13)
+
+* Longden_et_al_2021
+  * Brain: 44 (12)
+  * VNC: 0
+
+* MB Paper 2014
+  * Brain: 1515 (641)
+  * VNC: 486 (236)
+
+* Optic lobe TAPIN-Seq 2020
+  * Brain: 349 (112)
+  * VNC: 162 (51)
+
+* SEZ 2021
+  * Brain: 4176 (2060)
+  * VNC: 1648 (506)
+
+* T4_inputs_paper
+  * Brain: 67 (18)
+  * VNC: 17 (6)
+
+
 ## Data Version 3.1.1 (released on 2023-07-08)
 
 ### Color Depth Searches

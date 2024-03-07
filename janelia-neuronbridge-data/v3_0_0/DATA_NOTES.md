@@ -20,6 +20,8 @@ Added color depth searches for VNC:0.6 dataset against Split GAL4 and GEN1 MCFO 
 ** 23128 VNC:0.6 bodies created on 2021-09-02
 ** 23358 VNC:0.5 bodies created on 2021-08-25
 
+* Added Giant Fiber neuron
+
 ### Release Version: 2.4.0
 
 ### Release Date: 2022-02-25

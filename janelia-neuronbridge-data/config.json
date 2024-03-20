@@ -27,8 +27,8 @@
                 "SignalMipExpression": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
                 "AlignedBodySWC": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
                 "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
-                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_2_0/metadata/cdsresults/",
-                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_2_0/metadata/pppmresults/",
+                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_2_1/metadata/cdsresults/",
+                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_2_1/metadata/pppmresults/",
                 "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/",
                 "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },
@@ -70,8 +70,8 @@
                 "SignalMipExpression": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
                 "AlignedBodySWC": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
                 "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
-                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_2_0/metadata/cdsresults/",
-                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_2_0/metadata/pppmresults/",
+                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_2_1/metadata/cdsresults/",
+                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_2_1/metadata/pppmresults/",
                 "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/",
                 "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },

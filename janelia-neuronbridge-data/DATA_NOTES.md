@@ -4,7 +4,7 @@
 
 **LM Split-GAL4 datasets**
 
-Added 235 brain images (derived from 94 source images) from [Split-GAL4 Omnibus Rescreen](https://doi.org/10.1101/2024.01.09.574419), which we missed in 3.2.0
+We added 235 brain images (derived from 94 source images) that we missed from [Split-GAL4 Omnibus Rescreen](https://doi.org/10.1101/2024.01.09.574419) in 3.2.0. These images are part of 48 lines that were updated, 3 of which are completely new.
 
 ## Data Version 3.2.0 (released on 2024-03-11)
 

@@ -49,6 +49,10 @@
                     {
                         "name": "FlyEM_Hemibrain_v1.2.1",
                         "publishedNamePrefix": "hemibrain:v1.2.1"
+                    },
+                    {
+                        "name": "FlyWire_FAFB_v783",
+                        "publishedNamePrefix": "flywire_fafb:v783"
                     }
                 ]
             }

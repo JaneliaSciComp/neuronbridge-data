@@ -1,10 +1,10 @@
 {
     "anatomicalAreas": {
-        "Brain": { 
+        "Brain": {
             "label": "Brain",
             "alignmentSpace": "JRC2018_Unisex_20x_HR"
         },
-        "VNC": { 
+        "VNC": {
             "label": "Ventral Nerve Cord",
             "alignmentSpace": "JRC2018_VNC_Unisex_40x_DS"
         }
@@ -36,23 +36,28 @@
                 "searchFolder": "searchable_neurons",
                 "lmLibraries": [
                     {
-                        "name": "FlyLight_Split-GAL4_Drivers"
+                        "name": "FlyLight_Gen1_MCFO",
+                        "count": 349405
                     },
                     {
-                        "name": "FlyLight_Gen1_MCFO"
+                        "name": "FlyLight_Split-GAL4_Drivers",
+                        "count": 66569
                     },
                     {
-                        "name": "FlyLight_Annotator_Gen1_MCFO"
+                        "name": "FlyLight_Annotator_Gen1_MCFO",
+                        "count": 355179
                     }
                 ],
                 "emLibraries": [
                     {
                         "name": "FlyEM_Hemibrain_v1.2.1",
-                        "publishedNamePrefix": "hemibrain:v1.2.1"
+                        "publishedNamePrefix": "hemibrain:v1.2.1",
+                        "count": 44477
                     },
                     {
                         "name": "FlyWire_FAFB_v783",
-                        "publishedNamePrefix": "flywire_fafb:v783"
+                        "publishedNamePrefix": "flywire_fafb:v783",
+                        "count": 61750
                     }
                 ]
             }
@@ -83,19 +88,23 @@
                 "searchFolder": "searchable_neurons",
                 "lmLibraries": [
                     {
-                        "name": "FlyLight_Split-GAL4_Drivers"
+                        "name": "FlyLight_Gen1_MCFO",
+                        "count": 308302
                     },
                     {
-                        "name": "FlyLight_Gen1_MCFO"
+                        "name": "FlyLight_Split-GAL4_Drivers",
+                        "count": 27158
                     }
                 ],
                 "emLibraries": [
                     {
                         "name": "FlyEM_MANC_v1.0",
-                        "publishedNamePrefix": "manc:v1.0"
+                        "publishedNamePrefix": "manc:v1.0",
+                        "count": 29326
                     }
                 ]
             }
         }
     }
 }
+

@@ -204,6 +204,14 @@
             }
           ]
         },
+        "annotations": {
+          "title": "List of additional annotations",
+          "description": "Bag of words associated with this neuron",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "type": {
           "title": "Type",
           "default": "LMImage",
@@ -294,6 +302,14 @@
             }
           ]
         },
+        "annotations": {
+          "title": "List of additional annotations",
+          "description": "Bag of words associated with this neuron",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "type": {
           "title": "Type",
           "default": "EMImage",
@@ -303,13 +319,13 @@
           "type": "string"
         },
         "neuronType": {
-          "title": "Neuron type",
-          "description": "Neuron type name from neuPrint",
+          "title": "FlyEM Neuron type",
+          "description": "Neuron type name from FlyEM's neuPrint",
           "type": "string"
         },
         "neuronInstance": {
-          "title": "Neuron instance",
-          "description": "Neuron instance name from neuPrint",
+          "title": "FlyEM Neuron instance",
+          "description": "Neuron instance name from FlyEM's neuPrint",
           "type": "string"
         }
       },

@@ -10,16 +10,16 @@ import sys
 import boto3
 import inquirer
 from inquirer.themes import BlueComposure
+from tqdm import tqdm
 import jrc_common.jrc_common as JRC
+import doi_common.doi_common as DL
 
 # pylint: disable=broad-exception-caught,logging-fstring-interpolation
 
-AREAS = {"Brain": {"label": "Brain",
-                   "alignmentSpace": "JRC2018_Unisex_20x_HR"},
-         "VNC": {"label": "Ventral Nerve Cord",
-                 "alignmentSpace": "JRC2018_VNC_Unisex_40x_DS"}
-        }
-BASE = "https://s3.amazonaws.com/"
+__version__ = '1.0.0'
+
+BASE = {}
+RELEASES = {}
 # Database
 DB = {}
 # AWS S3
@@ -52,20 +52,20 @@ def initialize_program():
         dbconfig = JRC.get_config("databases")
     except Exception as err:
         terminate_program(err)
-    dbs = ['neuronbridge']
-    for source in dbs:
+    for source in ['sage', 'neuronbridge']:
         dbo = attrgetter(f"{source}.prod.read")(dbconfig)
         LOGGER.info("Connecting to %s prod on %s as %s", dbo.name, dbo.host, dbo.user)
         try:
             DB["nb" if source == "neuronbridge" else source] = JRC.connect_database(dbo)
         except Exception as err:
             terminate_program(err)
+    try:
+        aws = JRC.get_config("aws")
+    except Exception as err:
+        terminate_program(err)
+    BASE['s3'] = aws.base_aws_url + "/"
     # AWS S3
     if ARG.MANIFOLD == 'prod':
-        try:
-            aws = JRC.get_config("aws")
-        except Exception as err:
-            terminate_program(err)
         sts_client = boto3.client('sts')
         aro = sts_client.assume_role(RoleArn=aws.role_arn,
                                      RoleSessionName="AssumeRoleSession1")
@@ -96,7 +96,7 @@ def read_object(bucket, key):
         Returns:
           JSON
     '''
-    LOGGER.info(f"Reading {bucket}/{key}")
+    LOGGER.debug(f"Reading {bucket}/{key}")
     try:
         data = AWSS3["client"].get_object(Bucket=bucket, Key=key)
         contents = data['Body'].read().decode("utf-8")
@@ -106,19 +106,25 @@ def read_object(bucket, key):
     return json.loads(contents)
 
 
-def get_count(lib, template):
+def get_count(lib, template, source, release=None):
     ''' Get the searchable neuron count from AWS S3 or publishedURL
         Keyword arguments:
           lib: library name
           template: alignment space
+          release: ALPS release (default: None)
         Returns:
           Count
     '''
-    if ARG.SOURCE == "mongo":
+    if source == "mongo":
         coll = DB['nb'].publishedURL
-        count = coll.count_documents({"libraryName": lib, "alignmentSpace": template})
+        payload = {"libraryName": lib, "alignmentSpace": template}
+        if release:
+            payload["alpsRelease"] = release
+        else:
+            LOGGER.info(f"Getting count from MongoDB for {lib}/{template}")
+        count = coll.count_documents(payload)
         if ARG.DEBUG:
-            rows = coll.find({"libraryName": lib, "alignmentSpace": template})
+            rows = coll.find(payload)
             with open(f"{lib}_{template}.txt", 'w', encoding='ascii') as outfile:
                 for row in rows:
                     outfile.write(f"{row['uploaded']['searchable_neurons']}\n")
@@ -131,6 +137,102 @@ def get_count(lib, template):
     return count["objectCount"]
 
 
+def get_em_releases_block(lib, count):
+    ''' Get the releases block for a FlyEM library
+        Keyword arguments:
+          lib: library name
+          count: image count
+        Returns:
+          Releases block
+    '''
+    if "FlyEM" in lib:
+        key = lib.replace("FlyEM ", "").lower()
+        key = re.sub(r" v.+", "", key)
+    elif "FlyWire FAFB" in lib:
+        key = "flywire_fafb"
+    else:
+        terminate_program(f"Can't parse EM library {lib}")
+    if key not in EMDOI:
+        terminate_program(f"Missing entry in em_dois configuration for {key} ({lib})")
+    if not EMDOI[key]:
+        terminate_program(f"Undefined DOI in em_dois configuration for {key} ({lib})")
+    dois = []
+    if isinstance(EMDOI[key], list):
+        for doi in EMDOI[key]:
+            dois.append({doi: DL.short_citation(doi)})
+    else:
+        dois = [{EMDOI[key]: DL.short_citation(EMDOI[key])}]
+    payload = {lib.replace(" ", "_"): {"count": count,
+                                       "dois": dois
+                                      }}
+    return [payload]
+
+
+def get_flylight_dois(release):
+    ''' Get the DOI for FlyLight
+        Keyword arguments:
+          None
+        Returns:
+          DOI
+    '''
+    if release in RELEASES:
+        return RELEASES[release]
+    stmt = "SELECT DISTINCT value FROM line_property_vw WHERE type='doi' AND name in " \
+           + "(SELECT DISTINCT line FROM image_data_mv WHERE alps_release=%s) ORDER BY 1"
+    try:
+        DB['sage']['cursor'].execute(stmt, (release,))
+        rows = DB['sage']['cursor'].fetchall()
+    except Exception as err:
+        terminate_program(err)
+    dois = []
+    for row in rows:
+        if "in prep" in row['value'].lower():
+            continue
+        dois.append(row['value'])
+    if LMDOI['global']:
+        dois.extend(LMDOI['global'])
+    if release in LMDOI['release']:
+        dois.extend(LMDOI['release'][release])
+    doirecs = []
+    for doi in dois:
+        doirecs.append({doi: DL.short_citation(doi)})
+    RELEASES[release] = doirecs
+    return doirecs
+
+
+def get_lm_releases_block(libint, area):
+    ''' Get the releases block for a FlyLight library
+        Keyword arguments:
+          libint: library internal name (e.g. flylight_split_gal4_published)
+          area: anatomical area
+        Returns:
+          Releases block
+    '''
+    try:
+        coll = DB['nb'].publishedURL
+        rows = coll.distinct("alpsRelease", {"libraryName": libint})
+    except Exception as err:
+        terminate_program(err)
+    payload = []
+    LOGGER.debug(f"Getting releases for {libint} {area}")
+    progress = False
+    if len(rows) > 1:
+        progress = True
+        rows = (pbar := tqdm(rows, position=1, colour="#4169e1"))
+    for rel in rows:
+        if progress:
+            pbar.set_description(rel)
+        count = get_count(libint, AREAS[area]["alignmentSpace"], 'mongo', rel)
+        if not count:
+            continue
+        dois = get_flylight_dois(rel)
+        if not dois:
+            continue
+        payload.append({rel: {"count": count,
+                              "dois": dois}})
+    return payload
+
+
 def get_libraries(area):
     ''' Get libraries to create a customSearch block
         Keyword arguments:
@@ -140,7 +242,8 @@ def get_libraries(area):
     '''
     libs = JRC.simplenamespace_to_dict(JRC.get_config("cdm_library"))
     coll = DB['nb'].publishedURL
-    rows = coll.distinct('libraryName')
+    rows = coll.distinct("libraryName",
+                         {"alignmentSpace": AREAS[area]['alignmentSpace']})
     msg = f"Select libraries for {AREAS[area]['label']} ({AREAS[area]['alignmentSpace']})"
     libraries = {}
     for lib, val in libs.items():
@@ -155,17 +258,22 @@ def get_libraries(area):
                "lmLibraries": [],
                "emLibraries": []
     }
-    for lib in libs:
+    for lib in (pbar := tqdm(libs, position=0, leave=True, colour="cyan")):
+        pbar.set_description(lib)
         count = get_count(libraries[lib] if ARG.SOURCE == "mongo" else lib, \
-                          AREAS[area]['alignmentSpace'])
+                          AREAS[area]['alignmentSpace'], ARG.SOURCE)
         if 'FlyLight' in lib:
+            payload = get_lm_releases_block(libraries[lib], area)
             csblock["lmLibraries"].append({"name": lib.replace(" ", "_"),
-                                           "count": count
+                                           "count": count,
+                                           "releases": payload
                                           })
         else:
+            payload = get_em_releases_block(lib, count)
             csblock["emLibraries"].append({"name": lib.replace(" ", "_"),
                                            "publishedNamePrefix": get_prefix(lib),
-                                           "count": count
+                                           "count": count,
+                                           "releases": payload
                                           })
     return csblock
 
@@ -180,34 +288,35 @@ def create_config():
     manifest = {}
     master = {"anatomicalAreas": AREAS,
               "stores": {}}
+    base = BASE['s3']
     for area in AREAS:
         csblock = get_libraries(area)
         key = f"fl:open_data:{area.lower()}"
         short = "" if ARG.MANIFOLD == "prod" else f"-{ARG.MANIFOLD}"
         manifest = {"label": f"FlyLight {area} Open Data Store",
                     "anatomicalArea": area,
-                    "prefixes": {"CDM": f"{BASE}janelia-flylight-color-depth{short}/",
-                                 "CDMThumbnail": f"{BASE}janelia-flylight-color-depth-thumbnails" \
+                    "prefixes": {"CDM": f"{base}janelia-flylight-color-depth{short}/",
+                                 "CDMThumbnail": f"{base}janelia-flylight-color-depth-thumbnails" \
                                                  + f"{short}/",
-                                 "CDMInput": f"{BASE}janelia-flylight-color-depth{short}/",
-                                 "CDMMatch": f"{BASE}janelia-flylight-color-depth{short}/",
-                                 "CDMBest": f"{BASE}janelia-ppp-match-{ARG.MANIFOLD}/",
-                                 "CDMBestThumbnail": f"{BASE}janelia-ppp-match-{ARG.MANIFOLD}/",
-                                 "CDMSkel": f"{BASE}janelia-ppp-match-{ARG.MANIFOLD}/",
-                                 "SignalMip": f"{BASE}janelia-ppp-match-{ARG.MANIFOLD}/",
-                                 "SignalMipMasked": f"{BASE}janelia-ppp-match-{ARG.MANIFOLD}/",
-                                 "SignalMipMaskedSkel": f"{BASE}janelia-ppp-match-{ARG.MANIFOLD}/",
-                                 "SignalMipExpression": f"{BASE}janelia-ppp-match-{ARG.MANIFOLD}/",
-                                 "AlignedBodySWC": f"{BASE}janelia-flylight-color-depth{short}/",
-                                 "AlignedBodyOBJ": f"{BASE}janelia-flylight-color-depth{short}/",
-                                 "CDSResults": f"{BASE}janelia-neuronbridge-data-" \
+                                 "CDMInput": f"{base}janelia-flylight-color-depth{short}/",
+                                 "CDMMatch": f"{base}janelia-flylight-color-depth{short}/",
+                                 "CDMBest": f"{base}janelia-ppp-match-{ARG.MANIFOLD}/",
+                                 "CDMBestThumbnail": f"{base}janelia-ppp-match-{ARG.MANIFOLD}/",
+                                 "CDMSkel": f"{base}janelia-ppp-match-{ARG.MANIFOLD}/",
+                                 "SignalMip": f"{base}janelia-ppp-match-{ARG.MANIFOLD}/",
+                                 "SignalMipMasked": f"{base}janelia-ppp-match-{ARG.MANIFOLD}/",
+                                 "SignalMipMaskedSkel": f"{base}janelia-ppp-match-{ARG.MANIFOLD}/",
+                                 "SignalMipExpression": f"{base}janelia-ppp-match-{ARG.MANIFOLD}/",
+                                 "AlignedBodySWC": f"{base}janelia-flylight-color-depth{short}/",
+                                 "AlignedBodyOBJ": f"{base}janelia-flylight-color-depth{short}/",
+                                 "CDSResults": f"{base}janelia-neuronbridge-data-" \
                                                + f"{ARG.MANIFOLD}/{ARG.VERSION}/metadata" \
                                                + "/cdsresults/",
-                                 "PPPMResults": f"{BASE}janelia-neuronbridge-data-" \
+                                 "PPPMResults": f"{base}janelia-neuronbridge-data-" \
                                                 + f"{ARG.MANIFOLD}/{ARG.VERSION}/metadata/" \
                                                 + "pppmresults/",
-                                 "VisuallyLosslessStack": f"{BASE}janelia-flylight-imagery/",
-                                 "Gal4Expression": f"{BASE}janelia-flylight-imagery/"
+                                 "VisuallyLosslessStack": f"{base}janelia-flylight-imagery/",
+                                 "Gal4Expression": f"{base}janelia-flylight-imagery/"
                                 },
                     "customSearch": csblock
                    }
@@ -241,6 +350,12 @@ if __name__ == '__main__':
     LOGGER = JRC.setup_logging(ARG)
     if not re.match(r"^v\d+_\d+_\d+$", ARG.VERSION):
         terminate_program("--version must be in the format v_x_y_z; e.g. v_3_2_1")
+    try:
+        EMDOI = JRC.simplenamespace_to_dict(JRC.get_config("em_dois"))
+        LMDOI = JRC.simplenamespace_to_dict(JRC.get_config("lm_dois"))
+        AREAS = JRC.simplenamespace_to_dict(JRC.get_config("neuprint"))["areas"]
+    except Exception as gerr:
+        terminate_program(gerr)
     initialize_program()
     create_config()
     terminate_program()

@@ -3,6 +3,7 @@
 '''
 
 import argparse
+import copy
 import json
 from operator import attrgetter
 import re
@@ -254,8 +255,7 @@ def get_libraries(area):
              message=msg,
              choices=sorted(libraries), default=defaults)]
     libs = inquirer.prompt(quest, theme=BlueComposure())['checklist']
-    csblock = {"searchFolder": "searchable_neurons",
-               "lmLibraries": [],
+    csblock = {"lmLibraries": [],
                "emLibraries": []
     }
     for lib in (pbar := tqdm(libs, position=0, leave=True, colour="cyan")):
@@ -287,10 +287,22 @@ def create_config():
     '''
     manifest = {}
     master = {"anatomicalAreas": AREAS,
-              "stores": {}}
+              "stores": {}
+             }
+    release = {"anatomicalAreas": AREAS,
+              "stores": {}
+             }
     base = BASE['s3']
     for area in AREAS:
-        csblock = get_libraries(area)
+        fullblock = get_libraries(area)
+        # Adjust the customSearch block
+        csblock = copy.deepcopy(fullblock)
+        csblock["searchFolder"] = "searchable_neurons"
+        for libtype in ["lmLibraries", "emLibraries"]:
+            if libtype not in csblock:
+                continue
+            for lib in csblock[libtype]:
+                del lib["releases"]
         key = f"fl:open_data:{area.lower()}"
         short = "" if ARG.MANIFOLD == "prod" else f"-{ARG.MANIFOLD}"
         manifest = {"label": f"FlyLight {area} Open Data Store",
@@ -321,13 +333,32 @@ def create_config():
                     "customSearch": csblock
                    }
         master['stores'][key] = manifest
+        manifest = {"label": f"FlyLight {area} Open Data Store",
+                    "anatomicalArea": area,
+                    "customSearch": fullblock}
+        release['stores'][key] = manifest
     try:
+        LOGGER.info("Writing new_config.json")
         with open("new_config.json", "w", encoding="ascii") as outstream:
-            outstream.write(json.dumps(master, indent=4) + "\n")
+            if ARG.HUMAN:
+                outstream.write(json.dumps(master, indent=4) + "\n")
+            else:
+                outstream.write(json.dumps(master) + "\n")
     except Exception as err:
         LOGGER.error("Could not write new_config.json")
         terminate_program(err)
     print("Wrote new_config.json")
+    try:
+        LOGGER.info("Writing references.json")
+        with open("references.json", "w", encoding="ascii") as outstream:
+            if ARG.HUMAN:
+                outstream.write(json.dumps(release, indent=4) + "\n")
+            else:
+                outstream.write(json.dumps(release) + "\n")
+    except Exception as err:
+        LOGGER.error("Could not write new_config.json")
+        terminate_program(err)
+    print("Wrote references.json")
 
 # -----------------------------------------------------------------------------
 
@@ -342,6 +373,9 @@ if __name__ == '__main__':
     PARSER.add_argument('--manifold', dest='MANIFOLD', action='store',
                         default='prod', choices=['dev', 'prod'],
                         help='Manifold (dev, prod)')
+    PARSER.add_argument('--human', dest='HUMAN', action='store_true',
+                        default=False,
+                        help='Generate human-readable file (indented with whitespace)')
     PARSER.add_argument('--verbose', dest='VERBOSE', action='store_true',
                         default=False, help='Flag, Chatty')
     PARSER.add_argument('--debug', dest='DEBUG', action='store_true',

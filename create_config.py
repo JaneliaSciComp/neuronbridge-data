@@ -17,7 +17,7 @@ import doi_common.doi_common as DL
 
 # pylint: disable=broad-exception-caught,logging-fstring-interpolation
 
-__version__ = '1.0.0'
+__version__ = '1.1.0'
 
 BASE = {}
 RELEASES = {}
@@ -86,7 +86,7 @@ def get_prefix(lib):
         Returns:
           Prefix
     '''
-    return lib.replace("FlyEM ", "").replace(" v", ":v").lower()
+    return lib.replace("FlyEM ", "").replace(" ", "_").replace(" v", ":v").lower()
 
 
 def read_object(bucket, key):
@@ -157,12 +157,12 @@ def get_em_releases_block(lib, count):
         terminate_program(f"Missing entry in em_dois configuration for {key} ({lib})")
     if not EMDOI[key]:
         terminate_program(f"Undefined DOI in em_dois configuration for {key} ({lib})")
-    dois = []
+    dois = {}
     if isinstance(EMDOI[key], list):
         for doi in EMDOI[key]:
-            dois.append({doi: DL.short_citation(doi)})
+            dois[doi] =  DL.short_citation(doi)
     else:
-        dois = [{EMDOI[key]: DL.short_citation(EMDOI[key])}]
+        dois[EMDOI[key]] =  DL.short_citation(EMDOI[key])
     payload = {lib.replace(" ", "_"): {"count": count,
                                        "dois": dois
                                       }}
@@ -170,11 +170,11 @@ def get_em_releases_block(lib, count):
 
 
 def get_flylight_dois(release):
-    ''' Get the DOI for FlyLight
+    ''' Get the DOIs for FlyLight for a release
         Keyword arguments:
-          None
+          release: ALPS release
         Returns:
-          DOI
+          Dictionary of DOIs (DOI: citation)
     '''
     if release in RELEASES:
         return RELEASES[release]
@@ -194,9 +194,9 @@ def get_flylight_dois(release):
         dois.extend(LMDOI['global'])
     if release in LMDOI['release']:
         dois.extend(LMDOI['release'][release])
-    doirecs = []
+    doirecs = {}
     for doi in dois:
-        doirecs.append({doi: DL.short_citation(doi)})
+        doirecs[doi] = DL.short_citation(doi)
     RELEASES[release] = doirecs
     return doirecs
 

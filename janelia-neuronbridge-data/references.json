@@ -435,11 +435,11 @@
                     {
                         "name": "FlyWire_FAFB_v783",
                         "publishedNamePrefix": "flywire_fafb:v783",
-                        "count": 139255,
+                        "count": 61750,
                         "releases": [
                             {
                                 "FlyWire_FAFB_v783": {
-                                    "count": 139255,
+                                    "count": 61750,
                                     "dois": {
                                         "10.1101/2023.06.27.546656": "Dorkenwald et al. 2023",
                                         "10.1101/2023.06.27.546055": "Schlegel et al. 2023"

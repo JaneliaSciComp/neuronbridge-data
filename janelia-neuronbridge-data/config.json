@@ -33,15 +33,14 @@
                 "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },
             "customSearch": {
-                "searchFolder": "searchable_neurons",
                 "lmLibraries": [
                     {
                         "name": "FlyLight_Gen1_MCFO",
-                        "count": 349405
+                        "count": 349364
                     },
                     {
                         "name": "FlyLight_Split-GAL4_Drivers",
-                        "count": 66569
+                        "count": 68767
                     },
                     {
                         "name": "FlyLight_Annotator_Gen1_MCFO",
@@ -59,7 +58,8 @@
                         "publishedNamePrefix": "flywire_fafb:v783",
                         "count": 61750
                     }
-                ]
+                ],
+                "searchFolder": "searchable_neurons"
             }
         },
         "fl:open_data:vnc": {
@@ -85,15 +85,18 @@
                 "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },
             "customSearch": {
-                "searchFolder": "searchable_neurons",
                 "lmLibraries": [
                     {
                         "name": "FlyLight_Gen1_MCFO",
-                        "count": 308302
+                        "count": 292146
                     },
                     {
                         "name": "FlyLight_Split-GAL4_Drivers",
                         "count": 27158
+                    },
+                    {
+                        "name": "FlyLight_Annotator_Gen1_MCFO",
+                        "count": 28919
                     }
                 ],
                 "emLibraries": [
@@ -102,9 +105,9 @@
                         "publishedNamePrefix": "manc:v1.0",
                         "count": 29326
                     }
-                ]
+                ],
+                "searchFolder": "searchable_neurons"
             }
         }
     }
 }
-

@@ -9,6 +9,7 @@ from operator import attrgetter
 import re
 import sys
 import boto3
+from botocore.exceptions import ClientError
 import inquirer
 from inquirer.themes import BlueComposure
 from tqdm import tqdm
@@ -17,7 +18,7 @@ import doi_common.doi_common as DL
 
 # pylint: disable=broad-exception-caught,logging-fstring-interpolation
 
-__version__ = '1.1.0'
+__version__ = '1.2.0'
 
 BASE = {}
 RELEASES = {}
@@ -101,6 +102,11 @@ def read_object(bucket, key):
     try:
         data = AWSS3["client"].get_object(Bucket=bucket, Key=key)
         contents = data['Body'].read().decode("utf-8")
+    except ClientError as err:
+        if err.response['Error']['Code'] == 'NoSuchKey':
+            LOGGER.warning(f"Could not find {bucket}/{key}")
+            return None
+        raise
     except Exception as err:
         LOGGER.error(f"Could not read {bucket}/{key}")
         terminate_program(err)
@@ -135,6 +141,8 @@ def get_count(lib, template, source, release=None):
         bucket = f"{bucket}-{ARG.MANIFOLD}"
     count = read_object(bucket, f"{template}/{lib.replace(' ', '_')}/" \
                                 + "searchable_neurons/counts_denormalized.json")
+    if not count:
+        return 0
     return count["objectCount"]
 
 
@@ -155,14 +163,15 @@ def get_em_releases_block(lib, count):
         terminate_program(f"Can't parse EM library {lib}")
     if key not in EMDOI:
         terminate_program(f"Missing entry in em_dois configuration for {key} ({lib})")
-    if not EMDOI[key]:
-        terminate_program(f"Undefined DOI in em_dois configuration for {key} ({lib})")
     dois = {}
-    if isinstance(EMDOI[key], list):
-        for doi in EMDOI[key]:
-            dois[doi] =  DL.short_citation(doi)
+    if not EMDOI[key]:
+        LOGGER.warning(f"Undefined DOI in em_dois configuration for {key} ({lib})")
     else:
-        dois[EMDOI[key]] =  DL.short_citation(EMDOI[key])
+        if isinstance(EMDOI[key], list):
+            for doi in EMDOI[key]:
+                dois[doi] =  DL.short_citation(doi)
+        else:
+            dois[EMDOI[key]] =  DL.short_citation(EMDOI[key])
     payload = {lib.replace(" ", "_"): {"count": count,
                                        "dois": dois
                                       }}

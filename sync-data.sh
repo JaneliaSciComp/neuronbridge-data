@@ -39,6 +39,7 @@ if [[ -n ${NO_RUN} ]] ; then
 fi
 
 ${RUNNER} aws s3 cp ${SCRIPT_DIR}/janelia-neuronbridge-data/config.json s3://janelia-neuronbridge-data-${DATA_BUCKET_SUFFIX}/${DATA_VERSION}/config.json ${DRYRUN_ARG}
+${RUNNER} aws s3 cp ${SCRIPT_DIR}/janelia-neuronbridge-data/references.json s3://janelia-neuronbridge-data-${DATA_BUCKET_SUFFIX}/${DATA_VERSION}/references.json ${DRYRUN_ARG}
 ${RUNNER} aws s3 sync ${SCRIPT_DIR}/janelia-neuronbridge-data/schemas s3://janelia-neuronbridge-data-${DATA_BUCKET_SUFFIX}/${DATA_VERSION}/schemas ${DRYRUN_ARG}
 ${RUNNER} aws s3 cp ${SCRIPT_DIR}/janelia-neuronbridge-data/DATA_NOTES.md s3://janelia-neuronbridge-data-${DATA_BUCKET_SUFFIX}/${DATA_VERSION}/DATA_NOTES.md ${DRYRUN_ARG}
 ${RUNNER} aws s3 cp ${SCRIPT_DIR}/janelia-neuronbridge-data/next.txt s3://janelia-neuronbridge-data-${DATA_BUCKET_SUFFIX}/next.txt ${DRYRUN_ARG}

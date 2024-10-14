@@ -18,7 +18,7 @@ import doi_common.doi_common as DL
 
 # pylint: disable=broad-exception-caught,logging-fstring-interpolation
 
-__version__ = '1.2.0'
+__version__ = '1.3.0'
 
 BASE = {}
 RELEASES = {}
@@ -87,7 +87,7 @@ def get_prefix(lib):
         Returns:
           Prefix
     '''
-    return lib.replace("FlyEM ", "").replace(" ", "_").replace(" v", ":v").lower()
+    return lib.replace("FlyEM ", "").replace(" v", ":v").replace(" ", "_").lower()
 
 
 def read_object(bucket, key):

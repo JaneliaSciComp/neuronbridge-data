@@ -4,7 +4,7 @@
 
 **Flywire v783 data set**
 
-We imported SWC files and selected annotation metadata for the FlyWire Brain v783 data set (excluding any neurons with an "optic" annotation e.g. super class, since NeuronBridge does not yet support matching in the optic lobes). These 61,750 neurons were subsequently transformed to the common alignment space and exported as Color Depth MIPs. We then precomputed matches between the FlyWire Brain data set and all the current FlyLight image collections (Split GAL4, Gen1 MCFO, Gen1 Annotator MCFO). We eliminated matches with a pixel score less than 3.5%. As with the FlyEM Hemibrain, we then selected the top 300 lines for gradient scoring, but to improve performance we also restricted the number of samples to the top 3 samples per line. 
+We imported SWC files and selected annotation metadata for the [FlyWire Brain v783 data set](http://dx.doi.org/10.1038/s41586-024-07558-y) (excluding any neurons with an "optic" annotation e.g. super class, since NeuronBridge does not yet support matching in the optic lobes). These 61,750 neurons were subsequently transformed to the common alignment space and exported as Color Depth MIPs. We then precomputed matches between the FlyWire Brain data set and all the current FlyLight image collections (Split GAL4, Gen1 MCFO, Gen1 Annotator MCFO). We eliminated matches with a pixel score less than 3.5%. As with the FlyEM Hemibrain, we then selected the top 300 lines for gradient scoring, but to improve performance we also restricted the number of samples to the top 3 samples per line. 
 
 ## Data Version 3.2.1 (released on 2024-03-22)
 

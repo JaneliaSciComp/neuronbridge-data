@@ -1,16 +1,16 @@
-## Data Version 3.3.2
+## Data Version 3.3.2 (released on 2024-10-16)
 
 ### Color Depth Searches
 
-**Flywire v783 Dataset
+**Flywire v783 data set**
 
-So far we only computed the matches between the LM libraries (Split GAL4, MCFO, Annotator MCFO) and non-optic Flywire 783. The selection of the matches to be grad scor-ed was different than the selection parameters we used for FlyEM Hemibrain. For Flywire matches we selected the top 300 lines, but for each line we restricted the number of samples as well to the top 3 samples per line, unlike FlyEM Hemibrain where we selected all samples for the line. In addition we eliminated matches matches that had a relative pixel score < 3.5%. This was done in order to be able to perform the scoring in a reasonable time with reasonable memory requirements considering that non-optic Flywire library has ~65K MIPs vs 30K MIPs from FlyEM Hemibrain.
+We imported SWC files and selected annotation metadata for the [FlyWire Brain v783 data set](http://dx.doi.org/10.1038/s41586-024-07558-y) (excluding any neurons with an "optic" annotation e.g. super class, since NeuronBridge does not yet support matching in the optic lobes). These 61,750 neurons were subsequently transformed to the common alignment space and exported as Color Depth MIPs. We then precomputed matches between the FlyWire Brain data set and all the current FlyLight image collections (Split GAL4, Gen1 MCFO, Gen1 Annotator MCFO). We eliminated matches with a pixel score less than 3.5%. As with the FlyEM Hemibrain, we then selected the top 300 lines for gradient scoring, but to improve performance we also restricted the number of samples to the top 3 samples per line. 
 
 ## Data Version 3.2.1 (released on 2024-03-22)
 
 ### Color Depth Searches
 
-**LM Split-GAL4 datasets**
+**LM Split-GAL4 data sets**
 
 We added 235 brain images (derived from 94 source images) that we missed from [Split-GAL4 Omnibus Rescreen](https://doi.org/10.1101/2024.01.09.574419) in 3.2.0. These images are part of 48 lines that were updated, 3 of which are completely new.
 
@@ -18,7 +18,7 @@ We added 235 brain images (derived from 94 source images) that we missed from [S
 
 ### Color Depth Searches
 
-**New LM Split-GAL4 datasets**
+**New LM Split-GAL4 data sets**
 
 In this data release we have added a collection of cell-type-specific split-GAL4 driver lines from the recent FlyLight preprint, as well as other recently published [split-GAL4 papers](https://splitgal4.janelia.org/cgi-bin/splitgal4.cgi). Counts are given as "# searchable CDMs (# source images)".
 
@@ -67,7 +67,7 @@ In this data release we have added a collection of cell-type-specific split-GAL4
   * VNC: 30 (10)
 
 
-**Updated LM Split-GAL4 datasets**
+**Updated LM Split-GAL4 data sets**
 
 We also updated releases where some images were previously missing from NeuronBridge:
 
@@ -112,7 +112,7 @@ We also updated releases where some images were previously missing from NeuronBr
  and computed precomputed matches against all LM VNC images.
 
 ### PatchPerPix (PPP) searches
-Added PPPM results for VNC:0.5 dataset against Gen1 MCFO VNC samples.
+Added PPPM results for VNC:0.5 data set against Gen1 MCFO VNC samples.
 
 
 ## Data Version 3.0.0 (released on 2023-02-01)

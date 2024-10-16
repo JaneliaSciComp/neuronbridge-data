@@ -1,10 +1,10 @@
-## Data Version 3.3.1 - PREVIEW
+## Data Version 3.3.2
 
 ### Color Depth Searches
 
 **Flywire v783 Dataset
 
-So far we only computed the matches between the LM libraries (Split GAL4, MCFO, Annotator MCFO) and non-optic Flywire 783. Theselection of the matches to be grad scor-ed was different than the selection parameters we used for FlyEM Hemibrain. For Flywire matches we selected the top 300 lines, but for each line we restricted the number of samples as well to the top 3 samples per line, unlike FlyEM Hemibrain where we selected all samples for the line. In addition we eliminated matches matches that had a relative pixel score < 3.5%. This was done in order to be able to perform the scoring in a reasonable time with reasonable memory requirements considering that non-optic Flywire library has ~65K MIPs vs 30K MIPs from FlyEM Hemibrain.
+So far we only computed the matches between the LM libraries (Split GAL4, MCFO, Annotator MCFO) and non-optic Flywire 783. The selection of the matches to be grad scor-ed was different than the selection parameters we used for FlyEM Hemibrain. For Flywire matches we selected the top 300 lines, but for each line we restricted the number of samples as well to the top 3 samples per line, unlike FlyEM Hemibrain where we selected all samples for the line. In addition we eliminated matches matches that had a relative pixel score < 3.5%. This was done in order to be able to perform the scoring in a reasonable time with reasonable memory requirements considering that non-optic Flywire library has ~65K MIPs vs 30K MIPs from FlyEM Hemibrain.
 
 ## Data Version 3.2.1 (released on 2024-03-22)
 

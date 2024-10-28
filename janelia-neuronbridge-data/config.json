@@ -1,12 +1,12 @@
 {
     "anatomicalAreas": {
         "Brain": {
-            "label": "Brain",
-            "alignmentSpace": "JRC2018_Unisex_20x_HR"
+            "alignmentSpace": "JRC2018_Unisex_20x_HR",
+            "label": "Brain"
         },
         "VNC": {
-            "label": "Ventral Nerve Cord",
-            "alignmentSpace": "JRC2018_VNC_Unisex_40x_DS"
+            "alignmentSpace": "JRC2018_VNC_Unisex_40x_DS",
+            "label": "Ventral Nerve Cord"
         }
     },
     "stores": {
@@ -45,6 +45,10 @@
                     {
                         "name": "FlyLight_Annotator_Gen1_MCFO",
                         "count": 355179
+                    },
+                    {
+                        "name": "FlyLight_Split-GAL4_Omnibus_Broad",
+                        "count": 101486
                     }
                 ],
                 "emLibraries": [
@@ -97,6 +101,10 @@
                     {
                         "name": "FlyLight_Annotator_Gen1_MCFO",
                         "count": 28919
+                    },
+                    {
+                        "name": "FlyLight_Split-GAL4_Omnibus_Broad",
+                        "count": 61854
                     }
                 ],
                 "emLibraries": [

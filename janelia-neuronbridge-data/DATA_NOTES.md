@@ -2,7 +2,13 @@
 
 ### Color Depth Searches
 
-**Flylight IS Brain and VNC Broad Release**
+**New LM Split-GAL4 data sets**
+
+In this data release we have added a collection of cell-type-specific split-GAL4 driver lines from the recent FlyLight preprint, as well as other recently published [Split-GAL4 Omnibus Broad papers](https://flylight-raw.janelia.org/cgi-bin/raw.cgi). Counts are given as "# searchable CDMs (# source images)".
+
+* [Split-GAL4 Omnibus Broad](https://doi.org/10.1101/2024.01.09.574419)
+  * Brain: 101486 (34012)
+  * VNC: 61854 (28424)
 
 
 ## Data Version 3.3.2 (released on 2024-10-16)

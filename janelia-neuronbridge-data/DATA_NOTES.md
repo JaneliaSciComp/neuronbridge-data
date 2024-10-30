@@ -1,4 +1,4 @@
-## Data Version 3.4.0 (released on 2024-10-16)
+## Data Version 3.4.0 (released on 2024-10-30)
 
 ### Color Depth Searches
 

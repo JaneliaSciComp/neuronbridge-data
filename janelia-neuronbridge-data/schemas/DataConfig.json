@@ -58,6 +58,11 @@
           "description": "Library name or identifier",
           "type": "string"
         },
+        "count": {
+          "title": "Image count",
+          "description": "Number of images available for search",
+          "type": "integer"
+        },
         "publishedNamePrefix": {
           "title": "Published name prefix",
           "description": "Optional value that when set, is used to prefix published names. This is currently used to identify EM data set",
@@ -65,7 +70,8 @@
         }
       },
       "required": [
-        "name"
+        "name",
+        "count"
       ],
       "additionalProperties": false
     },

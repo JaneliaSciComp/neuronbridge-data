@@ -1,3 +1,15 @@
+## Data Version 3.4.1 (released TBD)
+**New LM Split-GAL4 data sets**
+
+In this data release we have added a collection of cell-type-specific split-GAL4 driver lines (the final splits or "IS" lines) from the recent [FlyLight Split-GAL4 Omnibus Broad release](https://doi.org/10.1101/2024.01.09.574419).
+* [Split-GAL4 Omnibus Broad](https://doi.org/10.1101/2024.01.09.574419)
+  * VNC: 290285 (88430)
+
+**EM data**
+* Added 24350 VNC neuron bodies from the newest (MANC 1.2.1) [FlyEM MANC release](https://www.janelia.org/project-team/flyem/manc-connectome)
+
+So far we only computed matches between the Split-Gal4 Omnibus Broad VNC (both initial splits and final splits) and MANC 1.2.1
+
 ## Data Version 3.4.0 (released on 2024-10-30)
 
 ### Color Depth Searches

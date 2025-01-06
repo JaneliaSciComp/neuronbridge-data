@@ -112,6 +112,11 @@
                         "name": "FlyEM_MANC_v1.0",
                         "publishedNamePrefix": "manc:v1.0",
                         "count": 29326
+                    },
+                    {
+                        "name": "FlyEM_MANC_v1.2.1",
+                        "publishedNamePrefix": "manc:v1.2.1",
+                        "count": 24350
                     }
                 ],
                 "searchFolder": "searchable_neurons"

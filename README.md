@@ -1,6 +1,6 @@
 # NeuronBridge Data
 
-This repository contains data schema and release notes deployed to neuronbridge data bucket - [s3://janelia-neuronbridge-data-prod](https://open.quiltdata.com/b/janelia-neuronbridge-data-prod/tree/). The repository does not contain actual precomputed data for NeuronBridge.
+This repository contains versioned data schema and release notes deployed to neuronbridge data bucket - [s3://janelia-neuronbridge-data-prod](https://open.quiltdata.com/b/janelia-neuronbridge-data-prod/tree/). The repository does not contain actual precomputed data for NeuronBridge.
 
 ## Bucket Structure
 
@@ -11,9 +11,10 @@ This repository contains data schema and release notes deployed to neuronbridge 
     * **DATA_NOTES.md** - release notes for this version of the data
     * **config.json** - data configuration (follows `schemas/DataConfig.json`)
     * **publishedNames.txt** - complete list of published names (EM and LM) included in this data version
+    * **references.json** - references (DOI and reference text) for releases in this data version
     * **schemas**
       * **DataConfig.json** - JSON schema for the `config.json` file
-      * **ImageLookup.json** - JSON schema for the
+      * **ImageLookup.json** - JSON schema for the image lookup API
       * **PrecomputedMatches.json** - JSON schema for precomputed matches in `cdsresults` and `pppresults`
       * **CustomMatches.json** - JSON schema for custom search results
     * metadata

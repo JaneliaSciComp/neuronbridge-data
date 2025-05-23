@@ -18,7 +18,7 @@ import doi_common.doi_common as DL
 
 # pylint: disable=broad-exception-caught,logging-fstring-interpolation
 
-__version__ = '1.3.0'
+__version__ = '1.4.0'
 
 BASE = {}
 RELEASES = {}
@@ -259,7 +259,8 @@ def get_libraries(area):
     for lib, val in libs.items():
         if lib in rows:
             libraries[val['name'].replace("_", " ")] = lib
-    defaults = ['FlyLight Gen1 MCFO', 'FlyLight Split-GAL4 Drivers']
+    defaults = ['FlyLight Annotator Gen1 MCFO', 'FlyLight Gen1 MCFO', 'FlyLight Split-GAL4 Drivers',
+                'FlyLight Split-GAL4 Omnibus Broad']
     quest = [inquirer.Checkbox('checklist',
              message=msg,
              choices=sorted(libraries), default=defaults)]
@@ -271,6 +272,11 @@ def get_libraries(area):
         pbar.set_description(lib)
         count = get_count(libraries[lib] if ARG.SOURCE == "mongo" else lib, \
                           AREAS[area]['alignmentSpace'], ARG.SOURCE)
+        if not count:
+            LOGGER.warning(f"No count for {lib} - trying alternate source")
+            count = get_count(libraries[lib] if ARG.SOURCE == "s3" else lib, \
+                              AREAS[area]['alignmentSpace'], ARG.SOURCE)
+            LOGGER.warning(f"Still no count for {lib}")
         if 'FlyLight' in lib:
             payload = get_lm_releases_block(libraries[lib], area)
             csblock["lmLibraries"].append({"name": lib.replace(" ", "_"),
@@ -392,7 +398,7 @@ if __name__ == '__main__':
     ARG = PARSER.parse_args()
     LOGGER = JRC.setup_logging(ARG)
     if not re.match(r"^v\d+_\d+_\d+$", ARG.VERSION):
-        terminate_program("--version must be in the format v_x_y_z; e.g. v_3_2_1")
+        terminate_program("--version must be in the format vx_y_z; e.g. v3_2_1")
     try:
         EMDOI = JRC.simplenamespace_to_dict(JRC.get_config("em_dois"))
         LMDOI = JRC.simplenamespace_to_dict(JRC.get_config("lm_dois"))

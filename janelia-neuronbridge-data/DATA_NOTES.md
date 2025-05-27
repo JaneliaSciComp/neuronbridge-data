@@ -1,8 +1,10 @@
-## Data Version 3.4.1 (released TBD)
+## Data Version 3.5.0 (released TBD)
+
 **New LM Split-GAL4 data sets**
 
 In this data release we have added a collection of cell-type-specific split-GAL4 driver lines (the final splits or "IS" lines) from the recent [FlyLight Split-GAL4 Omnibus Broad release](https://doi.org/10.1101/2024.01.09.574419).
 * [Split-GAL4 Omnibus Broad](https://doi.org/10.1101/2024.01.09.574419)
+  * Brain: 61051 (33612)
   * VNC: 290285 (88430)
 
 **EM data**

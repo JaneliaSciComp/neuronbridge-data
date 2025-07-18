@@ -1,10 +1,5 @@
 ## Data Version 3.6.0-pre (released TBD)
 
-** LM Omnibus Broad
-
-* Batch 1 (Brain) 61051 (33612)
-* Batch 4 (Brain) 28695 (17623)
-
 **New LM Split-GAL4 data sets**
 
 * Gorko et al 2024
@@ -25,8 +20,9 @@
 
 In this data release we have added a collection of cell-type-specific split-GAL4 driver lines (the final splits or "IS" lines) from the recent [FlyLight Split-GAL4 Omnibus Broad release](https://doi.org/10.1101/2024.01.09.574419).
 * [Split-GAL4 Omnibus Broad](https://doi.org/10.1101/2024.01.09.574419)
+  * Brain (Batch1) 61051 (33612)
+  * Brain (Batch4) 28695 (17623)
   * VNC: 290285 (88430)
-
 
 **EM data**
 * Added 24350 VNC neuron bodies from the newest (MANC 1.2.1) [FlyEM MANC release](https://www.janelia.org/project-team/flyem/manc-connectome)

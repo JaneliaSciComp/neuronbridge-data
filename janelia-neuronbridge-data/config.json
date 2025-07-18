@@ -27,28 +27,28 @@
                 "SignalMipExpression": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
                 "AlignedBodySWC": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
                 "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
-                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_2_1/metadata/cdsresults/",
-                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_2_1/metadata/pppmresults/",
+                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_7_0/metadata/cdsresults/",
+                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_7_0/metadata/pppmresults/",
                 "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/",
                 "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },
             "customSearch": {
                 "lmLibraries": [
                     {
+                        "name": "FlyLight_Annotator_Gen1_MCFO",
+                        "count": 355179
+                    },
+                    {
                         "name": "FlyLight_Gen1_MCFO",
                         "count": 349364
                     },
                     {
                         "name": "FlyLight_Split-GAL4_Drivers",
-                        "count": 68767
-                    },
-                    {
-                        "name": "FlyLight_Annotator_Gen1_MCFO",
-                        "count": 355179
+                        "count": 95925
                     },
                     {
                         "name": "FlyLight_Split-GAL4_Omnibus_Broad",
-                        "count": 101486
+                        "count": 292733
                     }
                 ],
                 "emLibraries": [
@@ -60,12 +60,13 @@
                     {
                         "name": "FlyWire_FAFB_v783",
                         "publishedNamePrefix": "flywire_fafb:v783",
-                        "count": 61750
+                        "count": 139255
                     }
                 ],
                 "searchFolder": "searchable_neurons"
             }
         },
+
         "fl:open_data:vnc": {
             "label": "FlyLight VNC Open Data Store",
             "anatomicalArea": "VNC",
@@ -83,40 +84,108 @@
                 "SignalMipExpression": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
                 "AlignedBodySWC": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
                 "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
-                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_2_1/metadata/cdsresults/",
-                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_2_1/metadata/pppmresults/",
+                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_7_0/metadata/cdsresults/",
+                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_7_0/metadata/pppmresults/",
                 "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/",
                 "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },
             "customSearch": {
                 "lmLibraries": [
                     {
+                        "name": "FlyLight_Annotator_Gen1_MCFO",
+                        "count": 28919
+                    },
+                    {
                         "name": "FlyLight_Gen1_MCFO",
                         "count": 292146
                     },
                     {
                         "name": "FlyLight_Split-GAL4_Drivers",
-                        "count": 27158
-                    },
-                    {
-                        "name": "FlyLight_Annotator_Gen1_MCFO",
-                        "count": 28919
+                        "count": 29470
                     },
                     {
                         "name": "FlyLight_Split-GAL4_Omnibus_Broad",
-                        "count": 61854
+                        "count": 236384
                     }
                 ],
                 "emLibraries": [
                     {
-                        "name": "FlyEM_MANC_v1.0",
-                        "publishedNamePrefix": "manc:v1.0",
-                        "count": 29326
-                    },
-                    {
                         "name": "FlyEM_MANC_v1.2.1",
                         "publishedNamePrefix": "manc:v1.2.1",
                         "count": 24350
+                    },
+                    {
+                        "name": "FlyEM_VNC_v0.5",
+                        "publishedNamePrefix": "vnc:v0.5",
+                        "count": 0
+                    }
+                ],
+                "searchFolder": "searchable_neurons"
+            }
+        },
+        "fl:internal_cns:brain": {
+            "label": "FlyEM CNS Brain Data Store",
+            "anatomicalArea": "Brain",
+            "prefixes": {
+                "CDM": "https://s3.amazonaws.com/janelia-flylight-color-depth-dev/",
+                "CDMThumbnail": "https://s3.amazonaws.com/janelia-flylight-color-depth-thumbnails-dev/",
+                "CDMInput": "https://s3.amazonaws.com/janelia-flylight-color-depth-dev/",
+                "CDMMatch": "https://s3.amazonaws.com/janelia-flylight-color-depth-dev/",
+                "CDMBest": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
+                "CDMBestThumbnail": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
+                "CDMSkel": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
+                "SignalMip": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
+                "SignalMipMasked": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
+                "SignalMipMaskedSkel": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
+                "SignalMipExpression": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
+                "AlignedBodySWC": "https://s3.amazonaws.com/janelia-flylight-color-depth-dev/",
+                "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth-dev/",
+                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prodpre/v3_6_0-pre/metadata/cdsresults/",
+                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prodpre/v3_6_0-pre/metadata/pppmresults/",
+                "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery-dev/",
+                "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery-dev/"
+            },
+            "customSearch": {
+                "lmLibraries": [],
+                "emLibraries": [
+                    {
+                        "name": "FlyEM_Male_CNS_Brain_0.8",
+                        "publishedNamePrefix": "male-cns:v0.8",
+                        "count": 128780
+                    }
+                ],
+                "searchFolder": "searchable_neurons"
+            }
+        },
+        "fl:internal_cns:vnc": {
+            "label": "FlyEM CNS VNC Data Store",
+            "anatomicalArea": "VNC",
+            "prefixes": {
+                "CDM": "https://s3.amazonaws.com/janelia-flylight-color-depth-dev/",
+                "CDMThumbnail": "https://s3.amazonaws.com/janelia-flylight-color-depth-thumbnails-dev/",
+                "CDMInput": "https://s3.amazonaws.com/janelia-flylight-color-depth-dev/",
+                "CDMMatch": "https://s3.amazonaws.com/janelia-flylight-color-depth-dev/",
+                "CDMBest": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
+                "CDMBestThumbnail": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
+                "CDMSkel": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
+                "SignalMip": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
+                "SignalMipMasked": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
+                "SignalMipMaskedSkel": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
+                "SignalMipExpression": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
+                "AlignedBodySWC": "https://s3.amazonaws.com/janelia-flylight-color-depth-dev/",
+                "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth-dev/",
+                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prodpre/v3_6_0-pre/metadata/cdsresults/",
+                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prodpre/v3_6_0-pre/metadata/pppmresults/",
+                "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery-dev/",
+                "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery-dev/"
+            },
+            "customSearch": {
+                "lmLibraries": [],
+                "emLibraries": [
+                    {
+                        "name": "FlyEM_Male_CNS_VNC_0.8",
+                        "publishedNamePrefix": "male-cns:v0.8",
+                        "count": 5411
                     }
                 ],
                 "searchFolder": "searchable_neurons"

@@ -4,6 +4,7 @@
 In this data release we have added a collection of cell-type-specific split-GAL4 driver lines (the final splits or "IS" lines) from the recent [FlyLight Split-GAL4 Omnibus Broad release](https://doi.org/10.1101/2024.01.09.574419).
 * [Split-GAL4 Omnibus Broad](https://doi.org/10.1101/2024.01.09.574419)
   * VNC: 290285 (88430)
+  
 
 **EM data**
 * Added 24350 VNC neuron bodies from the newest (MANC 1.2.1) [FlyEM MANC release](https://www.janelia.org/project-team/flyem/manc-connectome)

@@ -149,7 +149,7 @@
                 "lmLibraries": [],
                 "emLibraries": [
                     {
-                        "name": "FlyEM_Male_CNS_Brain_0.8",
+                        "name": "FlyEM_Male_CNS_Brain_v0.8",
                         "publishedNamePrefix": "male-cns:v0.8",
                         "count": 128780
                     }
@@ -183,7 +183,7 @@
                 "lmLibraries": [],
                 "emLibraries": [
                     {
-                        "name": "FlyEM_Male_CNS_VNC_0.8",
+                        "name": "FlyEM_Male_CNS_VNC_v0.8",
                         "publishedNamePrefix": "male-cns:v0.8",
                         "count": 5411
                     }

@@ -18,8 +18,9 @@ import doi_common.doi_common as DL
 
 # pylint: disable=broad-exception-caught,logging-fstring-interpolation
 
-__version__ = '1.4.0'
+__version__ = '1.5.0'
 
+AREAS = ARG = EMDOI = LMDOI = LOGGER = None
 BASE = {}
 RELEASES = {}
 # Database
@@ -156,7 +157,7 @@ def get_em_releases_block(lib, count):
     '''
     if "FlyEM" in lib:
         key = lib.replace("FlyEM ", "").lower()
-        key = re.sub(r" v.+", "", key)
+        key = re.sub(r" v\d+\..+", "", key)
     elif "FlyWire FAFB" in lib:
         key = "flywire_fafb"
     else:
@@ -198,7 +199,12 @@ def get_flylight_dois(release):
     for row in rows:
         if "in prep" in row['value'].lower():
             continue
-        dois.append(row['value'])
+        if '|' in row['value']:
+            for dval in re.split(r"\s*\|\s*", row['value']):
+                if dval not in dois:
+                    dois.append(dval)
+        else:
+            dois.append(row['value'])
     if LMDOI['global']:
         dois.extend(LMDOI['global'])
     if release in LMDOI['release']:

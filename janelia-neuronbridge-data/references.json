@@ -1172,50 +1172,6 @@
                     }
                 ]
             }
-        },
-        "fl:internal_cns:brain": {
-            "label": "FlyEM CNS Brain Data Store",
-            "anatomicalArea": "Brain",
-            "customSearch": {
-                "lmLibraries": [],
-                "emLibraries": [
-                    {
-                        "name": "FlyEM_Male_CNS_Brain_v0.8",
-                        "publishedNamePrefix": "male_cns_brain:v0.8",
-                        "count": 128780,
-                        "releases": [
-                            {
-                                "FlyEM_Male_CNS_Brain_v0.8": {
-                                    "count": 128780,
-                                    "dois": {}
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        "fl:internal_cns:vnc": {
-            "label": "FlyEM CNS VNC Data Store",
-            "anatomicalArea": "VNC",
-            "customSearch": {
-                "lmLibraries": [],
-                "emLibraries": [
-                    {
-                        "name": "FlyEM_Male_CNS_VNC_v0.8",
-                        "publishedNamePrefix": "male_cns_vnc:v0.8",
-                        "count": 5411,
-                        "releases": [
-                            {
-                                "FlyEM_Male_CNS_VNC_v0.8": {
-                                    "count": 5411,
-                                    "dois": {}
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
         }
     }
 }

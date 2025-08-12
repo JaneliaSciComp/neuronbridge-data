@@ -1,30 +1,31 @@
-## Data Version 3.6.0-pre (released TBD)
+## Data Version 3.6.0 (released TBD)
 
 **New LM Split-GAL4 data sets**
 
-* Gorko et al 2024
-  * Brain: 37 (28)
-  * VNC: 74 (36)
-* Nern et al 2024
-  * Brain: 23865 (10324)
-  * VNC: 1511 (819)
-* Schretter et al 2024
-  * Brain: 26 (21)
-  * VNC: 6(4)
-* Split-GAL4 Omnibus Rescreen
-  * Brain: 14(2)
-  * VNC: 7(7)
-* Wolff et al 2024
-  * Brain: 3119 (2430)
-  * VNC: 659(401)
+In this data release we have added the first half of a large collection of split-GAL4 driver lines, including both additional Stable Split (SS) and a new set of temporary Initial Split (IS) lines, from the recent [FlyLight Split-GAL4 Omnibus Broad release](https://doi.org/10.1101/2024.01.09.574419). We also added images from recently published [split-GAL4 papers](https://splitgal4.janelia.org/cgi-bin/splitgal4.cgi). Counts are given as "# searchable CDMs (# source images)".
 
-In this data release we have added a collection of cell-type-specific split-GAL4 driver lines (the final splits or "IS" lines) from the recent [FlyLight Split-GAL4 Omnibus Broad release](https://doi.org/10.1101/2024.01.09.574419).
 * [Split-GAL4 Omnibus Broad](https://doi.org/10.1101/2024.01.09.574419)
   * Brain (Batch1) 61051 (33612)
   * Brain (Batch4) 28695 (17623)
   * VNC: 290285 (88430)
+* [Gorko et al 2024](https://doi.org/10.1038/s41586-024-07222-5)
+  * Brain: 37 (28)
+  * VNC: 74 (36)
+* [Nern et al 2024](https://doi.org/10.1101/2024.04.16.589741)
+  * Brain: 23865 (10324)
+  * VNC: 1511 (819)
+* [Schretter et al 2024](https://doi.org/10.1038/s41586-024-08255-6)
+  * Brain: 26 (21)
+  * VNC: 6 (4)
+* [Split-GAL4 Omnibus Rescreen](https://doi.org/10.1101/2024.01.09.574419)
+  * Brain: 14 (2)
+  * VNC: 7 (7)
+* [Wolff et al 2024](https://doi.org/10.1101/2024.10.21.619448)
+  * Brain: 3119 (2430)
+  * VNC: 659 (401)
 
-**EM data**
+**Additional EM data**
+
 * Added 24350 VNC neuron bodies from the newest (MANC 1.2.1) [FlyEM MANC release](https://www.janelia.org/project-team/flyem/manc-connectome)
 
 * CNS

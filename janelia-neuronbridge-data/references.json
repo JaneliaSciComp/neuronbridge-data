@@ -587,19 +587,6 @@
                         ]
                     },
                     {
-                        "name": "FlyEM_Male_CNS_Brain_v0.8",
-                        "publishedNamePrefix": "male_cns_brain:v0.8",
-                        "count": 0,
-                        "releases": [
-                            {
-                                "FlyEM_Male_CNS_Brain_v0.8": {
-                                    "count": 0,
-                                    "dois": {}
-                                }
-                            }
-                        ]
-                    },
-                    {
                         "name": "FlyWire_FAFB_v783",
                         "publishedNamePrefix": "flywire_fafb:v783",
                         "count": 139255,
@@ -1140,19 +1127,6 @@
                                     "dois": {
                                         "10.1101/2023.06.05.543757": "Takemura et al. 2023"
                                     }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "name": "FlyEM_Male_CNS_VNC_v0.8",
-                        "publishedNamePrefix": "male_cns_vnc:v0.8",
-                        "count": 0,
-                        "releases": [
-                            {
-                                "FlyEM_Male_CNS_VNC_v0.8": {
-                                    "count": 0,
-                                    "dois": {}
                                 }
                             }
                         ]

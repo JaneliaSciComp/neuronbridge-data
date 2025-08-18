@@ -1,4 +1,4 @@
-## Data Version 3.6.0 (released TBD)
+## Data Version 3.7.1 (released TBD)
 
 **New LM Split-GAL4 data sets**
 

@@ -18,7 +18,7 @@ import doi_common.doi_common as DL
 
 # pylint: disable=broad-exception-caught,logging-fstring-interpolation
 
-__version__ = '1.5.0'
+__version__ = '1.6.0'
 
 AREAS = ARG = EMDOI = LMDOI = LOGGER = None
 BASE = {}
@@ -79,6 +79,16 @@ def initialize_program():
                                        aws_session_token=credentials['SessionToken'])
     else:
         AWSS3["client"] = boto3.client('s3')
+    if ARG.VERSION:
+        return
+    # AWS DynamoDB
+    ddbr = boto3.resource('dynamodb')
+    dtables = list(ddbr.tables.all())
+    ltable = ''
+    for tbl in dtables:
+        if tbl.name.startswith('janelia-neuronbridge-published-v'):
+            ltable = tbl.name
+    ARG.VERSION = ltable.split('-')[-1].replace('.', '_')
 
 
 def get_prefix(lib):
@@ -249,6 +259,33 @@ def get_lm_releases_block(libint, area):
     return payload
 
 
+def get_defaults(area):
+    ''' Get the default libraries for an anatomical area
+        Keyword arguments:
+          area: anatomical area
+        Returns:
+          List of default libraries
+    '''
+    defaults = []
+    try:
+        with open('janelia-neuronbridge-data/config.json', 'r', encoding='utf-8') as config_file:
+            data = json.load(config_file)
+    except Exception as err:
+        terminate_program(err)
+    for value in data['stores'].values():
+        if value['anatomicalArea'] != area:
+            continue
+        for lib, libval in value['customSearch'].items():
+            if lib not in ('lmLibraries', 'emLibraries'):
+                continue
+            for liblib in libval:
+                defaults.append(liblib['name'].replace("_", " "))
+        break
+    if not defaults:
+        terminate_program(f"No defaults found for {area}")
+    return defaults
+
+
 def get_libraries(area):
     ''' Get libraries to create a customSearch block
         Keyword arguments:
@@ -265,8 +302,7 @@ def get_libraries(area):
     for lib, val in libs.items():
         if lib in rows:
             libraries[val['name'].replace("_", " ")] = lib
-    defaults = ['FlyLight Annotator Gen1 MCFO', 'FlyLight Gen1 MCFO', 'FlyLight Split-GAL4 Drivers',
-                'FlyLight Split-GAL4 Omnibus Broad']
+    defaults = get_defaults(area)
     quest = [inquirer.Checkbox('checklist',
              message=msg,
              choices=sorted(libraries), default=defaults)]
@@ -390,7 +426,7 @@ if __name__ == '__main__':
                         default='s3', choices=['s3', 'mongo'],
                         help='Source for searchable neuron count (s3, mongo)')
     PARSER.add_argument('--version', dest='VERSION', action='store',
-                        default='v3_2_1', help='Version')
+                        help='Version')
     PARSER.add_argument('--manifold', dest='MANIFOLD', action='store',
                         default='prod', choices=['dev', 'prod'],
                         help='Manifold (dev, prod)')
@@ -403,8 +439,6 @@ if __name__ == '__main__':
                         default=False, help='Flag, Very chatty')
     ARG = PARSER.parse_args()
     LOGGER = JRC.setup_logging(ARG)
-    if not re.match(r"^v\d+_\d+_\d+$", ARG.VERSION):
-        terminate_program("--version must be in the format vx_y_z; e.g. v3_2_1")
     try:
         EMDOI = JRC.simplenamespace_to_dict(JRC.get_config("em_dois"))
         LMDOI = JRC.simplenamespace_to_dict(JRC.get_config("lm_dois"))
@@ -412,5 +446,8 @@ if __name__ == '__main__':
     except Exception as gerr:
         terminate_program(gerr)
     initialize_program()
+    if not re.match(r"^v\d+_\d+_\d+$", ARG.VERSION):
+        terminate_program("--version must be in the format vx_y_z; e.g. v3_2_1")
+    LOGGER.info(f"Using version {ARG.VERSION}")
     create_config()
     terminate_program()

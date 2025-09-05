@@ -1,4 +1,4 @@
-## Data Version 3.7.1 (released TBD)
+## Data Version 3.7.2 (released TBD)
 
 **New LM Split-GAL4 data sets**
 
@@ -6,6 +6,7 @@ In this data release we have added the first half of a large collection of split
 
 * [Split-GAL4 Omnibus Broad](https://doi.org/10.1101/2024.01.09.574419)
   * Brain (Batch1) 61051 (33612)
+  * Brain (Batch3) 25091 (14622)
   * Brain (Batch4) 28695 (17623)
   * VNC: 290285 (88430)
 * [Gorko et al 2024](https://doi.org/10.1038/s41586-024-07222-5)

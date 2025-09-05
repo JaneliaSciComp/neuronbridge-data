@@ -27,8 +27,8 @@
                 "SignalMipExpression": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
                 "AlignedBodySWC": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
                 "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
-                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_7_1/metadata/cdsresults/",
-                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_7_1/metadata/pppmresults/",
+                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_7_2/metadata/cdsresults/",
+                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_7_2/metadata/pppmresults/",
                 "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/",
                 "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },
@@ -48,7 +48,7 @@
                     },
                     {
                         "name": "FlyLight_Split-GAL4_Omnibus_Broad",
-                        "count": 292733
+                        "count": 317824
                     }
                 ],
                 "emLibraries": [
@@ -58,9 +58,9 @@
                         "count": 44477
                     },
                     {
-                        "name": "FlyWire_FAFB_v783",
-                        "publishedNamePrefix": "flywire_fafb:v783",
-                        "count": 139255
+                        "name": "FlyWire_FAFB_v783_realign",
+                        "publishedNamePrefix": "flywire_fafb:v783_realign",
+                        "count": 144005
                     }
                 ],
                 "searchFolder": "searchable_neurons"
@@ -83,8 +83,8 @@
                 "SignalMipExpression": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
                 "AlignedBodySWC": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
                 "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
-                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_7_1/metadata/cdsresults/",
-                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_7_1/metadata/pppmresults/",
+                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_7_2/metadata/cdsresults/",
+                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_7_2/metadata/pppmresults/",
                 "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/",
                 "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },

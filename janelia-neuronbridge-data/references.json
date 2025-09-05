@@ -496,11 +496,11 @@
                     },
                     {
                         "name": "FlyLight_Split-GAL4_Omnibus_Broad",
-                        "count": 292733,
+                        "count": 317824,
                         "releases": [
                             {
                                 "Split-GAL4 Omnibus Broad": {
-                                    "count": 191237,
+                                    "count": 216328,
                                     "dois": {
                                         "10.1002/cne.24512": "Wolff et al. 2018",
                                         "10.1016/j.cell.2017.06.032": "Robie et al. 2017",
@@ -588,13 +588,13 @@
                         ]
                     },
                     {
-                        "name": "FlyWire_FAFB_v783",
-                        "publishedNamePrefix": "flywire_fafb:v783",
-                        "count": 139255,
+                        "name": "FlyWire_FAFB_v783_realign",
+                        "publishedNamePrefix": "flywire_fafb:v783_realign",
+                        "count": 144005,
                         "releases": [
                             {
-                                "FlyWire_FAFB_v783": {
-                                    "count": 139255,
+                                "FlyWire_FAFB_v783_realign": {
+                                    "count": 144005,
                                     "dois": {
                                         "10.1038/s41586-024-07558-y": "Dorkenwald et al. 2024",
                                         "10.1101/2023.06.27.546055": "Schlegel et al. 2023"

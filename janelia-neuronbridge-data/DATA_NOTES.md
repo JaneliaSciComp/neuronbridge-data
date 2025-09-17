@@ -28,10 +28,6 @@ In this data release we have added the first half of a large collection of split
   * Brain: 3119 (2430)
   * VNC: 659 (401)
 
-**Flywire v783 realignment**
-
-We have improved the alignment of the Flywire dataset and recomputed all matches, this time including the optic lobes. The posterior slope area (outside of pre-synaptic prediction, cell body layer) had a ~10 µm vertical shift. This caused EM-LM mis-match to many of the medulla projection neurons through the area. The 10 µm shift is fixed but other pre-synaptic prediction regions stays as a same.
-
 **Additional MANC data**
 
 * Added 24350 VNC neuron bodies from the newest (MANC 1.2.1) [FlyEM MANC release](https://www.janelia.org/project-team/flyem/manc-connectome)

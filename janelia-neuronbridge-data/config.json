@@ -58,9 +58,9 @@
                         "count": 44477
                     },
                     {
-                        "name": "FlyWire_FAFB_v783_realign",
-                        "publishedNamePrefix": "flywire_fafb:v783_realign",
-                        "count": 144005
+                        "name": "FlyWire_FAFB_v783",
+                        "publishedNamePrefix": "flywire_fafb:v783",
+                        "count": 61750
                     }
                 ],
                 "searchFolder": "searchable_neurons"

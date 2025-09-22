@@ -1,14 +1,9 @@
-## Data Version 3.7.2 (released TBD)
+## Data Version 3.7.2 (released on 2025-09-22)
+
+In this release we added images from recently published [split-GAL4 papers](https://splitgal4.janelia.org/cgi-bin/splitgal4.cgi). We also added FlyWire matches for the recently added Initial Split (IS) lines from the [FlyLight Split-GAL4 Omnibus Broad release](https://doi.org/10.1101/2024.01.09.574419), and updated the version of the MANC data set used for our matches. Counts are given as "# searchable CDMs (# source images)".
 
 **New LM Split-GAL4 data sets**
 
-In this data release we have added the first half of a large collection of split-GAL4 driver lines, including both additional Stable Split (SS) and a new set of temporary Initial Split (IS) lines, from the recent [FlyLight Split-GAL4 Omnibus Broad release](https://doi.org/10.1101/2024.01.09.574419). We also added images from recently published [split-GAL4 papers](https://splitgal4.janelia.org/cgi-bin/splitgal4.cgi). Counts are given as "# searchable CDMs (# source images)".
-
-* [Split-GAL4 Omnibus Broad](https://doi.org/10.1101/2024.01.09.574419)
-  * Brain (Batch1) 61051 (33612)
-  * Brain (Batch3) 25091 (14622)
-  * Brain (Batch4) 28695 (17623)
-  * VNC: 290285 (88430)
 * [Gorko et al 2024](https://doi.org/10.1038/s41586-024-07222-5)
   * Brain: 37 (28)
   * VNC: 74 (36)
@@ -28,13 +23,9 @@ In this data release we have added the first half of a large collection of split
   * Brain: 3119 (2430)
   * VNC: 659 (401)
 
-**Additional MANC data**
+**Updated MANC to 1.2.1**
 
-* Added 24350 VNC neuron bodies from the newest (MANC 1.2.1) [FlyEM MANC release](https://www.janelia.org/project-team/flyem/manc-connectome)
-
-* CNS
-  * Brain 128780 (109409)
-  * VNC 5411 (3849)
+* Added 24,350 VNC neuron bodies from the newest (MANC 1.2.1) [FlyEM MANC release](https://www.janelia.org/project-team/flyem/manc-connectome)
 
 ## Data Version 3.4.0 (released on 2024-10-30)
 

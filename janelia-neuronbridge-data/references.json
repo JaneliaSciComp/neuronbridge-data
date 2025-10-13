@@ -590,15 +590,28 @@
                     {
                         "name": "FlyWire_FAFB_v783",
                         "publishedNamePrefix": "flywire_fafb:v783",
-                        "count": 61750,
+                        "count": 139255,
                         "releases": [
                             {
                                 "FlyWire_FAFB_v783": {
-                                    "count": 61750,
+                                    "count": 139255,
                                     "dois": {
                                         "10.1038/s41586-024-07558-y": "Dorkenwald et al. 2024",
                                         "10.1101/2023.06.27.546055": "Schlegel et al. 2023"
                                     }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "FlyEM_Male_CNS_Brain_v0.9",
+                        "publishedNamePrefix": "male-cns:v0.9",
+                        "count": 129399,
+                        "releases": [
+                            {
+                                "FlyEM_Male_CNS_Brain_v0.9": {
+                                    "count": 129399,
+                                    "dois": {"10.1101/2025.10.09.680999": "Berg et al. 2025"}
                                 }
                             }
                         ]
@@ -1129,6 +1142,19 @@
                                     "dois": {
                                         "10.1101/2023.06.05.543757": "Takemura et al. 2023"
                                     }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "FlyEM_Male_CNS_VNC_v0.9",
+                        "publishedNamePrefix": "male-cns:v0.9",
+                        "count": 29648,
+                        "releases": [
+                            {
+                                "FlyEM_Male_CNS_VNC_v0.9": {
+                                    "count": 29648,
+                                    "dois": {"10.1101/2025.10.09.680999": "Berg et al. 2025"}
                                 }
                             }
                         ]

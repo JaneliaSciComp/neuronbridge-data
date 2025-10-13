@@ -1,3 +1,8 @@
+## Data Version 3.8.0 (TBD)
+In this release we added images from just published FlyEM Male CNS 0.9.
+* Brain: 129399 (110050)
+* VNC: 30247 (24230)
+
 ## Data Version 3.7.2 (released on 2025-09-22)
 
 In this release we added images from recently published [split-GAL4 papers](https://splitgal4.janelia.org/cgi-bin/splitgal4.cgi). We also added FlyWire matches for the recently added Initial Split (IS) lines from the [FlyLight Split-GAL4 Omnibus Broad release](https://doi.org/10.1101/2024.01.09.574419), and updated the version of the MANC data set used for our matches. Counts are given as "# searchable CDMs (# source images)".

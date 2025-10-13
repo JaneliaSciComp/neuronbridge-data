@@ -62,8 +62,9 @@ def _update_result_files(input_dir, output_dir):
             target = output_dir / relative_path
             target.parent.mkdir(parents=True, exist_ok=True)
 
-            with open(target, "w", encoding="utf-8") as f:
-                json.dump(data, f, indent=2, ensure_ascii=False)
+            print(f'Write {target}')
+            # with open(target, "w", encoding="utf-8") as f:
+            #     json.dump(data, f, indent=2, ensure_ascii=False)
 
             updated_files = updated_files + 1
 

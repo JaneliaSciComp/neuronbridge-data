@@ -71,19 +71,20 @@ def _update_match_file(input_file, output_dir):
         alignmentSpace = input_image.get('alignmentSpace')
 
         if  alignmentSpace == 'JRC2018_Unisex_20x_HR':
-            input_image['anatomicalArea'] = 'Brain'
+            anatomical_area = 'Brain'
         elif alignmentSpace == 'JRC2018_VNC_Unisex_40x_DS':
-            input_image['anatomicalArea'] = 'VNC'
+            anatomical_area = 'VNC'
         else:
             print(f'Invalid alignment space ({alignmentSpace}) found for input image {input_image} in {input_file}')
+            return 0
         
-        for result_image in results:
-            if result_image.get('alignmentSpace') == 'JRC2018_Unisex_20x_HR':
-                result_image['anatomicalArea'] = 'Brain'
-            elif result_image.get('alignmentSpace') == 'JRC2018_VNC_Unisex_40x_DS':
-                result_image['anatomicalArea'] = 'VNC'
-            else:
+        input_image['anatomicalArea'] = anatomical_area
+        for result in results:
+            result_image = result.get('image')
+            if result_image.get('alignmentSpace') != alignmentSpace:
                 print(f'Invalid alignment space found for result image {result_image} in {input_file}')
+            else:
+                result_image['anatomicalArea'] = anatomical_area
 
         # Compute relative output path
         target = Path(f'{output_dir}/{input_filename}')

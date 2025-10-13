@@ -59,7 +59,6 @@ def _update_match_files(input_dir, output_dir, nworkers=1):
     updated_files = 0
     if nworkers > 1:
         with ProcessPoolExecutor(max_workers=nworkers) as tp:
-            tp.shutdown(cancel_futures=True)
             updated_files = reduce(lambda a, i: a + i,
                                    tp.map(_update_match_file, [(p, output_path) for p in _scan_dir(input_path)]))
     else:

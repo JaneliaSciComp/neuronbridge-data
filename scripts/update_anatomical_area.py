@@ -27,8 +27,6 @@ def _update_result_files(input_dir, output_dir):
     Args:
         input_dir (str | Path): Directory containing input JSON files.
         output_dir (str | Path): Directory to write modified files to.
-        new_area_value (str, optional): Replace the anatomicalArea with this value.
-        transform_fn (callable, optional): Function(old_value) -> new_value if custom logic is needed.
     """
     input_dir = Path(input_dir)
     output_dir = Path(output_dir)

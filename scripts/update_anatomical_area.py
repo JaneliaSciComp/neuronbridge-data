@@ -164,7 +164,7 @@ if __name__ == '__main__':
     args_parser = _define_args()
     args = args_parser.parse_args()
 
-    log_level = logging.DEBUG if args.vebose else logging.INFO
+    log_level = logging.DEBUG if args.verbose else logging.INFO
     log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     logging.basicConfig(level=log_level,
                         format=log_format,

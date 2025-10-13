@@ -60,7 +60,7 @@ def _update_match_files(input_dir, output_dir, nworkers=1):
     if nworkers > 1:
         with ProcessPoolExecutor(max_workers=nworkers) as tp:
             updated_files = reduce(lambda a, i: a + i,
-                                   tp.map(lambda p: _update_match_file(p, output_path), _scan_dir(input_path)))
+                                   tp.map(_update_match_file, [(p, output_path) for p in _scan_dir(input_path)]))
     else:
         updated_files = reduce(lambda a, i: a + i,
                                 map(lambda p: _update_match_file(p, output_path), _scan_dir(input_path)))
@@ -121,7 +121,7 @@ def _update_mips_files(input_dir, output_dir, nworkers=1):
     if nworkers > 1:
         with ProcessPoolExecutor(max_workers=nworkers) as tp:
             updated_files = reduce(lambda a, i: a + i,
-                                   tp.map(lambda p: _update_mips_file(p, output_path), _scan_dir(input_path)))
+                                   tp.map(_update_mips_file, [(p, output_path) for p in _scan_dir(input_path)]))
     else:
         updated_files = reduce(lambda a, i: a + i,
                                 map(lambda p: _update_mips_file(p, output_path), _scan_dir(input_path)))

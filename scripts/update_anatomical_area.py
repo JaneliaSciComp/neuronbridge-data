@@ -78,4 +78,4 @@ if __name__ == '__main__':
     args_parser = _define_args()
     args = args_parser.parse_args()
 
-    _update_result_files(args.input, args.output):
+    _update_result_files(args.input, args.output)

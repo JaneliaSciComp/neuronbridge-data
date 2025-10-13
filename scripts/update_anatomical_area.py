@@ -1,10 +1,15 @@
 import argparse
 import json
+import logging
 import os
+import sys
 
 from concurrent.futures import ThreadPoolExecutor
 from functools import reduce
 from pathlib import Path
+
+
+logger = logging.getLogger(__name__)
 
 
 def _define_args():
@@ -30,6 +35,11 @@ def _define_args():
                              default=1,
                              help='number of concurrent workers')
 
+    args_parser.add_argument('--verbose',
+                             default=False,
+                             action='store_true',
+                             help='log verbose')
+
     return args_parser
 
 
@@ -44,7 +54,7 @@ def _update_match_files(input_dir, output_dir, nworkers=1):
     input_path = Path(input_dir)
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
-    print(f'Update {input_path} -> {output_path}')
+    logger.info(f'Update {input_path} -> {output_path}')
 
     updated_files = 0
     if nworkers > 1:
@@ -55,7 +65,7 @@ def _update_match_files(input_dir, output_dir, nworkers=1):
         updated_files = reduce(lambda a, i: a + i,
                                 map(lambda p: _update_match_file(p, output_path), _scan_dir(input_path)))
 
-    print (f'Updated {updated_files} files from {input_path}')
+    logger.info(f'Updated {updated_files} files from {input_path}')
     
 
 def _update_match_file(input_file, output_dir):
@@ -65,7 +75,7 @@ def _update_match_file(input_file, output_dir):
         with open(input_file, "r", encoding="utf-8") as f:
             data = json.load(f)
 
-        print(f'Read matches from {input_file}')
+        logger.debug(f'Read matches from {input_file}')
         input_image = data.get("inputImage")
         results = data.get("results")
         alignmentSpace = input_image.get('alignmentSpace')
@@ -75,14 +85,14 @@ def _update_match_file(input_file, output_dir):
         elif alignmentSpace == 'JRC2018_VNC_Unisex_40x_DS':
             anatomical_area = 'VNC'
         else:
-            print(f'Invalid alignment space ({alignmentSpace}) found for input image {input_image} in {input_file}')
+            logger.error(f'Invalid alignment space ({alignmentSpace}) found for input image {input_image} in {input_file}')
             return 0
         
         input_image['anatomicalArea'] = anatomical_area
         for result in results:
             result_image = result.get('image')
             if result_image.get('alignmentSpace') != alignmentSpace:
-                print(f'Invalid alignment space found for result image {result_image} in {input_file}')
+                logger.error(f'Invalid alignment space found for result image {result_image} in {input_file}')
             else:
                 result_image['anatomicalArea'] = anatomical_area
 
@@ -90,14 +100,14 @@ def _update_match_file(input_file, output_dir):
         target = Path(f'{output_dir}/{input_filename}')
         target.parent.mkdir(parents=True, exist_ok=True)
 
-        print(f'Write updated match results {target}')
+        logger.debug(f'Write updated match results {target}')
         with open(target, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
 
         return 1
 
     except (json.JSONDecodeError, OSError) as e:
-        print(f"❌ Error processing {input_file}: {e}")
+        logger.error(f'Error processing {input_file}: {e}')
         return 0
     
 
@@ -105,7 +115,7 @@ def _update_mips_files(input_dir, output_dir, nworkers=1):
     input_path = Path(input_dir)
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
-    print(f'Update {input_path} -> {output_path}')
+    logger.info(f'Update {input_path} -> {output_path}')
 
     updated_files = 0
     if nworkers > 1:
@@ -116,7 +126,7 @@ def _update_mips_files(input_dir, output_dir, nworkers=1):
         updated_files = reduce(lambda a, i: a + i,
                                 map(lambda p: _update_mips_file(p, output_path), _scan_dir(input_path)))
     
-    print (f'Updated {updated_files} files from {input_path}')
+    logger.info(f'Updated {updated_files} files from {input_path}')
 
 
 def _update_mips_file(input_file, output_dir):
@@ -125,7 +135,7 @@ def _update_mips_file(input_file, output_dir):
         with open(input_file, "r", encoding="utf-8") as f:
             data = json.load(f)
 
-        print(f'Read MIPs from {input_file}')
+        logger.debug(f'Read MIPs from {input_file}')
         results = data.get("results")
 
         for result_image in results:
@@ -134,25 +144,34 @@ def _update_mips_file(input_file, output_dir):
             elif result_image.get("alignmentSpace") == 'JRC2018_VNC_Unisex_40x_DS':
                 result_image['anatomicaArea'] = 'VNC'
             else:
-                print(f'Invalid alignment space found for result image {result_image} in {input_file}')
+                logger.error(f'Invalid alignment space found for result image {result_image} in {input_file}')
 
         # Compute relative output path
         target = Path(f'{output_dir}/{input_filename}')
         target.parent.mkdir(parents=True, exist_ok=True)
 
-        print(f'Write updated MIPs {target}')
+        logger.debug(f'Write updated MIPs {target}')
         with open(target, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
 
         return 1
     except (json.JSONDecodeError, OSError) as e:
-        print(f"❌ Error processing {input_file}: {e}")
+        logger.error(f'Error processing {input_file}: {e}')
         return 0
     
 
 if __name__ == '__main__':
     args_parser = _define_args()
     args = args_parser.parse_args()
+
+    log_level = logging.DEBUG if args.vebose else logging.INFO
+    log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    logging.basicConfig(level=log_level,
+                        format=log_format,
+                        datefmt='%Y-%m-%d %H:%M:%S',
+                        handlers=[
+                            logging.StreamHandler(stream=sys.stdout)
+                        ])
 
     input_path = Path(args.input)
     output_path = Path(args.output)

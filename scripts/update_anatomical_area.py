@@ -65,6 +65,7 @@ def _update_match_file(input_file, output_dir):
         with open(input_file, "r", encoding="utf-8") as f:
             data = json.load(f)
 
+        print(f'Read matches from {input_file}')
         input_image = data.get("inputImage")
         results = data.get("results")
 
@@ -122,6 +123,7 @@ def _update_mips_file(input_file, output_dir):
         with open(input_file, "r", encoding="utf-8") as f:
             data = json.load(f)
 
+        print(f'Read MIPs from {input_file}')
         results = data.get("results")
 
         for result_image in results:

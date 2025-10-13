@@ -63,12 +63,13 @@ def _update_match_files(input_dir, output_dir, nworkers=1):
                                    tp.map(_update_match_file, [(p, output_path) for p in _scan_dir(input_path)]))
     else:
         updated_files = reduce(lambda a, i: a + i,
-                                map(lambda p: _update_match_file(p, output_path), _scan_dir(input_path)))
+                                map(_update_match_file, [(p, output_path) for p in _scan_dir(input_path)]))
 
     logger.info(f'Updated {updated_files} files from {input_path}')
     
 
-def _update_match_file(input_file, output_dir):
+def _update_match_file(args):
+    input_file, output_dir = args
     input_filename = os.path.basename(input_file)
 
     try:
@@ -124,12 +125,13 @@ def _update_mips_files(input_dir, output_dir, nworkers=1):
                                    tp.map(_update_mips_file, [(p, output_path) for p in _scan_dir(input_path)]))
     else:
         updated_files = reduce(lambda a, i: a + i,
-                                map(lambda p: _update_mips_file(p, output_path), _scan_dir(input_path)))
+                                map(_update_mips_file, [(p, output_path) for p in _scan_dir(input_path)]))
     
     logger.info(f'Updated {updated_files} files from {input_path}')
 
 
-def _update_mips_file(input_file, output_dir):
+def _update_mips_file(args):
+    input_file, output_dir = args
     try:
         input_filename = os.path.basename(input_file)
         with open(input_file, "r", encoding="utf-8") as f:
@@ -177,13 +179,13 @@ if __name__ == '__main__':
     output_path = Path(args.output)
     if args.what == 'mips':
         if input_path.is_file():
-            _update_mips_file(input_path, args.output)
+            _update_mips_file((input_path, args.output))
         else:
             _update_mips_files(input_path, args.output, nworkers=args.nworkers)
         
     elif args.what == 'matches':
         if input_path.is_file():
-            _update_match_file(input_path, args.output)
+            _update_match_file((input_path, args.output))
         else:
             _update_match_files(input_path, args.output, nworkers=args.nworkers)
     else:

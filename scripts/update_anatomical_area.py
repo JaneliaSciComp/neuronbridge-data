@@ -73,7 +73,7 @@ def _update_match_file(input_file, output_dir):
         elif input_image.get("alignmentSpace") == 'JRC2018_VNC_Unisex_40x_DS':
             input_image['anatomicalArea'] = 'VNC'
         else:
-            print(f'Invalid alignment space found for input image {input_image} in {path}')
+            print(f'Invalid alignment space found for input image {input_image} in {input_file}')
         
         for result_image in results:
             if result_image.get("alignmentSpace") == 'JRC2018_Unisex_20x_HR':
@@ -125,19 +125,18 @@ def _update_mips_file(input_file, output_dir):
         results = data.get("results")
 
         for result_image in results:
-            print(f'Update MIP: {result_image['id']}')
             if result_image.get("alignmentSpace") == 'JRC2018_Unisex_20x_HR':
                 result_image['anatomicalArea'] = 'Brain'
             elif result_image.get("alignmentSpace") == 'JRC2018_VNC_Unisex_40x_DS':
                 result_image['anatomicaArea'] = 'VNC'
             else:
-                print(f'Invalid alignment space found for result image {result_image} in {path}')
+                print(f'Invalid alignment space found for result image {result_image} in {input_file}')
 
         # Compute relative output path
         target = Path(f'{output_dir}/{input_filename}')
         target.parent.mkdir(parents=True, exist_ok=True)
 
-        print(f'Write {target}')
+        print(f'Write updated MIPs {target}')
         with open(target, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
 
@@ -161,7 +160,7 @@ if __name__ == '__main__':
         
     elif args.what == 'matches':
         if input_path.is_file():
-            _update_match_files(input_path, args.output)
+            _update_match_file(input_path, args.output)
         else:
             _update_match_files(input_path, args.output, nworkers=args.nworkers)
     else:

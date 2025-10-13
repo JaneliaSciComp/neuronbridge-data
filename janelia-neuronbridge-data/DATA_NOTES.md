@@ -1,5 +1,6 @@
-## Data Version 3.8.0 (TBD)
-In this release we added images from just published FlyEM Male CNS 0.9.
+## Data Version 3.8.0 (released on 2025-10-13)
+
+Added matches for the just released [FlyEM Male CNS 0.9](https://www.janelia.org/project-team/flyem/male-cns-connectome) data set:
 * Brain: 129399 (110050)
 * VNC: 30247 (24230)
 

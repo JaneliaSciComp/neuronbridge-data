@@ -2,6 +2,8 @@ import argparse
 import json
 import os
 
+from concurrent.futures import ThreadPoolExecutor
+from functools import reduce
 from pathlib import Path
 
 
@@ -18,24 +20,41 @@ def _define_args():
                              required=True,
                              help='input path')
 
-    args_parser.add_argument('-o', '--output', 
+    args_parser.add_argument('-o', '--output',
                              type=str,
                              required=True,
                              help='output path')
-    
+
+    args_parser.add_argument('--nworkers',
+                             type=int,
+                             default=1,
+                             help='number of concurrent workers')
+
     return args_parser
 
 
-def _update_match_files(input_dir, output_dir):
+def _scan_dir(d, suffix='.json'):
+    for entry in os.scandir(d):
+        if entry.is_file() and entry.name.endswith(suffix):
+            # only go 1 level for now
+            yield entry.path
+
+
+def _update_match_files(input_dir, output_dir, nworkers=1):
     input_path = Path(input_dir)
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
     print(f'Update {input_path} -> {output_path}')
 
     updated_files = 0
-    for path in input_path.rglob("*.json"):   # recursive: use glob("*.json") for non-recursive
-        updated_files = updated_files + _update_match_file(path, output_path)
-    
+    if nworkers > 1:
+        with ThreadPoolExecutor(max_workers=nworkers) as tp:
+            updated_files = reduce(lambda a, i: a + i,
+                                   tp.map(lambda p: _update_match_file(p, output_path), _scan_dir(input_path)))
+    else:
+        updated_files = reduce(lambda a, i: a + i,
+                                map(lambda p: _update_match_file(p, output_path), _scan_dir(input_path)))
+
     print (f'Updated {updated_files} files from {input_path}')
     
 
@@ -68,7 +87,7 @@ def _update_match_file(input_file, output_dir):
         target = Path(f'{output_dir}/{input_filename}')
         target.parent.mkdir(parents=True, exist_ok=True)
 
-        print(f'Write {target}')
+        print(f'Write updated match results {target}')
         with open(target, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
 
@@ -79,15 +98,20 @@ def _update_match_file(input_file, output_dir):
         return 0
     
 
-def _update_mips_files(input_dir, output_dir):
+def _update_mips_files(input_dir, output_dir, nworkers=1):
     input_path = Path(input_dir)
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
     print(f'Update {input_path} -> {output_path}')
 
     updated_files = 0
-    for path in input_path.rglob("*.json"):   # recursive: use glob("*.json") for non-recursive
-        updated_files = updated_files + _update_mips_file(path, output_path)
+    if nworkers > 1:
+        with ThreadPoolExecutor(max_workers=nworkers) as tp:
+            updated_files = reduce(lambda a, i: a + i,
+                                   tp.map(lambda p: _update_mips_file(p, output_path), _scan_dir(input_path)))
+    else:
+        updated_files = reduce(lambda a, i: a + i,
+                                map(lambda p: _update_mips_file(p, output_path), _scan_dir(input_path)))
     
     print (f'Updated {updated_files} files from {input_path}')
 
@@ -133,12 +157,12 @@ if __name__ == '__main__':
         if input_path.is_file():
             _update_mips_file(input_path, args.output)
         else:
-            _update_mips_files(input_path, args.output)
+            _update_mips_files(input_path, args.output, nworkers=args.nworkers)
         
     elif args.what == 'matches':
         if input_path.is_file():
             _update_match_files(input_path, args.output)
         else:
-            _update_match_files(input_path, args.output)
+            _update_match_files(input_path, args.output, nworkers=args.nworkers)
     else:
         print(f'Invalid {args.what} - valid values are: mips, matches')

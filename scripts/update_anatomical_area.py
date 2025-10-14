@@ -144,7 +144,7 @@ def _update_mips_file(args):
             if result_image.get("alignmentSpace") == 'JRC2018_Unisex_20x_HR':
                 result_image['anatomicalArea'] = 'Brain'
             elif result_image.get("alignmentSpace") == 'JRC2018_VNC_Unisex_40x_DS':
-                result_image['anatomicaArea'] = 'VNC'
+                result_image['anatomicalArea'] = 'VNC'
             else:
                 logger.error(f'Invalid alignment space found for result image {result_image} in {input_file}')
 

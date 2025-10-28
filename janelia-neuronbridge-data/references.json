@@ -16,42 +16,6 @@
             "customSearch": {
                 "lmLibraries": [
                     {
-                        "name": "FlyLight_Annotator_Gen1_MCFO",
-                        "count": 355179,
-                        "releases": [
-                            {
-                                "Annotator Gen1 MCFO": {
-                                    "count": 355179,
-                                    "dois": {
-                                        "10.1016/j.celrep.2012.09.011": "Jenett et al. 2012",
-                                        "10.1016/j.cub.2019.01.009": "Jovanic et al. 2019",
-                                        "10.1101/198648": "Tirian et al. 2017",
-                                        "10.1534/genetics.118.300682": "Dionne et al. 2018",
-                                        "10.7554/eLife.80660": "Meissner et al. 2023"
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "name": "FlyLight_Gen1_MCFO",
-                        "count": 349364,
-                        "releases": [
-                            {
-                                "Gen1 MCFO": {
-                                    "count": 349405,
-                                    "dois": {
-                                        "10.1016/j.celrep.2012.09.011": "Jenett et al. 2012",
-                                        "10.1101/198648": "Tirian et al. 2017",
-                                        "10.1534/genetics.110.119917": "Pfeiffer et al. 2010",
-                                        "10.1534/genetics.118.300682": "Dionne et al. 2018",
-                                        "10.7554/eLife.80660": "Meissner et al. 2023"
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
                         "name": "FlyLight_Split-GAL4_Drivers",
                         "count": 96582,
                         "releases": [
@@ -617,6 +581,51 @@
                         ]
                     }
                 ]
+            }
+        },
+        "fl:janelia_data:brain": {
+            "label": "FlyLight Janelia Data Store",
+            "anatomicalArea": "Brain",
+            "customSearch": {
+                "lmLibraries": [
+                    {
+                        "name": "FlyLight_Annotator_Gen1_MCFO",
+                        "count": 355179,
+                        "releases": [
+                            {
+                                "Annotator Gen1 MCFO": {
+                                    "count": 355179,
+                                    "dois": {
+                                        "10.1016/j.celrep.2012.09.011": "Jenett et al. 2012",
+                                        "10.1016/j.cub.2019.01.009": "Jovanic et al. 2019",
+                                        "10.1101/198648": "Tirian et al. 2017",
+                                        "10.1534/genetics.118.300682": "Dionne et al. 2018",
+                                        "10.7554/eLife.80660": "Meissner et al. 2023"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "FlyLight_Gen1_MCFO",
+                        "count": 349364,
+                        "releases": [
+                            {
+                                "Gen1 MCFO": {
+                                    "count": 349405,
+                                    "dois": {
+                                        "10.1016/j.celrep.2012.09.011": "Jenett et al. 2012",
+                                        "10.1101/198648": "Tirian et al. 2017",
+                                        "10.1534/genetics.110.119917": "Pfeiffer et al. 2010",
+                                        "10.1534/genetics.118.300682": "Dionne et al. 2018",
+                                        "10.7554/eLife.80660": "Meissner et al. 2023"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "emLibraries": []
             }
         },
         "fl:open_data:vnc": {

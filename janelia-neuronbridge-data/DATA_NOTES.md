@@ -1,8 +1,11 @@
-## Data Version 3.8.0 (released on 2025-10-13)
+## Data Version 3.8.1 (TBD)
 
 Added matches for the just released [FlyEM Male CNS 0.9](https://www.janelia.org/project-team/flyem/male-cns-connectome) data set:
 * Brain: 129399 (110050)
 * VNC: 30247 (24230)
+
+### Precompute changes
+For brain MCFO and Annotator MCFO matches we changed the threshold for the gradient scoring from the default value (100) to 20. At the same time we changed the radius used for ZGap max filter from 20px to 10px.
 
 ## Data Version 3.7.2 (released on 2025-09-22)
 

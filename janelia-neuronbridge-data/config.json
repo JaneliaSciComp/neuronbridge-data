@@ -33,6 +33,7 @@
                 "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },
             "customSearch": {
+                "defaultSearchLibrary": "FlyLight_Gen1_MCFO_v1.1",
                 "lmLibraries": [
                     {
                         "name": "FlyLight_Split-GAL4_Drivers",
@@ -94,6 +95,7 @@
                 "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },
             "customSearch": {
+                "defaultSearchLibrary": "FlyLight_Gen1_MCFO",
                 "lmLibraries": [
                     {
                         "name": "FlyLight_Annotator_Gen1_MCFO",

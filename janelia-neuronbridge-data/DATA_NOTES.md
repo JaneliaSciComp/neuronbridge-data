@@ -1,11 +1,15 @@
 ## Data Version 3.8.1 (TBD)
 
-Added matches for the just released [FlyEM Male CNS 0.9](https://www.janelia.org/project-team/flyem/male-cns-connectome) data set:
+We added matches for the recently released [FlyEM Male CNS 0.9](https://www.janelia.org/project-team/flyem/male-cns-connectome) data set:
 * Brain: 129399 (110050)
 * VNC: 30247 (24230)
 
-### Precompute changes
-For brain MCFO and Annotator MCFO matches we changed the threshold for the gradient scoring from the default value (100) to 20. At the same time we changed the radius used for ZGap max filter from 20px to 10px.
+### Changes to existing data sets
+
+We recomputed matches for the brain images from Gen1 MCFO and Gen1 Annotator MCFO using new parameters. We changed the threshold for the gradient scoring from the default value (100) to 20. We also modified the radius used for ZGap max filter from 20px to 10px. Finally, the text labels were removed from the segmented color depth MIPs used for matching. We found that certain (long) labels were being incorrectly included in of the match score calculations.
+
+We improved the alignment of the Flywire dataset and recomputed all matches, this time including the optic lobes. With the previous alignment, the posterior slope area (outside of pre-synaptic prediction, cell body layer) had a ~10 µm vertical shift. This caused EM-LM mismatch to many of the medulla projection neurons in the area. The 10 µm shift has been fixed and other pre-synaptic prediction regions stay the same.
+
 
 ## Data Version 3.7.2 (released on 2025-09-22)
 

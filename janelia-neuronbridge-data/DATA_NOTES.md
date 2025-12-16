@@ -1,3 +1,10 @@
+## Data Version 3.9.0 (TBD)
+
+We added matches for brain Omnibus Broad stable split data set:
+* Brain: 222526 (140435)
+
+The gradient scores for all the Omnibus Broad brain samples was computed using a 10px ZGap
+
 ## Data Version 3.8.1 (released on 2025-11-07)
 
 We added matches for the recently released [FlyEM Male CNS 0.9](https://www.janelia.org/project-team/flyem/male-cns-connectome) data set:

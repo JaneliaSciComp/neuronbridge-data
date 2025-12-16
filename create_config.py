@@ -55,7 +55,7 @@ def initialize_program():
         dbconfig = JRC.get_config("databases")
     except Exception as err:
         terminate_program(err)
-    for source in ['sage', 'neuronbridge']:
+    for source in ['sage', 'neuronbridge', 'dis']:
         dbo = attrgetter(f"{source}.prod.read")(dbconfig)
         LOGGER.info("Connecting to %s prod on %s as %s", dbo.name, dbo.host, dbo.user)
         try:
@@ -168,6 +168,7 @@ def get_em_releases_block(lib, count):
     if "FlyEM" in lib:
         key = lib.replace("FlyEM ", "").lower()
         key = re.sub(r" v\d+\..+", "", key)
+        key = key.replace(' ', '_')
     elif "FlyWire FAFB" in lib:
         key = "flywire_fafb"
     else:
@@ -180,9 +181,9 @@ def get_em_releases_block(lib, count):
     else:
         if isinstance(EMDOI[key], list):
             for doi in EMDOI[key]:
-                dois[doi] =  DL.short_citation(doi)
+                dois[doi] =  DL.short_citation(doi, coll=DB['dis'].dois)
         else:
-            dois[EMDOI[key]] =  DL.short_citation(EMDOI[key])
+            dois[EMDOI[key]] =  DL.short_citation(EMDOI[key], coll=DB['dis'].dois)
     payload = {lib.replace(" ", "_"): {"count": count,
                                        "dois": dois
                                       }}
@@ -221,7 +222,7 @@ def get_flylight_dois(release):
         dois.extend(LMDOI['release'][release])
     doirecs = {}
     for doi in dois:
-        doirecs[doi] = DL.short_citation(doi)
+        doirecs[doi] = DL.short_citation(doi, coll=DB['dis'].dois)
     RELEASES[release] = doirecs
     return doirecs
 

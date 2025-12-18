@@ -16,6 +16,42 @@
             "customSearch": {
                 "lmLibraries": [
                     {
+                        "name": "FlyLight_Annotator_Gen1_MCFO_v1.1",
+                        "count": 311222,
+                        "releases": [
+                            {
+                                "Annotator Gen1 MCFO": {
+                                    "count": 311222,
+                                    "dois": {
+                                        "10.1016/j.celrep.2012.09.011": "Jenett et al. 2012",
+                                        "10.1016/j.cub.2019.01.009": "Jovanic et al. 2019",
+                                        "10.1101/198648": "Tirian et al. 2017",
+                                        "10.1534/genetics.118.300682": "Dionne et al. 2018",
+                                        "10.7554/eLife.80660": "Meissner et al. 2023"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "FlyLight_Gen1_MCFO_v1.1",
+                        "count": 346342,
+                        "releases": [
+                            {
+                                "Gen1 MCFO": {
+                                    "count": 346342,
+                                    "dois": {
+                                        "10.1016/j.celrep.2012.09.011": "Jenett et al. 2012",
+                                        "10.1101/198648": "Tirian et al. 2017",
+                                        "10.1534/genetics.110.119917": "Pfeiffer et al. 2010",
+                                        "10.1534/genetics.118.300682": "Dionne et al. 2018",
+                                        "10.7554/eLife.80660": "Meissner et al. 2023"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
                         "name": "FlyLight_Split-GAL4_Drivers",
                         "count": 96582,
                         "releases": [
@@ -464,7 +500,7 @@
                         "releases": [
                             {
                                 "Split-GAL4 Omnibus Broad": {
-                                    "count": 216328,
+                                    "count": 323992,
                                     "dois": {
                                         "10.1002/cne.24512": "Wolff et al. 2018",
                                         "10.1016/j.cell.2017.06.032": "Robie et al. 2017",
@@ -533,42 +569,6 @@
                                 }
                             }
                         ]
-                    },
-                    {
-                        "name": "FlyLight_Annotator_Gen1_MCFO_v1.1",
-                        "count": 355179,
-                        "releases": [
-                            {
-                                "Annotator Gen1 MCFO": {
-                                    "count": 355179,
-                                    "dois": {
-                                        "10.1016/j.celrep.2012.09.011": "Jenett et al. 2012",
-                                        "10.1016/j.cub.2019.01.009": "Jovanic et al. 2019",
-                                        "10.1101/198648": "Tirian et al. 2017",
-                                        "10.1534/genetics.118.300682": "Dionne et al. 2018",
-                                        "10.7554/eLife.80660": "Meissner et al. 2023"
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "name": "FlyLight_Gen1_MCFO_v1.1",
-                        "count": 349364,
-                        "releases": [
-                            {
-                                "Gen1 MCFO": {
-                                    "count": 349405,
-                                    "dois": {
-                                        "10.1016/j.celrep.2012.09.011": "Jenett et al. 2012",
-                                        "10.1101/198648": "Tirian et al. 2017",
-                                        "10.1534/genetics.110.119917": "Pfeiffer et al. 2010",
-                                        "10.1534/genetics.118.300682": "Dionne et al. 2018",
-                                        "10.7554/eLife.80660": "Meissner et al. 2023"
-                                    }
-                                }
-                            }
-                        ]
                     }
                 ],
                 "emLibraries": [
@@ -588,22 +588,6 @@
                         ]
                     },
                     {
-                        "name": "FlyWire_FAFB_v783",
-                        "publishedNamePrefix": "flywire_fafb:v783",
-                        "count": 139255,
-                        "releases": [
-                            {
-                                "FlyWire_FAFB_v783": {
-                                    "count": 139255,
-                                    "dois": {
-                                        "10.1038/s41586-024-07558-y": "Dorkenwald et al. 2024",
-                                        "10.1101/2023.06.27.546055": "Schlegel et al. 2023"
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
                         "name": "FlyEM_Male_CNS_Brain_v0.9",
                         "publishedNamePrefix": "male-cns:v0.9",
                         "count": 129399,
@@ -611,7 +595,25 @@
                             {
                                 "FlyEM_Male_CNS_Brain_v0.9": {
                                     "count": 129399,
-                                    "dois": {"10.1101/2025.10.09.680999": "Berg et al. 2025"}
+                                    "dois": {
+                                        "10.1101/2025.10.09.680999": "Berg et al. 2025"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "FlyWire_FAFB_v783_realign",
+                        "publishedNamePrefix": "flywire_fafb:v783",
+                        "count": 144005,
+                        "releases": [
+                            {
+                                "FlyWire_FAFB_v783_realign": {
+                                    "count": 144005,
+                                    "dois": {
+                                        "10.1038/s41586-024-07558-y": "Dorkenwald et al. 2024",
+                                        "10.1101/2023.06.27.546055": "Schlegel et al. 2023"
+                                    }
                                 }
                             }
                         ]
@@ -1154,7 +1156,9 @@
                             {
                                 "FlyEM_Male_CNS_VNC_v0.9": {
                                     "count": 29648,
-                                    "dois": {"10.1101/2025.10.09.680999": "Berg et al. 2025"}
+                                    "dois": {
+                                        "10.1101/2025.10.09.680999": "Berg et al. 2025"
+                                    }
                                 }
                             }
                         ]

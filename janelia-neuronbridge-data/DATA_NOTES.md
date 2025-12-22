@@ -1,13 +1,12 @@
-## Data Version 3.9.0 (TBD)
+## Data Version 3.9.0 (released on 2025-12-23)
 
 **New LM Split-GAL4 data sets**
 
-In this data release we have added the stable splits from [FlyLight Split-GAL4 Omnibus Broad release](https://doi.org/10.1101/2024.01.09.574419).
+In this data release we have added the stable splits from the [FlyLight Split-GAL4 Omnibus Broad release](https://doi.org/10.1101/2024.01.09.574419):
 * Brain: 213176 (135693)
 * VNC: 172765(78086)
 
-
-The gradient scores for all the Omnibus Broad brain samples was computed using a 10px ZGap. Also the for Brain stable splits we used a new more strict filter which eliminated a lot more MIPs compared to the VNC stable splits for which we still used the old filter.
+Gradient scores for the Omnibus Broad Brain samples were computed using a 10px ZGap. For Brain stable splits we used a stricter filter which eliminated more "junk" neuron fragments.
 
 ## Data Version 3.8.1 (released on 2025-11-07)
 

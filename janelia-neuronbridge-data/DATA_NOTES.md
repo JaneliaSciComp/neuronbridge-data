@@ -2,7 +2,7 @@
 
 **New LM Split-GAL4 data sets**
 
-In this data release we have added the stable splits from the [FlyLight Split-GAL4 Omnibus Broad release](https://doi.org/10.1101/2024.01.09.574419):
+In this data release we have added the stable splits from the [FlyLight Split-GAL4 Omnibus Broad release](https://doi.org/10.7554/eLife.98405):
 * Brain: 213176 (135693)
 * VNC: 172765(78086)
 

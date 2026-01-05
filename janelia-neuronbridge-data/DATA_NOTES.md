@@ -1,4 +1,4 @@
-## Data Version 3.9.0 (released on 2025-12-23)
+## Data Version 3.9.0 (released on 2026-01-05)
 
 **New LM Split-GAL4 data sets**
 

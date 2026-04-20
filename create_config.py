@@ -18,11 +18,12 @@ import doi_common.doi_common as DL
 
 # pylint: disable=broad-exception-caught,logging-fstring-interpolation
 
-__version__ = '1.6.0'
+__version__ = '1.7.0'
 
 AREAS = ARG = EMDOI = LMDOI = LOGGER = None
 BASE = {}
 RELEASES = {}
+OUTLOG = []
 # Database
 DB = {}
 # AWS S3
@@ -133,9 +134,13 @@ def get_count(lib, template, source, release=None):
         Returns:
           Count
     '''
+    bucket = "janelia-flylight-color-depth"
+    if ARG.MANIFOLD != "prod":
+        bucket = f"{bucket}-{ARG.MANIFOLD}"
     if source == "mongo":
         coll = DB['nb'].publishedURL
         payload = {"libraryName": lib, "alignmentSpace": template}
+        payload['uploaded.searchable_neurons'] = {"$regex": f"{bucket}/"}
         if release:
             payload["alpsRelease"] = release
         else:
@@ -146,14 +151,16 @@ def get_count(lib, template, source, release=None):
             with open(f"{lib}_{template}.txt", 'w', encoding='ascii') as outfile:
                 for row in rows:
                     outfile.write(f"{row['uploaded']['searchable_neurons']}\n")
+        msg = f"Got count {count} from publishedURL for {lib}/{template}"
+        if release:
+            msg += f"/{release}"
+        OUTLOG.append(msg)
         return count
-    bucket = "janelia-flylight-color-depth"
-    if ARG.MANIFOLD != "prod":
-        bucket = f"{bucket}-{ARG.MANIFOLD}"
-    count = read_object(bucket, f"{template}/{lib.replace(' ', '_')}/" \
-                                + "searchable_neurons/counts_denormalized.json")
+    key = f"{template}/{lib.replace(' ', '_')}/searchable_neurons/counts_denormalized.json"
+    count = read_object(bucket, key)
     if not count:
         return 0
+    OUTLOG.append(f"Got count {count['objectCount']} from {key}")
     return count["objectCount"]
 
 
@@ -181,9 +188,17 @@ def get_em_releases_block(lib, count):
     else:
         if isinstance(EMDOI[key], list):
             for doi in EMDOI[key]:
-                dois[doi] =  DL.short_citation(doi, coll=DB['dis'].dois)
+                try:
+                    dois[doi] =  DL.short_citation(doi, coll=DB['dis'].dois)
+                except Exception as err:
+                    LOGGER.error(f"Could not get DOI {doi}")
+                    terminate_program(err)
         else:
-            dois[EMDOI[key]] =  DL.short_citation(EMDOI[key], coll=DB['dis'].dois)
+            try:
+                dois[EMDOI[key]] =  DL.short_citation(EMDOI[key], coll=DB['dis'].dois)
+            except Exception as err:
+                LOGGER.error(f"Could not get DOI {EMDOI[key]}")
+                terminate_program(err)
     payload = {lib.replace(" ", "_"): {"count": count,
                                        "dois": dois
                                       }}
@@ -222,7 +237,12 @@ def get_flylight_dois(release):
         dois.extend(LMDOI['release'][release])
     doirecs = {}
     for doi in dois:
-        doirecs[doi] = DL.short_citation(doi, coll=DB['dis'].dois)
+        doi = doi.lower()
+        try:
+            doirecs[doi] = DL.short_citation(doi, coll=DB['dis'].dois)
+        except Exception as err:
+            LOGGER.error(f"Could not get DOI {doi}")
+            terminate_program(err)
     RELEASES[release] = doirecs
     return doirecs
 
@@ -417,6 +437,14 @@ def create_config():
         LOGGER.error("Could not write new_config.json")
         terminate_program(err)
     print("Wrote references.json")
+    try:
+        with open("config_log.txt", "w", encoding="ascii") as outstream:
+            for log in OUTLOG:
+                outstream.write(log + "\n")
+    except Exception as err:
+        LOGGER.error("Could not write config_log.txt")
+        terminate_program(err)
+    print("Wrote config_log.txt")
 
 # -----------------------------------------------------------------------------
 

@@ -27,7 +27,7 @@
                                         "10.1016/j.cub.2019.01.009": "Jovanic et al. 2019",
                                         "10.1101/198648": "Tirian et al. 2017",
                                         "10.1534/genetics.118.300682": "Dionne et al. 2018",
-                                        "10.7554/eLife.80660": "Meissner et al. 2023"
+                                        "10.7554/elife.80660": "Meissner et al. 2023"
                                     }
                                 }
                             }
@@ -45,7 +45,7 @@
                                         "10.1101/198648": "Tirian et al. 2017",
                                         "10.1534/genetics.110.119917": "Pfeiffer et al. 2010",
                                         "10.1534/genetics.118.300682": "Dionne et al. 2018",
-                                        "10.7554/eLife.80660": "Meissner et al. 2023"
+                                        "10.7554/elife.80660": "Meissner et al. 2023"
                                     }
                                 }
                             }
@@ -79,13 +79,13 @@
                                         "10.1101/2023.09.15.557808": "Shuai et al. 2023",
                                         "10.1371/journal.pone.0164516": "Montague et al. 2016",
                                         "10.1371/journal.pone.0236495": "Bogovic et al. 2020",
-                                        "10.7554/eLife.04577": "Aso et al. 2014",
-                                        "10.7554/eLife.14009": "Vogt et al. 2016",
-                                        "10.7554/eLife.16135": "Aso et al. 2016",
-                                        "10.7554/eLife.43079": "Dolan et al. 2019",
-                                        "10.7554/eLife.58942": "Schretter et al. 2020",
-                                        "10.7554/eLife.63450": "Xie et al. 2021",
-                                        "10.7554/eLife.94168": "Shuai et al. 2025"
+                                        "10.7554/elife.04577": "Aso et al. 2014",
+                                        "10.7554/elife.14009": "Vogt et al. 2016",
+                                        "10.7554/elife.16135": "Aso et al. 2016",
+                                        "10.7554/elife.43079": "Dolan et al. 2019",
+                                        "10.7554/elife.58942": "Schretter et al. 2020",
+                                        "10.7554/elife.63450": "Xie et al. 2021",
+                                        "10.7554/elife.94168": "Shuai et al. 2025"
                                     }
                                 }
                             },
@@ -93,9 +93,9 @@
                                 "Aso&Rubin 2016": {
                                     "count": 22,
                                     "dois": {
-                                        "10.7554/eLife.04577": "Aso et al. 2014",
-                                        "10.7554/eLife.16135": "Aso et al. 2016",
-                                        "10.7554/eLife.94168": "Shuai et al. 2025"
+                                        "10.7554/elife.04577": "Aso et al. 2014",
+                                        "10.7554/elife.16135": "Aso et al. 2016",
+                                        "10.7554/elife.94168": "Shuai et al. 2025"
                                     }
                                 }
                             },
@@ -129,7 +129,7 @@
                                     "dois": {
                                         "10.1101/2023.06.07.543976": "Cheong et al. 2023",
                                         "10.1101/2025.02.22.639679": "Zung et al. 2025",
-                                        "10.7554/eLife.34272": "Namiki et al. 2018"
+                                        "10.7554/elife.34272": "Namiki et al. 2018"
                                     }
                                 }
                             },
@@ -145,7 +145,7 @@
                                 "Descending Neurons 2018": {
                                     "count": 1052,
                                     "dois": {
-                                        "10.7554/eLife.34272": "Namiki et al. 2018"
+                                        "10.7554/elife.34272": "Namiki et al. 2018"
                                     }
                                 }
                             },
@@ -172,7 +172,7 @@
                                     "count": 31,
                                     "dois": {
                                         "10.1126/science.aau8302": "Gao et al. 2019",
-                                        "10.7554/eLife.02395": "Vogt et al. 2014"
+                                        "10.7554/elife.02395": "Vogt et al. 2014"
                                     }
                                 }
                             },
@@ -188,7 +188,7 @@
                                 "Hulse et al. 2021": {
                                     "count": 20,
                                     "dois": {
-                                        "10.7554/eLife.66039": "Hulse et al. 2021"
+                                        "10.7554/elife.66039": "Hulse et al. 2021"
                                     }
                                 }
                             },
@@ -212,7 +212,7 @@
                                 "LC Paper": {
                                     "count": 766,
                                     "dois": {
-                                        "10.7554/eLife.21022": "Wu et al. 2016"
+                                        "10.7554/elife.21022": "Wu et al. 2016"
                                     }
                                 }
                             },
@@ -220,8 +220,8 @@
                                 "LC6 downstream 2020": {
                                     "count": 235,
                                     "dois": {
-                                        "10.7554/eLife.21022": "Wu et al. 2016",
-                                        "10.7554/eLife.57685": "Morimoto et al. 2020"
+                                        "10.7554/elife.21022": "Wu et al. 2016",
+                                        "10.7554/elife.57685": "Morimoto et al. 2020"
                                     }
                                 }
                             },
@@ -238,8 +238,8 @@
                                     "count": 2131,
                                     "dois": {
                                         "10.1101/404277": "Dolan et al. 2018",
-                                        "10.7554/eLife.04577": "Aso et al. 2014",
-                                        "10.7554/eLife.43079": "Dolan et al. 2019"
+                                        "10.7554/elife.04577": "Aso et al. 2014",
+                                        "10.7554/elife.43079": "Dolan et al. 2019"
                                     }
                                 }
                             },
@@ -247,7 +247,7 @@
                                 "Lillvis 2022": {
                                     "count": 11,
                                     "dois": {
-                                        "10.7554/eLife.81248": "Lillvis et al. 2022"
+                                        "10.7554/elife.81248": "Lillvis et al. 2022"
                                     }
                                 }
                             },
@@ -271,7 +271,7 @@
                                 "MB Paper 2014": {
                                     "count": 1515,
                                     "dois": {
-                                        "10.7554/eLife.04577": "Aso et al. 2014"
+                                        "10.7554/elife.04577": "Aso et al. 2014"
                                     }
                                 }
                             },
@@ -304,9 +304,9 @@
                                     "count": 25694,
                                     "dois": {
                                         "10.1101/2024.04.16.589741": "Nern et al. 2024",
-                                        "10.7554/eLife.21022": "Wu et al. 2016",
-                                        "10.7554/eLife.43079": "Dolan et al. 2019",
-                                        "10.7554/eLife.94168": "Shuai et al. 2025"
+                                        "10.7554/elife.21022": "Wu et al. 2016",
+                                        "10.7554/elife.43079": "Dolan et al. 2019",
+                                        "10.7554/elife.94168": "Shuai et al. 2025"
                                     }
                                 }
                             },
@@ -314,7 +314,7 @@
                                 "Optic lobe TAPIN-Seq 2020": {
                                     "count": 340,
                                     "dois": {
-                                        "10.7554/eLife.50901": "Davis et al. 2020"
+                                        "10.7554/elife.50901": "Davis et al. 2020"
                                     }
                                 }
                             },
@@ -322,7 +322,7 @@
                                 "R7R8 targets 2021": {
                                     "count": 92,
                                     "dois": {
-                                        "10.7554/eLife.71858": "Kind et al. 2021"
+                                        "10.7554/elife.71858": "Kind et al. 2021"
                                     }
                                 }
                             },
@@ -338,7 +338,7 @@
                                 "Rubin & Aso 2023": {
                                     "count": 278,
                                     "dois": {
-                                        "10.7554/eLife.90523": "Rubin et al. 2024"
+                                        "10.7554/elife.90523": "Rubin et al. 2024"
                                     }
                                 }
                             },
@@ -346,7 +346,7 @@
                                 "SEZ 2021": {
                                     "count": 4176,
                                     "dois": {
-                                        "10.7554/eLife.71679": "Sterne et al. 2021"
+                                        "10.7554/elife.71679": "Sterne et al. 2021"
                                     }
                                 }
                             },
@@ -362,7 +362,7 @@
                                 "Schretter et al. 2020": {
                                     "count": 41,
                                     "dois": {
-                                        "10.7554/eLife.58942": "Schretter et al. 2020"
+                                        "10.7554/elife.58942": "Schretter et al. 2020"
                                     }
                                 }
                             },
@@ -401,19 +401,19 @@
                                         "10.1101/2024.10.21.619448": "Wolff et al. 2024",
                                         "10.1371/journal.pone.0236495": "Bogovic et al. 2020",
                                         "10.25378/janelia.23726103": "Minegishi et al. 2023",
-                                        "10.7554/eLife.04577": "Aso et al. 2014",
-                                        "10.7554/eLife.16135": "Aso et al. 2016",
-                                        "10.7554/eLife.21022": "Wu et al. 2016",
-                                        "10.7554/eLife.24394": "Takemura et al. 2017",
-                                        "10.7554/eLife.34272": "Namiki et al. 2018",
-                                        "10.7554/eLife.50901": "Davis et al. 2020",
-                                        "10.7554/eLife.57685": "Morimoto et al. 2020",
-                                        "10.7554/eLife.58942": "Schretter et al. 2020",
-                                        "10.7554/eLife.66039": "Hulse et al. 2021",
-                                        "10.7554/eLife.71679": "Sterne et al. 2021",
-                                        "10.7554/eLife.71858": "Kind et al. 2021",
-                                        "10.7554/eLife.90523": "Rubin et al. 2024",
-                                        "10.7554/eLife.94168": "Shuai et al. 2025",
+                                        "10.7554/elife.04577": "Aso et al. 2014",
+                                        "10.7554/elife.16135": "Aso et al. 2016",
+                                        "10.7554/elife.21022": "Wu et al. 2016",
+                                        "10.7554/elife.24394": "Takemura et al. 2017",
+                                        "10.7554/elife.34272": "Namiki et al. 2018",
+                                        "10.7554/elife.50901": "Davis et al. 2020",
+                                        "10.7554/elife.57685": "Morimoto et al. 2020",
+                                        "10.7554/elife.58942": "Schretter et al. 2020",
+                                        "10.7554/elife.66039": "Hulse et al. 2021",
+                                        "10.7554/elife.71679": "Sterne et al. 2021",
+                                        "10.7554/elife.71858": "Kind et al. 2021",
+                                        "10.7554/elife.90523": "Rubin et al. 2024",
+                                        "10.7554/elife.94168": "Shuai et al. 2025",
                                         "10.7554/elife.98405": "Meissner et al. 2025"
                                     }
                                 }
@@ -432,7 +432,7 @@
                                     "dois": {
                                         "10.1016/j.cub.2018.07.002": "Giraldo et al. 2018",
                                         "10.1016/j.neuron.2020.08.006": "Turner-Evans et al. 2020",
-                                        "10.7554/eLife.23496": "Turner-Evans et al. 2017"
+                                        "10.7554/elife.23496": "Turner-Evans et al. 2017"
                                     }
                                 }
                             },
@@ -462,7 +462,7 @@
                                         "10.1002/cne.24512": "Wolff et al. 2018",
                                         "10.1016/j.neuron.2020.08.006": "Turner-Evans et al. 2020",
                                         "10.1101/2024.10.21.619448": "Wolff et al. 2024",
-                                        "10.7554/eLife.42786": "Dag et al. 2019",
+                                        "10.7554/elife.42786": "Dag et al. 2019",
                                         "10.7554/elife.98405": "Meissner et al. 2025"
                                     }
                                 }
@@ -496,7 +496,7 @@
                     },
                     {
                         "name": "FlyLight_Split-GAL4_Omnibus_Broad",
-                        "count": 317824,
+                        "count": 425488,
                         "releases": [
                             {
                                 "Split-GAL4 Omnibus Broad": {
@@ -543,27 +543,27 @@
                                         "10.1371/journal.pone.0200759": "Meissner et al. 2018",
                                         "10.1371/journal.pone.0236495": "Bogovic et al. 2020",
                                         "10.25378/janelia.23726103": "Minegishi et al. 2023",
-                                        "10.7554/eLife.02395": "Vogt et al. 2014",
-                                        "10.7554/eLife.04577": "Aso et al. 2014",
-                                        "10.7554/eLife.04580": "Aso et al. 2014",
-                                        "10.7554/eLife.14009": "Vogt et al. 2016",
-                                        "10.7554/eLife.21022": "Wu et al. 2016",
-                                        "10.7554/eLife.23496": "Turner-Evans et al. 2017",
-                                        "10.7554/eLife.24394": "Takemura et al. 2017",
-                                        "10.7554/eLife.34272": "Namiki et al. 2018",
-                                        "10.7554/eLife.42786": "Dag et al. 2019",
-                                        "10.7554/eLife.43079": "Dolan et al. 2019",
-                                        "10.7554/eLife.48301": "Schlichting et al. 2019",
-                                        "10.7554/eLife.49574": "Liu et al. 2019",
-                                        "10.7554/eLife.50901": "Davis et al. 2020",
-                                        "10.7554/eLife.57685": "Morimoto et al. 2020",
-                                        "10.7554/eLife.58942": "Schretter et al. 2020",
-                                        "10.7554/eLife.66039": "Hulse et al. 2021",
-                                        "10.7554/eLife.71679": "Sterne et al. 2021",
-                                        "10.7554/eLife.71858": "Kind et al. 2021",
-                                        "10.7554/eLife.81248": "Lillvis et al. 2022",
-                                        "10.7554/eLife.90523": "Rubin et al. 2024",
-                                        "10.7554/eLife.94168": "Shuai et al. 2025",
+                                        "10.7554/elife.02395": "Vogt et al. 2014",
+                                        "10.7554/elife.04577": "Aso et al. 2014",
+                                        "10.7554/elife.04580": "Aso et al. 2014",
+                                        "10.7554/elife.14009": "Vogt et al. 2016",
+                                        "10.7554/elife.21022": "Wu et al. 2016",
+                                        "10.7554/elife.23496": "Turner-Evans et al. 2017",
+                                        "10.7554/elife.24394": "Takemura et al. 2017",
+                                        "10.7554/elife.34272": "Namiki et al. 2018",
+                                        "10.7554/elife.42786": "Dag et al. 2019",
+                                        "10.7554/elife.43079": "Dolan et al. 2019",
+                                        "10.7554/elife.48301": "Schlichting et al. 2019",
+                                        "10.7554/elife.49574": "Liu et al. 2019",
+                                        "10.7554/elife.50901": "Davis et al. 2020",
+                                        "10.7554/elife.57685": "Morimoto et al. 2020",
+                                        "10.7554/elife.58942": "Schretter et al. 2020",
+                                        "10.7554/elife.66039": "Hulse et al. 2021",
+                                        "10.7554/elife.71679": "Sterne et al. 2021",
+                                        "10.7554/elife.71858": "Kind et al. 2021",
+                                        "10.7554/elife.81248": "Lillvis et al. 2022",
+                                        "10.7554/elife.90523": "Rubin et al. 2024",
+                                        "10.7554/elife.94168": "Shuai et al. 2025",
                                         "10.7554/elife.98405": "Meissner et al. 2025"
                                     }
                                 }
@@ -638,7 +638,7 @@
                                         "10.1016/j.cub.2019.01.009": "Jovanic et al. 2019",
                                         "10.1101/198648": "Tirian et al. 2017",
                                         "10.1534/genetics.118.300682": "Dionne et al. 2018",
-                                        "10.7554/eLife.80660": "Meissner et al. 2023"
+                                        "10.7554/elife.80660": "Meissner et al. 2023"
                                     }
                                 }
                             }
@@ -650,13 +650,13 @@
                         "releases": [
                             {
                                 "Gen1 MCFO": {
-                                    "count": 308302,
+                                    "count": 292146,
                                     "dois": {
                                         "10.1016/j.celrep.2012.09.011": "Jenett et al. 2012",
                                         "10.1101/198648": "Tirian et al. 2017",
                                         "10.1534/genetics.110.119917": "Pfeiffer et al. 2010",
                                         "10.1534/genetics.118.300682": "Dionne et al. 2018",
-                                        "10.7554/eLife.80660": "Meissner et al. 2023"
+                                        "10.7554/elife.80660": "Meissner et al. 2023"
                                     }
                                 }
                             }
@@ -690,13 +690,13 @@
                                         "10.1101/2023.09.15.557808": "Shuai et al. 2023",
                                         "10.1371/journal.pone.0164516": "Montague et al. 2016",
                                         "10.1371/journal.pone.0236495": "Bogovic et al. 2020",
-                                        "10.7554/eLife.04577": "Aso et al. 2014",
-                                        "10.7554/eLife.14009": "Vogt et al. 2016",
-                                        "10.7554/eLife.16135": "Aso et al. 2016",
-                                        "10.7554/eLife.43079": "Dolan et al. 2019",
-                                        "10.7554/eLife.58942": "Schretter et al. 2020",
-                                        "10.7554/eLife.63450": "Xie et al. 2021",
-                                        "10.7554/eLife.94168": "Shuai et al. 2025"
+                                        "10.7554/elife.04577": "Aso et al. 2014",
+                                        "10.7554/elife.14009": "Vogt et al. 2016",
+                                        "10.7554/elife.16135": "Aso et al. 2016",
+                                        "10.7554/elife.43079": "Dolan et al. 2019",
+                                        "10.7554/elife.58942": "Schretter et al. 2020",
+                                        "10.7554/elife.63450": "Xie et al. 2021",
+                                        "10.7554/elife.94168": "Shuai et al. 2025"
                                     }
                                 }
                             },
@@ -704,9 +704,9 @@
                                 "Aso&Rubin 2016": {
                                     "count": 20,
                                     "dois": {
-                                        "10.7554/eLife.04577": "Aso et al. 2014",
-                                        "10.7554/eLife.16135": "Aso et al. 2016",
-                                        "10.7554/eLife.94168": "Shuai et al. 2025"
+                                        "10.7554/elife.04577": "Aso et al. 2014",
+                                        "10.7554/elife.16135": "Aso et al. 2016",
+                                        "10.7554/elife.94168": "Shuai et al. 2025"
                                     }
                                 }
                             },
@@ -732,7 +732,7 @@
                                     "dois": {
                                         "10.1101/2023.06.07.543976": "Cheong et al. 2023",
                                         "10.1101/2025.02.22.639679": "Zung et al. 2025",
-                                        "10.7554/eLife.34272": "Namiki et al. 2018"
+                                        "10.7554/elife.34272": "Namiki et al. 2018"
                                     }
                                 }
                             },
@@ -748,7 +748,7 @@
                                 "Descending Neurons 2018": {
                                     "count": 611,
                                     "dois": {
-                                        "10.7554/eLife.34272": "Namiki et al. 2018"
+                                        "10.7554/elife.34272": "Namiki et al. 2018"
                                     }
                                 }
                             },
@@ -775,7 +775,7 @@
                                     "count": 12,
                                     "dois": {
                                         "10.1126/science.aau8302": "Gao et al. 2019",
-                                        "10.7554/eLife.02395": "Vogt et al. 2014"
+                                        "10.7554/elife.02395": "Vogt et al. 2014"
                                     }
                                 }
                             },
@@ -791,7 +791,7 @@
                                 "Hampel 2015": {
                                     "count": 4,
                                     "dois": {
-                                        "10.7554/eLife.08758": "Hampel et al. 2015"
+                                        "10.7554/elife.08758": "Hampel et al. 2015"
                                     }
                                 }
                             },
@@ -799,7 +799,7 @@
                                 "Hulse et al. 2021": {
                                     "count": 3,
                                     "dois": {
-                                        "10.7554/eLife.66039": "Hulse et al. 2021"
+                                        "10.7554/elife.66039": "Hulse et al. 2021"
                                     }
                                 }
                             },
@@ -815,7 +815,7 @@
                                 "LC Paper": {
                                     "count": 165,
                                     "dois": {
-                                        "10.7554/eLife.21022": "Wu et al. 2016"
+                                        "10.7554/elife.21022": "Wu et al. 2016"
                                     }
                                 }
                             },
@@ -823,8 +823,8 @@
                                 "LC6 downstream 2020": {
                                     "count": 39,
                                     "dois": {
-                                        "10.7554/eLife.21022": "Wu et al. 2016",
-                                        "10.7554/eLife.57685": "Morimoto et al. 2020"
+                                        "10.7554/elife.21022": "Wu et al. 2016",
+                                        "10.7554/elife.57685": "Morimoto et al. 2020"
                                     }
                                 }
                             },
@@ -840,7 +840,7 @@
                                 "Lillvis 2022": {
                                     "count": 9,
                                     "dois": {
-                                        "10.7554/eLife.81248": "Lillvis et al. 2022"
+                                        "10.7554/elife.81248": "Lillvis et al. 2022"
                                     }
                                 }
                             },
@@ -856,7 +856,7 @@
                                 "MB Paper 2014": {
                                     "count": 486,
                                     "dois": {
-                                        "10.7554/eLife.04577": "Aso et al. 2014"
+                                        "10.7554/elife.04577": "Aso et al. 2014"
                                     }
                                 }
                             },
@@ -873,9 +873,9 @@
                                     "count": 2333,
                                     "dois": {
                                         "10.1101/2024.04.16.589741": "Nern et al. 2024",
-                                        "10.7554/eLife.21022": "Wu et al. 2016",
-                                        "10.7554/eLife.43079": "Dolan et al. 2019",
-                                        "10.7554/eLife.94168": "Shuai et al. 2025"
+                                        "10.7554/elife.21022": "Wu et al. 2016",
+                                        "10.7554/elife.43079": "Dolan et al. 2019",
+                                        "10.7554/elife.94168": "Shuai et al. 2025"
                                     }
                                 }
                             },
@@ -883,7 +883,7 @@
                                 "Optic lobe TAPIN-Seq 2020": {
                                     "count": 165,
                                     "dois": {
-                                        "10.7554/eLife.50901": "Davis et al. 2020"
+                                        "10.7554/elife.50901": "Davis et al. 2020"
                                     }
                                 }
                             },
@@ -899,7 +899,7 @@
                                 "Rubin & Aso 2023": {
                                     "count": 28,
                                     "dois": {
-                                        "10.7554/eLife.90523": "Rubin et al. 2024"
+                                        "10.7554/elife.90523": "Rubin et al. 2024"
                                     }
                                 }
                             },
@@ -907,7 +907,7 @@
                                 "SEZ 2021": {
                                     "count": 1648,
                                     "dois": {
-                                        "10.7554/eLife.71679": "Sterne et al. 2021"
+                                        "10.7554/elife.71679": "Sterne et al. 2021"
                                     }
                                 }
                             },
@@ -923,7 +923,7 @@
                                 "Schretter et al. 2020": {
                                     "count": 4,
                                     "dois": {
-                                        "10.7554/eLife.58942": "Schretter et al. 2020"
+                                        "10.7554/elife.58942": "Schretter et al. 2020"
                                     }
                                 }
                             },
@@ -962,19 +962,19 @@
                                         "10.1101/2024.10.21.619448": "Wolff et al. 2024",
                                         "10.1371/journal.pone.0236495": "Bogovic et al. 2020",
                                         "10.25378/janelia.23726103": "Minegishi et al. 2023",
-                                        "10.7554/eLife.04577": "Aso et al. 2014",
-                                        "10.7554/eLife.16135": "Aso et al. 2016",
-                                        "10.7554/eLife.21022": "Wu et al. 2016",
-                                        "10.7554/eLife.24394": "Takemura et al. 2017",
-                                        "10.7554/eLife.34272": "Namiki et al. 2018",
-                                        "10.7554/eLife.50901": "Davis et al. 2020",
-                                        "10.7554/eLife.57685": "Morimoto et al. 2020",
-                                        "10.7554/eLife.58942": "Schretter et al. 2020",
-                                        "10.7554/eLife.66039": "Hulse et al. 2021",
-                                        "10.7554/eLife.71679": "Sterne et al. 2021",
-                                        "10.7554/eLife.71858": "Kind et al. 2021",
-                                        "10.7554/eLife.90523": "Rubin et al. 2024",
-                                        "10.7554/eLife.94168": "Shuai et al. 2025",
+                                        "10.7554/elife.04577": "Aso et al. 2014",
+                                        "10.7554/elife.16135": "Aso et al. 2016",
+                                        "10.7554/elife.21022": "Wu et al. 2016",
+                                        "10.7554/elife.24394": "Takemura et al. 2017",
+                                        "10.7554/elife.34272": "Namiki et al. 2018",
+                                        "10.7554/elife.50901": "Davis et al. 2020",
+                                        "10.7554/elife.57685": "Morimoto et al. 2020",
+                                        "10.7554/elife.58942": "Schretter et al. 2020",
+                                        "10.7554/elife.66039": "Hulse et al. 2021",
+                                        "10.7554/elife.71679": "Sterne et al. 2021",
+                                        "10.7554/elife.71858": "Kind et al. 2021",
+                                        "10.7554/elife.90523": "Rubin et al. 2024",
+                                        "10.7554/elife.94168": "Shuai et al. 2025",
                                         "10.7554/elife.98405": "Meissner et al. 2025"
                                     }
                                 }
@@ -993,7 +993,7 @@
                                     "dois": {
                                         "10.1016/j.cub.2018.07.002": "Giraldo et al. 2018",
                                         "10.1016/j.neuron.2020.08.006": "Turner-Evans et al. 2020",
-                                        "10.7554/eLife.23496": "Turner-Evans et al. 2017"
+                                        "10.7554/elife.23496": "Turner-Evans et al. 2017"
                                     }
                                 }
                             },
@@ -1023,7 +1023,7 @@
                                         "10.1002/cne.24512": "Wolff et al. 2018",
                                         "10.1016/j.neuron.2020.08.006": "Turner-Evans et al. 2020",
                                         "10.1101/2024.10.21.619448": "Wolff et al. 2024",
-                                        "10.7554/eLife.42786": "Dag et al. 2019",
+                                        "10.7554/elife.42786": "Dag et al. 2019",
                                         "10.7554/elife.98405": "Meissner et al. 2025"
                                     }
                                 }
@@ -1104,27 +1104,27 @@
                                         "10.1371/journal.pone.0200759": "Meissner et al. 2018",
                                         "10.1371/journal.pone.0236495": "Bogovic et al. 2020",
                                         "10.25378/janelia.23726103": "Minegishi et al. 2023",
-                                        "10.7554/eLife.02395": "Vogt et al. 2014",
-                                        "10.7554/eLife.04577": "Aso et al. 2014",
-                                        "10.7554/eLife.04580": "Aso et al. 2014",
-                                        "10.7554/eLife.14009": "Vogt et al. 2016",
-                                        "10.7554/eLife.21022": "Wu et al. 2016",
-                                        "10.7554/eLife.23496": "Turner-Evans et al. 2017",
-                                        "10.7554/eLife.24394": "Takemura et al. 2017",
-                                        "10.7554/eLife.34272": "Namiki et al. 2018",
-                                        "10.7554/eLife.42786": "Dag et al. 2019",
-                                        "10.7554/eLife.43079": "Dolan et al. 2019",
-                                        "10.7554/eLife.48301": "Schlichting et al. 2019",
-                                        "10.7554/eLife.49574": "Liu et al. 2019",
-                                        "10.7554/eLife.50901": "Davis et al. 2020",
-                                        "10.7554/eLife.57685": "Morimoto et al. 2020",
-                                        "10.7554/eLife.58942": "Schretter et al. 2020",
-                                        "10.7554/eLife.66039": "Hulse et al. 2021",
-                                        "10.7554/eLife.71679": "Sterne et al. 2021",
-                                        "10.7554/eLife.71858": "Kind et al. 2021",
-                                        "10.7554/eLife.81248": "Lillvis et al. 2022",
-                                        "10.7554/eLife.90523": "Rubin et al. 2024",
-                                        "10.7554/eLife.94168": "Shuai et al. 2025",
+                                        "10.7554/elife.02395": "Vogt et al. 2014",
+                                        "10.7554/elife.04577": "Aso et al. 2014",
+                                        "10.7554/elife.04580": "Aso et al. 2014",
+                                        "10.7554/elife.14009": "Vogt et al. 2016",
+                                        "10.7554/elife.21022": "Wu et al. 2016",
+                                        "10.7554/elife.23496": "Turner-Evans et al. 2017",
+                                        "10.7554/elife.24394": "Takemura et al. 2017",
+                                        "10.7554/elife.34272": "Namiki et al. 2018",
+                                        "10.7554/elife.42786": "Dag et al. 2019",
+                                        "10.7554/elife.43079": "Dolan et al. 2019",
+                                        "10.7554/elife.48301": "Schlichting et al. 2019",
+                                        "10.7554/elife.49574": "Liu et al. 2019",
+                                        "10.7554/elife.50901": "Davis et al. 2020",
+                                        "10.7554/elife.57685": "Morimoto et al. 2020",
+                                        "10.7554/elife.58942": "Schretter et al. 2020",
+                                        "10.7554/elife.66039": "Hulse et al. 2021",
+                                        "10.7554/elife.71679": "Sterne et al. 2021",
+                                        "10.7554/elife.71858": "Kind et al. 2021",
+                                        "10.7554/elife.81248": "Lillvis et al. 2022",
+                                        "10.7554/elife.90523": "Rubin et al. 2024",
+                                        "10.7554/elife.94168": "Shuai et al. 2025",
                                         "10.7554/elife.98405": "Meissner et al. 2025"
                                     }
                                 }

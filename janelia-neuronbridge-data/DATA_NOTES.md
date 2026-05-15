@@ -1,3 +1,14 @@
+## Data Version 3.10.0 (released on TBD)
+
+**BANC v626 data set**
+
+We imported SWC files and selected annotation metadata for the [BANC v626 data set](https://github.com/jasper-tms/the-BANC-fly-connectome) 
+
+* Brain: 61114 (66899)
+* VNC: 23179 (23179)
+
+We precomputed matches with LM datasets: Split Gal4, MCFO, Annotator MCFO and Omnibus Broad as well as with Male CNS v0.9
+
 ## Data Version 3.9.0 (released on 2026-01-05)
 
 **New LM Split-GAL4 data sets**

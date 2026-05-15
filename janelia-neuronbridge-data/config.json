@@ -27,8 +27,8 @@
                 "SignalMipExpression": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
                 "AlignedBodySWC": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
                 "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
-                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_9_0/metadata/cdsresults/",
-                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_9_0/metadata/pppmresults/",
+                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_10_0/metadata/cdsresults/",
+                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_10_0/metadata/pppmresults/",
                 "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/",
                 "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },
@@ -66,6 +66,11 @@
                         "name": "FlyWire_FAFB_v783_realign",
                         "publishedNamePrefix": "flywire_fafb:v783",
                         "count": 144005
+                    },
+                    {
+                        "name": "FlyWire_BANC_v626",
+                        "publishedNamePrefix": "flywire_banc:v626",
+                        "count": 61114
                     }
                 ],
                 "defaultSearchLibrary": "FlyLight_Gen1_MCFO_v1.1",
@@ -89,8 +94,8 @@
                 "SignalMipExpression": "https://s3.amazonaws.com/janelia-ppp-match-prod/",
                 "AlignedBodySWC": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
                 "AlignedBodyOBJ": "https://s3.amazonaws.com/janelia-flylight-color-depth/",
-                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_9_0/metadata/cdsresults/",
-                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_9_0/metadata/pppmresults/",
+                "CDSResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_10_0/metadata/cdsresults/",
+                "PPPMResults": "https://s3.amazonaws.com/janelia-neuronbridge-data-prod/v3_10_0/metadata/pppmresults/",
                 "VisuallyLosslessStack": "https://s3.amazonaws.com/janelia-flylight-imagery/",
                 "Gal4Expression": "https://s3.amazonaws.com/janelia-flylight-imagery/"
             },
@@ -128,6 +133,11 @@
                         "name": "FlyEM_VNC_v0.5",
                         "publishedNamePrefix": "vnc:v0.5",
                         "count": 0
+                    },
+                    {
+                        "name": "FlyWire_BANC_v626",
+                        "publishedNamePrefix": "flywire_banc:v626",
+                        "count": 23179
                     }
                 ],
                 "defaultSearchLibrary": "FlyLight_Gen1_MCFO",

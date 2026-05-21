@@ -603,6 +603,21 @@
                         ]
                     },
                     {
+                        "name": "FlyWire_BANC_v626",
+                        "publishedNamePrefix": "flywire_banc:v626",
+                        "count": 75633,
+                        "releases": [
+                            {
+                                "FlyWire_BANC_v626": {
+                                    "count": 75633,
+                                    "dois": {
+                                        "10.1101/2025.07.31.667571": "Bates et al. 2025"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
                         "name": "FlyWire_FAFB_v783_realign",
                         "publishedNamePrefix": "flywire_fafb:v783",
                         "count": 144005,
@@ -1172,6 +1187,21 @@
                                 "FlyEM_VNC_v0.5": {
                                     "count": 0,
                                     "dois": {}
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "FlyWire_BANC_v626",
+                        "publishedNamePrefix": "flywire_banc:v626",
+                        "count": 23179,
+                        "releases": [
+                            {
+                                "FlyWire_BANC_v626": {
+                                    "count": 23179,
+                                    "dois": {
+                                        "10.1101/2025.07.31.667571": "Bates et al. 2025"
+                                    }
                                 }
                             }
                         ]

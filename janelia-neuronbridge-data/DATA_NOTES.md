@@ -1,3 +1,5 @@
+**Note:** Unless specified otherwise, count values represent `searchable CDMs (# source images)`
+
 ## Data Version 3.10.0 (released on TBD)
 
 **BANC v626 data set**

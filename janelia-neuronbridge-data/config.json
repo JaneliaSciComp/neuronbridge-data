@@ -63,17 +63,16 @@
                         "count": 129399
                     },
                     {
+                        "name": "FlyWire_BANC_v626",
+                        "publishedNamePrefix": "flywire_banc:v626",
+                        "count": 75633
+                    },
+                    {
                         "name": "FlyWire_FAFB_v783_realign",
                         "publishedNamePrefix": "flywire_fafb:v783",
                         "count": 144005
-                    },
-                    {
-                        "name": "FlyWire_BANC_v626",
-                        "publishedNamePrefix": "flywire_banc:v626",
-                        "count": 61114
                     }
                 ],
-                "defaultSearchLibrary": "FlyLight_Gen1_MCFO_v1.1",
                 "searchFolder": "searchable_neurons"
             }
         },
@@ -140,7 +139,6 @@
                         "count": 23179
                     }
                 ],
-                "defaultSearchLibrary": "FlyLight_Gen1_MCFO",
                 "searchFolder": "searchable_neurons"
             }
         }

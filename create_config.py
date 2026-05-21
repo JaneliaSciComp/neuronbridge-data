@@ -176,8 +176,11 @@ def get_em_releases_block(lib, count):
         key = lib.replace("FlyEM ", "").lower()
         key = re.sub(r" v\d+\..+", "", key)
         key = key.replace(' ', '_')
-    elif "FlyWire FAFB" in lib:
-        key = "flywire_fafb"
+    elif "FlyWire " in lib:
+        match = re.fullmatch(r'FlyWire ([A-Z]{4}).*', lib)
+        if not match:
+          terminate_program(f"Incorrectly formatted FlyWire name: {lib}")
+        key = f"flywire_{match.group(1).lower()}"
     else:
         terminate_program(f"Can't parse EM library {lib}")
     if key not in EMDOI:

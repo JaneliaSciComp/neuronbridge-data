@@ -9,7 +9,7 @@ We imported SWC files and selected annotation metadata for the [BANC v626 data s
 * Brain: 61114 (66899)
 * VNC: 23179 (23179)
 
-We precomputed matches with LM datasets: Split Gal4, MCFO, Annotator MCFO and Omnibus Broad as well as with Male CNS v0.9
+We precomputed matches with LM datasets: Split Gal4, MCFO, Annotator MCFO and Omnibus Broad
 
 ## Data Version 3.9.0 (released on 2026-01-05)
 

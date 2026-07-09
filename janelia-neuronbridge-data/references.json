@@ -306,7 +306,8 @@
                                         "10.1101/2024.04.16.589741": "Nern et al. 2024",
                                         "10.7554/elife.21022": "Wu et al. 2016",
                                         "10.7554/elife.43079": "Dolan et al. 2019",
-                                        "10.7554/elife.94168": "Shuai et al. 2025"
+                                        "10.7554/elife.94168": "Shuai et al. 2025",
+                                        "10.7554/elife.98405": "Meissner et al. 2025"
                                     }
                                 }
                             },
@@ -500,7 +501,7 @@
                         "releases": [
                             {
                                 "Split-GAL4 Omnibus Broad": {
-                                    "count": 323992,
+                                    "count": 425488,
                                     "dois": {
                                         "10.1002/cne.24512": "Wolff et al. 2018",
                                         "10.1016/j.cell.2017.06.032": "Robie et al. 2017",
@@ -890,7 +891,8 @@
                                         "10.1101/2024.04.16.589741": "Nern et al. 2024",
                                         "10.7554/elife.21022": "Wu et al. 2016",
                                         "10.7554/elife.43079": "Dolan et al. 2019",
-                                        "10.7554/elife.94168": "Shuai et al. 2025"
+                                        "10.7554/elife.94168": "Shuai et al. 2025",
+                                        "10.7554/elife.98405": "Meissner et al. 2025"
                                     }
                                 }
                             },
@@ -1076,7 +1078,7 @@
                         "releases": [
                             {
                                 "Split-GAL4 Omnibus Broad": {
-                                    "count": 236382,
+                                    "count": 236384,
                                     "dois": {
                                         "10.1002/cne.24512": "Wolff et al. 2018",
                                         "10.1016/j.cell.2017.06.032": "Robie et al. 2017",

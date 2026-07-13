@@ -1,5 +1,75 @@
 ''' create_config.py
-    Create a janelia-neuronbridge-data config file
+
+    Build the janelia-neuronbridge-data config and reference files for a NeuronBridge
+    release.
+
+    The "neuprint" configuration is only used to enumerate anatomical areas (e.g. brain,
+    VNC) and their alignment space names - it is NOT the source of library or imagery
+    data (e.g. FlyLight imagery is not in NeuPrint at all). For each of those areas,
+    this script:
+      - determines which color depth MIP libraries actually have data for that area by
+        cross-referencing the "cdm_library" configuration (the full catalog of known
+        libraries) against the distinct libraryName values found in the NeuronBridge
+        MongoDB publishedURL collection for that alignment space
+      - prompts (via an interactive checklist) for which of those LM (FlyLight) and EM
+        (FlyEM/FlyWire) libraries to include, defaulting to the libraries already
+        present in the current janelia-neuronbridge-data/config.json
+      - looks up a searchable-neuron image count for each selected library (see Counts
+        below)
+      - for LM libraries, looks up each ALPS release's DOIs/citations from the SAGE
+        database (line_property_vw/image_data_mv) plus the "lm_dois" configuration,
+        resolved to short citations via the DIS "dois" MongoDB collection
+      - for EM libraries, looks up DOIs from the static "em_dois" configuration
+        (keyed by a name derived from the library name), likewise resolved to short
+        citations via the DIS "dois" collection
+      - assembles two JSON structures: a full "master" config (with S3 prefixes and a
+        customSearch block, releases stripped) and a "release" document (customSearch
+        block including per-release DOI/count detail)
+
+    Counts (get_count):
+      Each library's (and, for FlyLight libraries, each ALPS release's) searchable-
+      neuron count comes from one of two places, chosen by --source:
+        - s3 (default): reads a precomputed count from a "counts_denormalized.json"
+          object in the "janelia-flylight-color-depth[-<manifold>]" S3 bucket, at
+          "<alignmentSpace>/<library_with_underscores>/searchable_neurons/
+          counts_denormalized.json". This is a static, previously-generated summary,
+          not a live query.
+        - mongo: live-counts documents in the NeuronBridge MongoDB "publishedURL"
+          collection matching libraryName + alignmentSpace (and alpsRelease, for
+          per-release counts) whose "uploaded.searchable_neurons" path references
+          that same S3 bucket - i.e. it counts records that actually have a
+          searchable-neuron image uploaded, rather than reading a precomputed total.
+      In get_libraries(), library names are looked up under two different forms: the
+      internal library key from "cdm_library"/MongoDB (e.g. flylight_split_gal4_
+      published) and the human-readable display name with spaces (e.g. "FlyLight
+      Split-GAL4 Drivers"), which get_count() also converts to an underscored form for
+      S3 keys. If the first get_count() call returns zero, get_libraries() retries with
+      the other name form (same --source) in case the count is filed under the
+      alternate identifier.
+      For FlyLight libraries specifically, get_lm_releases_block() separately sums the
+      per-release MongoDB counts and, when --source=s3, compares that sum against the
+      overall S3-derived count, logging a warning if the two disagree.
+
+    Prerequisites:
+      - jrc_common configs: "databases" (sage/neuronbridge/dis prod credentials), "aws"
+        (S3 base URL, and an assumable role ARN when --manifold=prod), "em_dois",
+        "lm_dois", "neuprint" (anatomical areas/alignment spaces), and "cdm_library"
+        (the full color depth MIP library catalog)
+      - AWS credentials with S3 read access (and sts:AssumeRole for prod), plus
+        DynamoDB read access to find the current janelia-neuronbridge-published-v*
+        table (used to auto-detect --version when not given)
+      - A local janelia-neuronbridge-data/config.json to source default library
+        selections from
+
+    Usage:
+        python create_config.py --version vX_Y_Z [--source s3|mongo]
+                                 [--manifold dev|prod] [--human] [--verbose] [--debug]
+
+    Output:
+      - new_config.json: the master config (suitable for the running NeuronBridge
+        service)
+      - new_references.json: the release document (per-release DOI/count detail)
+      - config_log.txt: a log of counts/DOIs collected along the way
 '''
 
 import argparse
@@ -18,7 +88,7 @@ import doi_common.doi_common as DL
 
 # pylint: disable=broad-exception-caught,logging-fstring-interpolation
 
-__version__ = '1.7.0'
+__version__ = '1.8.0'
 
 AREAS = ARG = EMDOI = LMDOI = LOGGER = None
 BASE = {}
@@ -116,7 +186,7 @@ def read_object(bucket, key):
         contents = data['Body'].read().decode("utf-8")
     except ClientError as err:
         if err.response['Error']['Code'] == 'NoSuchKey':
-            LOGGER.warning(f"Could not find {bucket}/{key}")
+            LOGGER.error(f"Could not find {bucket}/{key}")
             return None
         raise
     except Exception as err:
@@ -151,16 +221,19 @@ def get_count(lib, template, source, release=None):
             with open(f"{lib}_{template}.txt", 'w', encoding='ascii') as outfile:
                 for row in rows:
                     outfile.write(f"{row['uploaded']['searchable_neurons']}\n")
-        msg = f"Got count {count} from publishedURL for {lib}/{template}"
+        msg = f"Got count {count} from publishedURL for {lib}/{template} (source: {source}, release: {release})"
         if release:
             msg += f"/{release}"
         OUTLOG.append(msg)
         return count
-    key = f"{template}/{lib.replace(' ', '_')}/searchable_neurons/counts_denormalized.json"
+    if release:
+        key = f"{template}/{lib.replace(' ', '_')}/{release}/searchable_neurons/counts_denormalized.json"
+    else:
+        key = f"{template}/{lib.replace(' ', '_')}/searchable_neurons/counts_denormalized.json"
     count = read_object(bucket, key)
     if not count:
         return 0
-    OUTLOG.append(f"Got count {count['objectCount']} from {key}")
+    OUTLOG.append(f"Got count {count['objectCount']} from {key} (source: {source}, release: {release})")
     return count["objectCount"]
 
 
@@ -250,9 +323,10 @@ def get_flylight_dois(release):
     return doirecs
 
 
-def get_lm_releases_block(libint, area):
+def get_lm_releases_block(libname, libint, area):
     ''' Get the releases block for a FlyLight library
         Keyword arguments:
+          libname: library name
           libint: library internal name (e.g. flylight_split_gal4_published)
           area: anatomical area
         Returns:
@@ -272,7 +346,10 @@ def get_lm_releases_block(libint, area):
     for rel in rows:
         if progress:
             pbar.set_description(rel)
-        count = get_count(libint, AREAS[area]["alignmentSpace"], 'mongo', rel)
+        if rel and "Omnibus" not in libname:
+            count = get_count(libint, AREAS[area]["alignmentSpace"], 'mongo', rel)
+        else:
+            count = get_count(libname, AREAS[area]["alignmentSpace"], ARG.SOURCE)
         if not count:
             continue
         dois = get_flylight_dois(rel)
@@ -344,7 +421,14 @@ def get_libraries(area):
                               AREAS[area]['alignmentSpace'], ARG.SOURCE)
             LOGGER.warning(f"Still no count for {lib}")
         if 'FlyLight' in lib:
-            payload = get_lm_releases_block(libraries[lib], area)
+            payload = get_lm_releases_block(lib, libraries[lib], area)
+            if ARG.SOURCE == "s3":
+                total = 0
+                for rel in payload:
+                    for val in rel.values():
+                        total += val['count']
+                if count != total:
+                    LOGGER.warning(f"{lib} {ARG.SOURCE} counts_denormalized.json count {count:,} != MongoDB count {total:,}")
             csblock["lmLibraries"].append({"name": lib.replace(" ", "_"),
                                            "count": count,
                                            "releases": payload
@@ -430,8 +514,8 @@ def create_config():
         terminate_program(err)
     print("Wrote new_config.json")
     try:
-        LOGGER.info("Writing references.json")
-        with open("references.json", "w", encoding="ascii") as outstream:
+        LOGGER.info("Writing new_references.json")
+        with open("new_references.json", "w", encoding="ascii") as outstream:
             if ARG.HUMAN:
                 outstream.write(json.dumps(release, indent=4) + "\n")
             else:
@@ -439,7 +523,7 @@ def create_config():
     except Exception as err:
         LOGGER.error("Could not write new_config.json")
         terminate_program(err)
-    print("Wrote references.json")
+    print("Wrote new_references.json")
     try:
         with open("config_log.txt", "w", encoding="ascii") as outstream:
             for log in OUTLOG:
